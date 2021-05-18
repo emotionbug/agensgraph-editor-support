@@ -70,10 +70,18 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 0 },
         to: { line: 1, column: 1 },
         items: [
-          { type: 'consoleCommand', view: ':clear', content: ':clear', postfix: null },
-          { type: 'consoleCommand', view: ':play', content: ':play', postfix: null },
-          { type: 'consoleCommand', view: ':help', content: ':help', postfix: 'helpdesc' },
-          { type: 'consoleCommand', view: ':server', content: ':server', postfix: null },
+          {
+            type: 'consoleCommand', view: ':clear', content: ':clear', postfix: null,
+          },
+          {
+            type: 'consoleCommand', view: ':play', content: ':play', postfix: null,
+          },
+          {
+            type: 'consoleCommand', view: ':help', content: ':help', postfix: 'helpdesc',
+          },
+          {
+            type: 'consoleCommand', view: ':server', content: ':server', postfix: null,
+          },
         ],
       };
       checkCompletion(':▼', expected);
@@ -84,10 +92,18 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 0 },
         to: { line: 1, column: 3 },
         items: [
-          { type: 'consoleCommand', view: ':clear', content: ':clear', postfix: null },
-          { type: 'consoleCommand', view: ':play', content: ':play', postfix: null },
-          { type: 'consoleCommand', view: ':help', content: ':help', postfix: 'helpdesc' },
-          { type: 'consoleCommand', view: ':server', content: ':server', postfix: null },
+          {
+            type: 'consoleCommand', view: ':clear', content: ':clear', postfix: null,
+          },
+          {
+            type: 'consoleCommand', view: ':play', content: ':play', postfix: null,
+          },
+          {
+            type: 'consoleCommand', view: ':help', content: ':help', postfix: 'helpdesc',
+          },
+          {
+            type: 'consoleCommand', view: ':server', content: ':server', postfix: null,
+          },
         ],
       };
       checkCompletion(':▼pl', expected);
@@ -101,7 +117,9 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 0 },
         to: { line: 1, column: 3 },
         items: [
-          { type: 'consoleCommand', view: ':play', content: ':play', postfix: null },
+          {
+            type: 'consoleCommand', view: ':play', content: ':play', postfix: null,
+          },
         ],
       };
       checkCompletion(':▼pl', expected, true);
@@ -113,8 +131,12 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 6 },
         to: { line: 1, column: 6 },
         items: [
-          { type: 'consoleCommandSubcommand', view: 'match', content: 'match', postfix: null },
-          { type: 'consoleCommandSubcommand', view: 'create', content: 'create', postfix: null },
+          {
+            type: 'consoleCommandSubcommand', view: 'match', content: 'match', postfix: null,
+          },
+          {
+            type: 'consoleCommandSubcommand', view: 'create', content: 'create', postfix: null,
+          },
         ],
       };
       checkCompletion(':help ▼', expected, true);
@@ -125,7 +147,9 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 6 },
         to: { line: 1, column: 8 },
         items: [
-          { type: 'consoleCommandSubcommand', view: 'match', content: 'match', postfix: null },
+          {
+            type: 'consoleCommandSubcommand', view: 'match', content: 'match', postfix: null,
+          },
         ],
       };
       checkCompletion(':help ma▼', expected, true);
@@ -136,8 +160,12 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 13 },
         to: { line: 1, column: 13 },
         items: [
-          { type: 'consoleCommandSubcommand', view: 'list', content: 'list', postfix: 'listdesc' },
-          { type: 'consoleCommandSubcommand', view: 'add', content: 'add', postfix: null },
+          {
+            type: 'consoleCommandSubcommand', view: 'list', content: 'list', postfix: 'listdesc',
+          },
+          {
+            type: 'consoleCommandSubcommand', view: 'add', content: 'add', postfix: null,
+          },
         ],
       };
       checkCompletion(':server user ▼', expected, true);
@@ -148,7 +176,9 @@ describe('AutoCompletion - Console Command', () => {
         from: { line: 1, column: 13 },
         to: { line: 1, column: 15 },
         items: [
-          { type: 'consoleCommandSubcommand', view: 'list', content: 'list', postfix: 'listdesc' },
+          {
+            type: 'consoleCommandSubcommand', view: 'list', content: 'list', postfix: 'listdesc',
+          },
         ],
       };
       checkCompletion(':server user li▼', expected, true);

@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { TreeUtils } from '../util/TreeUtils';
+import TreeUtils from '../util/TreeUtils';
 import * as CypherTypes from '../lang/CypherTypes';
 
 function traverse(element, callback) {
@@ -35,7 +35,7 @@ function traverse(element, callback) {
   }
 }
 
-export class CypherSyntaxHighlight {
+export default class CypherSyntaxHighlight {
   static process(parseTree, callback) {
     traverse(parseTree, (e) => {
       const { start, stop } = TreeUtils.getPosition(e) || { start: 0, stop: 0 };

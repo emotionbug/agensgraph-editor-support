@@ -19,7 +19,7 @@
  */
 
 /* eslint-disable max-len */
-import { CypherParser } from '../_generated/CypherParser';
+import CypherParser from '../_generated/CypherParser';
 
 export const VARIABLE_CONTEXT = CypherParser.VariableContext.prototype.constructor.name;
 export const LABEL_NAME_CONTEXT = CypherParser.LabelNameContext.prototype.constructor.name;
@@ -68,7 +68,6 @@ export const ATOM_CONTEXT = CypherParser.AtomContext.prototype.constructor.name;
 
 export const QUERY_CONTEXT = CypherParser.CypherQueryContext.prototype.constructor.name;
 export const SYMBOLIC_NAME_CONTEXT = CypherParser.SymbolicNameContext.prototype.constructor.name;
-
 
 export const COMPLETION_CANDIDATES = [
   STRING_LITERAL_CONTEXT,

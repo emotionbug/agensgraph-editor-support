@@ -19,11 +19,11 @@
  */
 
 import { expect } from 'chai';
-import { ecsapeCypher } from '../../src/util/ecsapeCypher';
+import escapeCypher from '../../src/util/escapeCypher';
 
 describe('Escape Cypher', () => {
   it('only backticks strings with spaces', () => {
-    expect(ecsapeCypher('nospaces')).to.equal('nospaces');
-    expect(ecsapeCypher('with spaces')).to.equal('`with spaces`');
+    expect(escapeCypher('nospaces')).to.equal('nospaces');
+    expect(escapeCypher('with spaces')).to.equal('`with spaces`');
   });
 });

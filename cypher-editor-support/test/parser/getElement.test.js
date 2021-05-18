@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceElement } from '../util';
 
 describe('Parser - getElement', () => {

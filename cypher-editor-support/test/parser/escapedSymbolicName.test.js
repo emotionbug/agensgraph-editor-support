@@ -19,26 +19,26 @@
  */
 
 import assert from 'assert';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 describe('Parser - escaped symbolic names', () => {
   it('should handle escaped variable', () => {
     const b = new CypherEditorSupport('RETURN ` () some name "`;');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should handle escaped label', () => {
     const b = new CypherEditorSupport('MATCH (:`Label()`);');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should handle escaped relationship type', () => {
     const b = new CypherEditorSupport('MATCH ()-[:` type`]-();');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should handle escaped function', () => {
     const b = new CypherEditorSupport('RETURN `func`();');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 });

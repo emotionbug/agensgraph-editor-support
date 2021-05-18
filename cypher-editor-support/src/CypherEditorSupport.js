@@ -18,46 +18,52 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { CompletionTypeResolver } from './completion/CompletionTypeResolver';
+import CompletionTypeResolver from './completion/CompletionTypeResolver';
 import { AutoCompletion } from './completion/AutoCompletion';
 import * as CypherTypes from './lang/CypherTypes';
-import { CypherSyntaxHighlight } from './highlight/CypherSyntaxHighlight';
-import { TreeUtils } from './util/TreeUtils';
-import { PositionConverter } from './util/PositionConverter';
-import { retryOperation } from './util/retryOperation';
-import { parse } from './util/parse';
+import CypherSyntaxHighlight from './highlight/CypherSyntaxHighlight';
+import TreeUtils from './util/TreeUtils';
+import PositionConverter from './util/PositionConverter';
+import retryOperation from './util/retryOperation';
+import parse from './util/parse';
 
-export class CypherEditorSupport {
+export default class CypherEditorSupport {
   schema = {};
 
   input = null;
+
   positionConverter = new PositionConverter('');
 
   parseTree = null;
+
   parseErrors = [];
+
   referencesProviders = {};
+
   completion = new AutoCompletion();
+
   queriesAndCommands = [];
+
   statements = [];
+
   listeners = [];
+
   version = 0;
 
   constructor(input = '') {
     this.update(input);
   }
 
-  ensureVersion = (version, delay = 30, times = 5) =>
-    retryOperation(
-      () =>
-        new Promise((resolve, reject) => {
-          if (version === this.version) {
-            return resolve();
-          }
-          return reject();
-        }),
-      delay,
-      times,
-    );
+  ensureVersion = (version, delay = 30, times = 5) => retryOperation(
+    () => new Promise((resolve, reject) => {
+      if (version === this.version) {
+        return resolve();
+      }
+      return reject();
+    }),
+    delay,
+    times,
+  );
 
   on(eventName, cb) {
     this.listeners[eventName] = Array.isArray(this.listeners[eventName])
@@ -75,7 +81,7 @@ export class CypherEditorSupport {
 
   trigger(eventName, args = []) {
     if (!this.listeners[eventName]) return;
-    this.listeners[eventName].forEach(cb => cb(...args));
+    this.listeners[eventName].forEach((cb) => cb(...args));
   }
 
   update(input = '', version) {
@@ -93,7 +99,9 @@ export class CypherEditorSupport {
     this.positionConverter = new PositionConverter(input);
 
     this.input = input;
-    const { parseTree, referencesListener, errorListener, referencesProviders } = parse(input);
+    const {
+      parseTree, referencesListener, errorListener, referencesProviders,
+    } = parse(input);
     this.parseTree = parseTree;
 
     this.parseErrors = errorListener.errors;
@@ -152,10 +160,9 @@ export class CypherEditorSupport {
     }
 
     const type = e.constructor.name;
-    const query =
-      type === CypherTypes.VARIABLE_CONTEXT
-        ? TreeUtils.findAnyParent(e, [CypherTypes.QUERY_CONTEXT])
-        : null;
+    const query = type === CypherTypes.VARIABLE_CONTEXT
+      ? TreeUtils.findAnyParent(e, [CypherTypes.QUERY_CONTEXT])
+      : null;
 
     return this.referencesProviders[type].getReferences(e.getText(), query);
   }
@@ -165,7 +172,9 @@ export class CypherEditorSupport {
     const query = TreeUtils.findAnyParent(element, [CypherTypes.QUERY_CONTEXT]);
     const { found, types } = CompletionTypeResolver.getTypes(element);
 
-    return { element, query, found, types };
+    return {
+      element, query, found, types,
+    };
   }
 
   getElementForCompletion(line, column) {
@@ -183,7 +192,9 @@ export class CypherEditorSupport {
         info = prevInfo;
       }
     }
-    const { element, query, found, types } = info;
+    const {
+      element, query, found, types,
+    } = info;
 
     const replaceRange = {
       from: { line, column },
@@ -195,7 +206,7 @@ export class CypherEditorSupport {
     if (found && shouldBeReplaced) {
       // There are number of situations where we need to be smarter than default behavior
       const { start, stop } = TreeUtils.getPosition(element);
-      const smartReplaceRange = AutoCompletion.calculateSmartReplaceRange(element, start, stop);
+      const smartReplaceRange = AutoCompletion.calculateSmartReplaceRange(element, start);
       if (smartReplaceRange) {
         replaceRange.from = this.positionConverter.toRelative(smartReplaceRange.start);
         replaceRange.to = this.positionConverter.toRelative(smartReplaceRange.stop + 1);

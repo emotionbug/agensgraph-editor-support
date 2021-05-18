@@ -19,11 +19,11 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 describe('Parser - Console commands', () => {
   it('should successfully parse param command with and other command', () => {
-    const b = new CypherEditorSupport(':play http://something.com; :play;\n');
+    const b = new CypherEditorSupport(':play http://something.com; :play;');
     expect(b.parseErrors).to.deep.equal([]);
   });
 
@@ -113,7 +113,7 @@ describe('Parser - Console commands', () => {
   });
 
   it('should successfully parse command with key value literal', () => {
-    const b = new CypherEditorSupport(":config n: 'xxx';");
+    const b = new CypherEditorSupport(':config n: \'xxx\';');
     expect(b.parseErrors).to.deep.equal([]);
   });
 

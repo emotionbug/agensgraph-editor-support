@@ -19,21 +19,21 @@
  */
 
 import assert from 'assert';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 describe('Parser - query semicolon', () => {
   it('should ignore missing semicolon at the end of last query', () => {
     const b = new CypherEditorSupport('RETURN 1');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should ignore missing semicolon at the end of last query (2)', () => {
     const b = new CypherEditorSupport('RETURN 1; RETURN 1');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should ignore missing semicolon at the end of last query on new line', () => {
     const b = new CypherEditorSupport('RETURN 1\n');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 });

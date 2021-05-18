@@ -42,8 +42,12 @@ describe('AutoCompletion - Parameter', () => {
         from: { line: 1, column: 14 },
         to: { line: 1, column: 15 },
         items: [
-          { type: 'parameter', view: 'param1', content: 'param1', postfix: null },
-          { type: 'parameter', view: 'param2', content: 'param2', postfix: null },
+          {
+            type: 'parameter', view: 'param1', content: 'param1', postfix: null,
+          },
+          {
+            type: 'parameter', view: 'param2', content: 'param2', postfix: null,
+          },
         ],
       };
       checkCompletion('RETURN {b} + $▼a', expected);
@@ -55,8 +59,12 @@ describe('AutoCompletion - Parameter', () => {
         from: { line: 1, column: 13 },
         to: { line: 1, column: 14 },
         items: [
-          { type: 'parameter', view: 'param1', content: 'param1', postfix: null },
-          { type: 'parameter', view: 'param2', content: 'param2', postfix: null },
+          {
+            type: 'parameter', view: 'param1', content: 'param1', postfix: null,
+          },
+          {
+            type: 'parameter', view: 'param2', content: 'param2', postfix: null,
+          },
         ],
       };
       checkCompletion('RETURN $b + {▼a}', expected);
@@ -70,8 +78,12 @@ describe('AutoCompletion - Parameter', () => {
         from: { line: 1, column: 14 },
         to: { line: 1, column: 15 },
         items: [
-          { type: 'parameter', view: 'param1', content: 'param1', postfix: null },
-          { type: 'parameter', view: 'param2', content: 'param2', postfix: null },
+          {
+            type: 'parameter', view: 'param1', content: 'param1', postfix: null,
+          },
+          {
+            type: 'parameter', view: 'param2', content: 'param2', postfix: null,
+          },
         ],
       };
 
@@ -84,8 +96,12 @@ describe('AutoCompletion - Parameter', () => {
         from: { line: 1, column: 8 },
         to: { line: 1, column: 9 },
         items: [
-          { type: 'parameter', view: 'param1', content: 'param1', postfix: null },
-          { type: 'parameter', view: 'param2', content: 'param2', postfix: null },
+          {
+            type: 'parameter', view: 'param1', content: 'param1', postfix: null,
+          },
+          {
+            type: 'parameter', view: 'param2', content: 'param2', postfix: null,
+          },
         ],
       };
       checkCompletion('RETURN {p▼}', expected, true);

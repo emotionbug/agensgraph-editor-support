@@ -19,36 +19,25 @@
  */
 
 import assert from 'assert';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
-
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 describe('Parser - special functions', () => {
-  it('should successfully parse extract function', () => {
-    const b = new CypherEditorSupport('RETURN extract(n IN nodes(p) | n.age) AS extracted;');
-    assert.deepEqual(b.parseErrors, []);
-  });
-
-  it('should successfully parse reduce function', () => {
-    const b = new CypherEditorSupport('RETURN reduce(totalAge = 0, n IN nodes(p)| totalAge + n.age) AS reduction');
-    assert.deepEqual(b.parseErrors, []);
-  });
-
   it('should successfully parse shortest path function', () => {
     const b = new CypherEditorSupport('RETURN shortestPath( ( f)-[]-( t) );');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse all shortest path function', () => {
     const b = new CypherEditorSupport('RETURN allshortestPath((f)-[]-(t));');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse exists function', () => {
     const b = new CypherEditorSupport('RETURN n.prop AS prop1, exists((n)-[:SOMETHING]->()) AS something;');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
   it('should successfully parse 3rd party functions', () => {
     const b = new CypherEditorSupport('RETURN a.b();');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 });

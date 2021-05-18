@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceElement } from '../util';
 
 describe('Reference Traverser - Labels', () => {
@@ -27,7 +27,7 @@ describe('Reference Traverser - Labels', () => {
     const b = new CypherEditorSupport('MATCH (n:Label)');
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'LabelNameContext',
         start: {
@@ -40,15 +40,14 @@ describe('Reference Traverser - Labels', () => {
         },
         text: 'Label',
       },
-    ],
-    );
+    ]);
   });
 
   it('returns references for a multiple labels', () => {
     const b = new CypherEditorSupport('MATCH (n:Label) MATCH (m:Label)');
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'LabelNameContext',
         start: {
@@ -80,7 +79,7 @@ describe('Reference Traverser - Labels', () => {
     const b = new CypherEditorSupport('MATCH (n:Label); MATCH (n:Label);');
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'LabelNameContext',
         start: {

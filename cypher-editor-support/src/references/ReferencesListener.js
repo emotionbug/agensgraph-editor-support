@@ -18,13 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { CypherListener } from '../_generated/CypherListener';
+import CypherListener from '../_generated/CypherListener';
 import * as CypherTypes from '../lang/CypherTypes';
 
 class Index {
   names = {};
+
   namesByQuery = [];
+
   referencesByName = {};
+
   referencesByQueryAndName = [];
 
   addQuery() {
@@ -61,11 +64,15 @@ class Index {
   }
 }
 
-export class ReferencesListener extends CypherListener {
+export default class ReferencesListener extends CypherListener {
   queries = [];
+
   queriesAndCommands = [];
+
   statements = [];
+
   raw = [];
+
   indexes = CypherTypes.SYMBOLIC_CONTEXTS.reduce(
     (acc, t) => ({
       ...acc,
@@ -79,6 +86,7 @@ export class ReferencesListener extends CypherListener {
   enterRaw(ctx) {
     this.raw.push(ctx);
   }
+
   exitRaw(ctx) {
     if (this.raw.length === 0) {
       this.raw.push(ctx);
@@ -97,7 +105,7 @@ export class ReferencesListener extends CypherListener {
 
   enterCypherConsoleCommand(ctx) {
     this.queriesAndCommands.push(ctx);
-    Object.keys(this.indexes).forEach(k => this.indexes[k].addQuery());
+    Object.keys(this.indexes).forEach((k) => this.indexes[k].addQuery());
     this.inConsoleCommand = true;
   }
 
@@ -108,7 +116,7 @@ export class ReferencesListener extends CypherListener {
   enterCypherQuery(ctx) {
     this.queries.push(ctx);
     this.queriesAndCommands.push(ctx);
-    Object.keys(this.indexes).forEach(k => this.indexes[k].addQuery());
+    Object.keys(this.indexes).forEach((k) => this.indexes[k].addQuery());
   }
 
   exitVariable(ctx) {

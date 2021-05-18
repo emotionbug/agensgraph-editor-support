@@ -24,8 +24,7 @@ import * as CompletionTypes from '../../src/completion/CompletionTypes';
 describe('AutoCompletion - Function', () => {
   describe('types', () => {
     it('yields function name', () => {
-      checkCompletionTypes('return ▼fun()', true, [{ type: CompletionTypes.FUNCTION_NAME }],
-      );
+      checkCompletionTypes('return ▼fun()', true, [{ type: CompletionTypes.FUNCTION_NAME }]);
     });
   });
 
@@ -35,8 +34,12 @@ describe('AutoCompletion - Function', () => {
         from: { line: 1, column: 7 },
         to: { line: 1, column: 10 },
         items: [
-          { type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression' },
-          { type: 'function', view: 'head', content: 'head', postfix: 'expression' },
+          {
+            type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression',
+          },
+          {
+            type: 'function', view: 'head', content: 'head', postfix: 'expression',
+          },
         ],
       };
       checkCompletion('return ▼fun()', expected);
@@ -48,8 +51,12 @@ describe('AutoCompletion - Function', () => {
         from: { line: 1, column: 7 },
         to: { line: 1, column: 21 },
         items: [
-          { type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression' },
-          { type: 'function', view: 'head', content: 'head', postfix: 'expression' },
+          {
+            type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression',
+          },
+          {
+            type: 'function', view: 'head', content: 'head', postfix: 'expression',
+          },
         ],
       };
       checkCompletion('return ▼name.space.fun()', expected);
@@ -63,7 +70,9 @@ describe('AutoCompletion - Function', () => {
         from: { line: 1, column: 7 },
         to: { line: 1, column: 9 },
         items: [
-          { type: 'function', view: 'head', content: 'head', postfix: 'expression' },
+          {
+            type: 'function', view: 'head', content: 'head', postfix: 'expression',
+          },
         ],
       };
 

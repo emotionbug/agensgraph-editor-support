@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceElement } from '../util';
 
 describe('Reference Traverser - Property keys', () => {
@@ -27,7 +27,7 @@ describe('Reference Traverser - Property keys', () => {
     const b = new CypherEditorSupport('RETURN n.key');
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'PropertyKeyNameContext',
         start: {
@@ -47,7 +47,7 @@ describe('Reference Traverser - Property keys', () => {
     const b = new CypherEditorSupport('MATCH (n {key: 42}) SET n.key = 4 RETURN n.key;');
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'PropertyKeyNameContext',
         start: {
@@ -96,7 +96,7 @@ describe('Reference Traverser - Property keys', () => {
           RETURN n.key`);
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'PropertyKeyNameContext',
         start: {

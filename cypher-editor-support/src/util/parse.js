@@ -1,12 +1,12 @@
 import antlr4 from 'antlr4';
-import { ReferencesProvider } from '../references/ReferencesProvider';
+import ReferencesProvider from '../references/ReferencesProvider';
 import * as CypherTypes from '../lang/CypherTypes';
-import { CypherParser } from '../_generated/CypherParser';
-import { CypherLexer } from '../_generated/CypherLexer';
-import { ErrorListener } from '../errors/ErrorListener';
-import { ReferencesListener } from '../references/ReferencesListener';
+import CypherParser from '../_generated/CypherParser';
+import CypherLexer from '../_generated/CypherLexer';
+import ErrorListener from '../errors/ErrorListener';
+import ReferencesListener from '../references/ReferencesListener';
 
-export const parse = (input) => {
+export default function parse(input) {
   const referencesListener = new ReferencesListener();
   const errorListener = new ErrorListener();
   const chars = new antlr4.InputStream(input);
@@ -30,5 +30,7 @@ export const parse = (input) => {
     {},
   );
 
-  return { parseTree, referencesListener, errorListener, referencesProviders };
-};
+  return {
+    parseTree, referencesListener, errorListener, referencesProviders,
+  };
+}

@@ -20,7 +20,7 @@
 
 import assert from 'assert';
 
-import { PositionConverter } from '../src/util/PositionConverter';
+import PositionConverter from '../src/util/PositionConverter';
 
 describe('PositionConverter', () => {
   it('calculates absolute of zero pos', () => {

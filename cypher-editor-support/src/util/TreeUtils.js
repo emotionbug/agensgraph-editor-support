@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-export class TreeUtils {
+export default class TreeUtils {
   static findParent(pt, type) {
     let el = pt;
     while (true) { // eslint-disable-line no-constant-condition

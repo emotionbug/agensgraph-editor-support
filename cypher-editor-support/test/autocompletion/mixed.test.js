@@ -39,9 +39,15 @@ describe('AutoCompletion - Mixed', () => {
         from: { line: 1, column: 19 },
         to: { line: 1, column: 22 },
         items: [
-          { type: 'variable', view: 'fun', content: 'fun', postfix: null },
-          { type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression' },
-          { type: 'function', view: 'head', content: 'head', postfix: 'expression' },
+          {
+            type: 'variable', view: 'fun', content: 'fun', postfix: null,
+          },
+          {
+            type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression',
+          },
+          {
+            type: 'function', view: 'head', content: 'head', postfix: 'expression',
+          },
         ],
       };
       checkCompletion('match (fun) return ▼fun', expected);
@@ -101,8 +107,12 @@ describe('AutoCompletion - Mixed', () => {
         from: { line: 1, column: 21 },
         to: { line: 1, column: 23 },
         items: [
-          { type: 'variable', view: 'atern', content: 'atern', postfix: null },
-          { type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression' },
+          {
+            type: 'variable', view: 'atern', content: 'atern', postfix: null,
+          },
+          {
+            type: 'function', view: 'toFloat', content: 'toFloat', postfix: 'expression',
+          },
         ],
       };
 

@@ -19,8 +19,8 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
-import { CompletionTypeResolver } from '../../src/completion/CompletionTypeResolver';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
+import CompletionTypeResolver from '../../src/completion/CompletionTypeResolver';
 
 export const schema = {
   labels: [':y', ':x'],
@@ -83,7 +83,6 @@ export function checkCompletion(queryWithCursor, expectedItems, doFilter = false
 
   expect(completion).to.deep.equal(expectedItems);
 }
-
 
 export function checkCompletionTypes(queryWithCursor, found, expectedTypes) {
   const pos = queryWithCursor.indexOf('▼');

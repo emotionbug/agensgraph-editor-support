@@ -33,9 +33,15 @@ describe('AutoCompletion - Keyword', () => {
         from: { line: 1, column: 10 },
         to: { line: 1, column: 12 },
         items: [
-          { type: 'keyword', view: 'WHEN', content: 'WHEN', postfix: null },
-          { type: 'keyword', view: 'WHERE', content: 'WHERE', postfix: null },
-          { type: 'keyword', view: 'WITH', content: 'WITH', postfix: null },
+          {
+            type: 'keyword', view: 'WHEN', content: 'WHEN', postfix: null,
+          },
+          {
+            type: 'keyword', view: 'WHERE', content: 'WHERE', postfix: null,
+          },
+          {
+            type: 'keyword', view: 'WITH', content: 'WITH', postfix: null,
+          },
         ],
       };
 

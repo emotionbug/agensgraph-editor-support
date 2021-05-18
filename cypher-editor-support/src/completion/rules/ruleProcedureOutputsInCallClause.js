@@ -20,7 +20,7 @@
 
 import * as CypherTypes from '../../lang/CypherTypes';
 import * as CompletionTypes from '../CompletionTypes';
-import { TreeUtils } from '../../util/TreeUtils';
+import TreeUtils from '../../util/TreeUtils';
 
 // Return procedure output completion if we are inside procedure
 export default (element) => {

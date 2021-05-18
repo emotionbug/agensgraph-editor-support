@@ -30,8 +30,12 @@ describe('AutoCompletion - Variable', () => {
         from: { line: 1, column: 17 },
         to: { line: 1, column: 18 },
         items: [
-          { type: 'variable', view: 'n', content: 'n', postfix: null },
-          { type: 'variable', view: 'a', content: 'a', postfix: null },
+          {
+            type: 'variable', view: 'n', content: 'n', postfix: null,
+          },
+          {
+            type: 'variable', view: 'a', content: 'a', postfix: null,
+          },
         ],
       };
 
@@ -44,7 +48,9 @@ describe('AutoCompletion - Variable', () => {
         from: { line: 1, column: 7 },
         to: { line: 1, column: 8 },
         items: [
-          { type: 'variable', view: 'x', content: 'x', postfix: null },
+          {
+            type: 'variable', view: 'x', content: 'x', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH (▼x); MATCH (n) MATCH (a', expected);
@@ -56,8 +62,12 @@ describe('AutoCompletion - Variable', () => {
         from: { line: 1, column: 28 },
         to: { line: 1, column: 29 },
         items: [
-          { type: 'variable', view: 'n', content: 'n', postfix: null },
-          { type: 'variable', view: 'a', content: 'a', postfix: null },
+          {
+            type: 'variable', view: 'n', content: 'n', postfix: null,
+          },
+          {
+            type: 'variable', view: 'a', content: 'a', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH (x); MATCH (n) MATCH (▼a', expected);
@@ -71,7 +81,9 @@ describe('AutoCompletion - Variable', () => {
         from: { line: 1, column: 36 },
         to: { line: 1, column: 40 },
         items: [
-          { type: 'variable', view: 'markus', content: 'markus', postfix: null },
+          {
+            type: 'variable', view: 'markus', content: 'markus', postfix: null,
+          },
         ],
       };
 
@@ -84,7 +96,9 @@ describe('AutoCompletion - Variable', () => {
         from: { line: 1, column: 19 },
         to: { line: 1, column: 21 },
         items: [
-          { type: 'variable', view: 'var', content: 'var', postfix: null },
+          {
+            type: 'variable', view: 'var', content: 'var', postfix: null,
+          },
         ],
       };
 
@@ -96,7 +110,9 @@ describe('AutoCompletion - Variable', () => {
         from: { line: 1, column: 19 },
         to: { line: 1, column: 22 },
         items: [
-          { type: 'variable', view: 'var', content: 'var', postfix: null },
+          {
+            type: 'variable', view: 'var', content: 'var', postfix: null,
+          },
         ],
       };
 

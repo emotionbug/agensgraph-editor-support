@@ -19,74 +19,74 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 describe('Parser - Multi statement commands', () => {
   it('should catch an error on second statement', () => {
-    const b = new CypherEditorSupport('RETURN 1;\n' +
-      'POTATO;\n' +
-      'RETURN rand();');
+    const b = new CypherEditorSupport('RETURN 1;\n'
+      + 'POTATO;\n'
+      + 'RETURN rand();');
     expect(b.parseErrors).to.deep.equal([
       {
         col: 0,
         line: 2,
-        msg: "mismatched input 'POTATO' expecting {':', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL}",
+        msg: 'mismatched input \'POTATO\' expecting {\':\', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, CATALOG, SHOW, STOP, ALTER, GRANT, DENY, REVOKE}',
       },
     ]);
   });
 
   it('should successfully parse common param ase', () => {
-    const b = new CypherEditorSupport(':play;\n' +
-        'hello;\n' +
-        ':param x => 1;\n' +
-        'hello2;\n' +
-        ':play reco;');
+    const b = new CypherEditorSupport(':play;\n'
+        + 'hello;\n'
+        + ':param x => 1;\n'
+        + 'hello2;\n'
+        + ':play reco;');
     expect(b.parseErrors).to.deep.equal([
       {
         col: 0,
         line: 2,
-        msg: "mismatched input 'hello' expecting {':', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL}",
+        msg: 'mismatched input \'hello\' expecting {\':\', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, CATALOG, SHOW, STOP, ALTER, GRANT, DENY, REVOKE}',
       },
       {
         col: 0,
         line: 4,
-        msg: "mismatched input 'hello2' expecting {':', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL}",
+        msg: 'mismatched input \'hello2\' expecting {\':\', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, CATALOG, SHOW, STOP, ALTER, GRANT, DENY, REVOKE}',
       }]);
   });
 
   it('should successfully parse common dasdad ase', () => {
-    const b = new CypherEditorSupport('hello;\n' +
-        ':param x => 1;\n' +
-        'hello2;\n' +
-        ':play reco;');
+    const b = new CypherEditorSupport('hello;\n'
+        + ':param x => 1;\n'
+        + 'hello2;\n'
+        + ':play reco;');
     expect(b.parseErrors).to.deep.equal([
       {
         col: 0,
         line: 1,
-        msg: "mismatched input 'hello' expecting {':', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, SP}",
+        msg: 'mismatched input \'hello\' expecting {\':\', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, CATALOG, SHOW, STOP, ALTER, GRANT, DENY, REVOKE, SP}',
       },
       {
         col: 0,
         line: 3,
-        msg: "mismatched input 'hello2' expecting {':', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL}",
+        msg: 'mismatched input \'hello2\' expecting {\':\', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, CATALOG, SHOW, STOP, ALTER, GRANT, DENY, REVOKE}',
       }]);
   });
 
   it('should successfully parse common param command use case', () => {
-    const b = new CypherEditorSupport(':play http://guides.neo4j.com/reco;\n' +
-        ':param x => 1;\n' +
-        'RETURN $x;\n' +
-        ':play reco;');
+    const b = new CypherEditorSupport(':play http://guides.neo4j.com/reco;\n'
+        + ':param x => 1;\n'
+        + 'RETURN $x;\n'
+        + ':play reco;');
     expect(b.parseErrors).to.deep.equal([]);
   });
 
   it('should successfully parse multiple param commands with query', () => {
-    const b = new CypherEditorSupport(':param age => 25;' +
-        ':param interests => [\'football\', \'fishing\'];\n' +
-        'MATCH (n)\n' +
-        'WHERE n.age > $age\n' +
-        'AND n.interest IN $interests\n' +
-        'RETURN n;');
+    const b = new CypherEditorSupport(':param age => 25;'
+        + ':param interests => [\'football\', \'fishing\'];\n'
+        + 'MATCH (n)\n'
+        + 'WHERE n.age > $age\n'
+        + 'AND n.interest IN $interests\n'
+        + 'RETURN n;');
     expect(b.parseErrors).to.deep.equal([]);
   });
 
@@ -96,7 +96,7 @@ describe('Parser - Multi statement commands', () => {
       {
         col: 7,
         line: 1,
-        msg: "mismatched input '*' expecting {<EOF>, ';'}",
+        msg: 'mismatched input \'*\' expecting {<EOF>, \';\'}',
       },
     ]);
   });

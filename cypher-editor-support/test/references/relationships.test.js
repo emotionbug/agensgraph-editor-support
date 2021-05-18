@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceElement } from '../util';
 
 describe('Reference Traverser - Relationships', () => {
@@ -27,7 +27,7 @@ describe('Reference Traverser - Relationships', () => {
     const b = new CypherEditorSupport('MATCH ()-[:TYPE]-()');
 
     const refs = b.getReferences(1, 13);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'RelTypeNameContext',
         start: {
@@ -40,15 +40,14 @@ describe('Reference Traverser - Relationships', () => {
         },
         text: 'TYPE',
       },
-    ],
-    );
+    ]);
   });
 
   it('returns reference for multiple relationship types', () => {
     const b = new CypherEditorSupport('MATCH ()-[:TYPE]-() MATCH ()-[:TYPE]-()');
 
     const refs = b.getReferences(1, 13);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'RelTypeNameContext',
         start: {
@@ -80,7 +79,7 @@ describe('Reference Traverser - Relationships', () => {
     const b = new CypherEditorSupport('MATCH ()-[:TYPE]-(); MATCH ()-[:TYPE]-()');
 
     const refs = b.getReferences(1, 13);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'RelTypeNameContext',
         start: {

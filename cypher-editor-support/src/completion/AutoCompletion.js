@@ -23,10 +23,10 @@ import _ from 'lodash';
 import * as CypherTypes from '../lang/CypherTypes';
 import * as CompletionTypes from './CompletionTypes';
 import CypherKeywords from '../lang/CypherKeywords';
-import { TreeUtils } from '../util/TreeUtils';
-import { ecsapeCypher } from '../util/ecsapeCypher';
+import TreeUtils from '../util/TreeUtils';
+import escapeCypher from '../util/escapeCypher';
 
-export const KEYWORD_ITEMS = CypherKeywords.map(keyword => ({
+export const KEYWORD_ITEMS = CypherKeywords.map((keyword) => ({
   type: CompletionTypes.KEYWORD,
   view: keyword,
   content: keyword,
@@ -63,7 +63,7 @@ class SchemaBasedCompletion extends AbstractCachingCompletion {
 
   static providers = {
     [CompletionTypes.PROCEDURE_OUTPUT]: (schema, typeData) => {
-      const findByName = e => e.name === typeData.name && e.returnItems !== [];
+      const findByName = (e) => e.name === typeData.name && e.returnItems !== [];
       const procedure = _.find(schema.procedures, findByName);
       if (procedure) {
         return procedure.returnItems.map(({ name, signature }) => ({
@@ -102,31 +102,31 @@ class SchemaBasedCompletion extends AbstractCachingCompletion {
     super({
       [CompletionTypes.KEYWORD]: KEYWORD_ITEMS,
       [CompletionTypes.LABEL]: (schema.labels || [])
-        .map(label => ({
+        .map((label) => ({
           type: CompletionTypes.LABEL,
           view: label,
-          content: ecsapeCypher(label),
+          content: escapeCypher(label),
           postfix: null,
         })),
       [CompletionTypes.RELATIONSHIP_TYPE]: (schema.relationshipTypes || [])
-        .map(relType => ({
+        .map((relType) => ({
           type: CompletionTypes.RELATIONSHIP_TYPE,
           view: relType,
-          content: ecsapeCypher(relType),
+          content: escapeCypher(relType),
           postfix: null,
         })),
       [CompletionTypes.PROPERTY_KEY]: (schema.propertyKeys || [])
-        .map(propKey => ({
+        .map((propKey) => ({
           type: CompletionTypes.PROPERTY_KEY,
           view: propKey,
-          content: ecsapeCypher(propKey),
+          content: escapeCypher(propKey),
           postfix: null,
         })),
       [CompletionTypes.FUNCTION_NAME]: (schema.functions || [])
         .map(({ name, signature }) => ({
           type: CompletionTypes.FUNCTION_NAME,
           view: name,
-          content: ecsapeCypher(name),
+          content: escapeCypher(name),
           postfix: signature,
         })),
       [CompletionTypes.PROCEDURE_NAME]: (schema.procedures || [])
@@ -137,14 +137,14 @@ class SchemaBasedCompletion extends AbstractCachingCompletion {
           postfix: signature,
         })),
       [CompletionTypes.CONSOLE_COMMAND_NAME]: (schema.consoleCommands || [])
-        .map(consoleCommandName => ({
+        .map((consoleCommandName) => ({
           type: CompletionTypes.CONSOLE_COMMAND_NAME,
           view: consoleCommandName.name,
           content: consoleCommandName.name,
           postfix: consoleCommandName.description || null,
         })),
       [CompletionTypes.PARAMETER]: (schema.parameters || [])
-        .map(parameter => ({
+        .map((parameter) => ({
           type: CompletionTypes.PARAMETER,
           view: parameter,
           content: parameter,
@@ -161,15 +161,16 @@ class SchemaBasedCompletion extends AbstractCachingCompletion {
 
 class QueryBasedCompletion extends AbstractCachingCompletion {
   providers = {};
+
   emptyProvider = { getNames: () => [] };
 
   constructor(referenceProviders = {}) {
     super();
     this.providers = {
       [CompletionTypes.VARIABLE]:
-        query => (referenceProviders[CypherTypes.VARIABLE_CONTEXT] || this.emptyProvider)
+        (query) => (referenceProviders[CypherTypes.VARIABLE_CONTEXT] || this.emptyProvider)
           .getNames(query)
-          .map(name => ({
+          .map((name) => ({
             type: CompletionTypes.VARIABLE,
             view: name,
             content: name,
@@ -185,6 +186,7 @@ class QueryBasedCompletion extends AbstractCachingCompletion {
 
 export class AutoCompletion {
   queryBased = null;
+
   schemaBased = null;
 
   constructor() {
@@ -198,8 +200,8 @@ export class AutoCompletion {
     const completionItemFilter = () => true;
 
     const list = [this.queryBased, this.schemaBased]
-      .filter(s => s != null)
-      .map(t => t.complete(types, query))
+      .filter((s) => s != null)
+      .map((t) => t.complete(types, query))
       .reduce((acc, items) => [...acc, ...items], [])
       .filter(completionItemFilter);
 
@@ -254,11 +256,7 @@ export class AutoCompletion {
     if (text === '$') {
       return false;
     }
-    if (text === ':' && parent != null && parent.constructor.name === CypherTypes.MAP_LITERAL_ENTRY) {
-      return false;
-    }
-
-    return true;
+    return !(text === ':' && parent != null && parent.constructor.name === CypherTypes.MAP_LITERAL_ENTRY);
   }
 
   static filterText(text) {
@@ -269,7 +267,7 @@ export class AutoCompletion {
   }
 
   // eslint-disable-next-line no-unused-vars
-  static calculateSmartReplaceRange(element, start, stop) {
+  static calculateSmartReplaceRange(element, start) {
     // If we are in relationship type or label and we have error nodes in there.
     // This means that we typed in just ':' and Antlr consumed other tokens in element
     // In this case replace only ':'

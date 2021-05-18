@@ -20,7 +20,7 @@
 
 import * as CypherTypes from '../../lang/CypherTypes';
 import * as CompletionTypes from '../CompletionTypes';
-import { TreeUtils } from '../../util/TreeUtils';
+import TreeUtils from '../../util/TreeUtils';
 
 // If variable is inside expression context then it might be both variable and function
 export default (element) => {

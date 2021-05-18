@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 const queries = [
   'MERGE () ON CREATE SET connection.departure = 1445, connection.arrival = 1710',

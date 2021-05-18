@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceTree } from '../util';
 
 describe('Parser - Simple queries', () => {
@@ -35,7 +35,7 @@ describe('Parser - Simple queries', () => {
     expect(b.parseErrors).to.deep.equal([{
       line: 1,
       col: 0,
-      msg: "mismatched input 'POTATO' expecting {':', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, SP}",
+      msg: 'mismatched input \'POTATO\' expecting {\':\', CYPHER, EXPLAIN, PROFILE, USING, CREATE, DROP, LOAD, WITH, OPTIONAL, MATCH, UNWIND, MERGE, SET, DETACH, DELETE, REMOVE, FOREACH, RETURN, START, CALL, CATALOG, SHOW, STOP, ALTER, GRANT, DENY, REVOKE, SP}',
     }]);
     expect(reduceTree(b.parseTree)).to.deep.equal({
       children: [
@@ -88,7 +88,7 @@ describe('Parser - Simple queries', () => {
       {
         col: 6,
         line: 1,
-        msg: "mismatched input '`' expecting {<EOF>, ';'}",
+        msg: 'mismatched input \'`\' expecting {<EOF>, \';\'}',
       },
     ]);
   });

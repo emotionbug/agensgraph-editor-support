@@ -18,16 +18,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-export class ReferencesProvider {
+export default class ReferencesProvider {
   queries = [];
+
   index = {};
 
   constructor(queries, index) {
-    const { names, namesByQuery, referencesByName, referencesByQueryAndName } = index;
+    const {
+      names, namesByQuery, referencesByName, referencesByQueryAndName,
+    } = index;
     this.queries = queries;
     this.index = {
       names: Object.keys(names),
-      namesByQuery: namesByQuery.map(q => Object.keys(q)),
+      namesByQuery: namesByQuery.map((q) => Object.keys(q)),
       referencesByName,
       referencesByQueryAndName,
     };

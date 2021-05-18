@@ -70,8 +70,12 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 18 },
         to: { line: 1, column: 20 },
         items: [
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 
@@ -84,8 +88,12 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 18 },
         to: { line: 1, column: 19 },
         items: [
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 
@@ -97,8 +105,12 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 8 },
         to: { line: 1, column: 9 },
         items: [
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 
@@ -110,9 +122,15 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 17 },
         to: { line: 1, column: 17 },
         items: [
-          { type: CompletionTypes.VARIABLE, view: 'a', content: 'a', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.VARIABLE, view: 'a', content: 'a', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 
@@ -126,7 +144,9 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 18 },
         to: { line: 1, column: 20 },
         items: [
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
         ],
       };
 
@@ -134,14 +154,17 @@ describe('AutoCompletion - Node pattern', () => {
       checkCompletion('MATCH (n) MATCH (a:▼y', expected, true);
     });
 
-
     it('yields label list if only color is present', () => {
       const expected = {
         from: { line: 1, column: 18 },
         to: { line: 1, column: 19 },
         items: [
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 
@@ -153,8 +176,12 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 8 },
         to: { line: 1, column: 9 },
         items: [
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 
@@ -166,9 +193,15 @@ describe('AutoCompletion - Node pattern', () => {
         from: { line: 1, column: 17 },
         to: { line: 1, column: 17 },
         items: [
-          { type: CompletionTypes.VARIABLE, view: 'a', content: 'a', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null },
-          { type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null },
+          {
+            type: CompletionTypes.VARIABLE, view: 'a', content: 'a', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':y', content: ':y', postfix: null,
+          },
+          {
+            type: CompletionTypes.LABEL, view: ':x', content: ':x', postfix: null,
+          },
         ],
       };
 

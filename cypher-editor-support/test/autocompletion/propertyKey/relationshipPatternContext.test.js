@@ -57,8 +57,12 @@ describe('AutoCompletion - Property Key - Relationship pattern context', () => {
         from: { line: 1, column: 11 },
         to: { line: 1, column: 11 },
         items: [
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null },
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null,
+          },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH ()-[{▼}]-()', expected, true);

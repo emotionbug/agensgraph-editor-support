@@ -59,7 +59,9 @@ describe('AutoCompletion - Procedure', () => {
         from: { line: 1, column: 5 },
         to: { line: 1, column: 8 },
         items: [
-          { type: 'procedure', view: 'db.indexes', content: 'db.indexes', postfix: '()' },
+          {
+            type: 'procedure', view: 'db.indexes', content: 'db.indexes', postfix: '()',
+          },
           {
             type: 'procedure',
             view: 'org.neo4j.graph.traverse',
@@ -79,7 +81,9 @@ describe('AutoCompletion - Procedure', () => {
         from: { line: 1, column: 5 },
         to: { line: 1, column: 5 },
         items: [
-          { type: 'procedure', view: 'db.indexes', content: 'db.indexes', postfix: '()' },
+          {
+            type: 'procedure', view: 'db.indexes', content: 'db.indexes', postfix: '()',
+          },
           {
             type: 'procedure',
             view: 'org.neo4j.graph.traverse',
@@ -98,7 +102,9 @@ describe('AutoCompletion - Procedure', () => {
         from: { line: 1, column: 5 },
         to: { line: 1, column: 9 },
         items: [
-          { type: 'procedure', view: 'db.indexes', content: 'db.indexes', postfix: '()' },
+          {
+            type: 'procedure', view: 'db.indexes', content: 'db.indexes', postfix: '()',
+          },
         ],
       };
       checkCompletion('call ▼db.i', expected, true);
@@ -114,9 +120,15 @@ describe('AutoCompletion - Procedure', () => {
           from: { line: 1, column: 24 },
           to: { line: 1, column: 24 },
           items: [
-            { type: 'procedureOutput', view: 'description', content: 'description', postfix: ' :: STRING?' },
-            { type: 'procedureOutput', view: 'state', content: 'state', postfix: ' :: STRING?' },
-            { type: 'procedureOutput', view: 'type', content: 'type', postfix: ' :: STRING?' },
+            {
+              type: 'procedureOutput', view: 'description', content: 'description', postfix: ' :: STRING?',
+            },
+            {
+              type: 'procedureOutput', view: 'state', content: 'state', postfix: ' :: STRING?',
+            },
+            {
+              type: 'procedureOutput', view: 'type', content: 'type', postfix: ' :: STRING?',
+            },
           ],
         };
         checkCompletion('call db.indexes() yield ▼', expected, true);
@@ -127,7 +139,9 @@ describe('AutoCompletion - Procedure', () => {
           from: { line: 1, column: 24 },
           to: { line: 1, column: 25 },
           items: [
-            { type: 'procedureOutput', view: 'state', content: 'state', postfix: ' :: STRING?' },
+            {
+              type: 'procedureOutput', view: 'state', content: 'state', postfix: ' :: STRING?',
+            },
           ],
         };
         checkCompletion('call db.indexes() yield a▼', expected, true);
@@ -138,9 +152,15 @@ describe('AutoCompletion - Procedure', () => {
           from: { line: 1, column: 32 },
           to: { line: 1, column: 32 },
           items: [
-            { type: 'procedureOutput', view: 'description', content: 'description', postfix: ' :: STRING?' },
-            { type: 'procedureOutput', view: 'state', content: 'state', postfix: ' :: STRING?' },
-            { type: 'procedureOutput', view: 'type', content: 'type', postfix: ' :: STRING?' },
+            {
+              type: 'procedureOutput', view: 'description', content: 'description', postfix: ' :: STRING?',
+            },
+            {
+              type: 'procedureOutput', view: 'state', content: 'state', postfix: ' :: STRING?',
+            },
+            {
+              type: 'procedureOutput', view: 'type', content: 'type', postfix: ' :: STRING?',
+            },
           ],
         };
         checkCompletion('call db.indexes() yield a as b, ▼', expected, true);

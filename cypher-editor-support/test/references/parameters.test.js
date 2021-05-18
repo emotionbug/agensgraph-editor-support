@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceElement } from '../util';
 
 describe('Reference Traverser - Parameters', () => {
@@ -27,7 +27,7 @@ describe('Reference Traverser - Parameters', () => {
     const b = new CypherEditorSupport('RETURN $param;');
 
     const refs = b.getReferences(1, 10);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'ParameterNameContext',
         start: {
@@ -48,7 +48,7 @@ describe('Reference Traverser - Parameters', () => {
 
     const refs = b.getReferences(1, 45);
 
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'ParameterNameContext',
         start: {
@@ -81,7 +81,7 @@ describe('Reference Traverser - Parameters', () => {
           MATCH (n) SET n.key = $param SET n.key = {param};`);
 
     const refs = b.getReferences(1, 25);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'ParameterNameContext',
         start: {

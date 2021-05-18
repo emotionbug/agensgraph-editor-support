@@ -1,12 +1,13 @@
-// Generated from cypher-editor-support/src/_generated.simple/Cypher.g4 by ANTLR 4.7
+// Generated from src/_generated.simple/Cypher.g4 by ANTLR 4.9.2
 // jshint ignore: start
-var antlr4 = require('antlr4/index');
+import antlr4 from 'antlr4';
 
 
-var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0002\u00ac\u05b0\b\u0001\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004",
-    "\u0004\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t",
-    "\u0007\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004",
+
+const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
+    "\u5964\u0002\u00ac\u05b0\b\u0001\u0004\u0002\t\u0002\u0004\u0003\t\u0003",
+    "\u0004\u0004\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007",
+    "\t\u0007\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004",
     "\f\t\f\u0004\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010",
     "\t\u0010\u0004\u0011\t\u0011\u0004\u0012\t\u0012\u0004\u0013\t\u0013",
     "\u0004\u0014\t\u0014\u0004\u0015\t\u0015\u0004\u0016\t\u0016\u0004\u0017",
@@ -1093,18 +1094,117 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0550\u055b\u055e\u0002"].join("");
 
 
-var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
+const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
 
-var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
+const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DFA(ds, index) );
 
-function CypherLexer(input) {
-	antlr4.Lexer.call(this, input);
-    this._interp = new antlr4.atn.LexerATNSimulator(this, atn, decisionsToDFA, new antlr4.PredictionContextCache());
-    return this;
+export default class CypherLexer extends antlr4.Lexer {
+
+    static grammarFileName = "Cypher.g4";
+    static channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
+	static modeNames = [ "DEFAULT_MODE" ];
+	static literalNames = [ null, "';'", "':'", "'-'", "'=>'", "'://'", "'/'", 
+                         "'.'", "'@'", "'#'", "'?'", "'&'", "'='", "'+'", 
+                         "'{'", "','", "'}'", "'['", "']'", "'('", "')'", 
+                         "'+='", "'|'", "'*'", "'..'", "'%'", "'^'", "'=~'", 
+                         "'<>'", "'!='", "'<'", "'>'", "'<='", "'>='", "'$'", 
+                         "'\u27E8'", "'\u3008'", "'\uFE64'", "'\uFF1C'", 
+                         "'\u27E9'", "'\u3009'", "'\uFE65'", "'\uFF1E'", 
+                         "'\u00AD'", "'\u2010'", "'\u2011'", "'\u2012'", 
+                         "'\u2013'", "'\u2014'", "'\u2015'", "'\u2212'", 
+                         "'\uFE58'", "'\uFE63'", "'\uFF0D'", null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         null, null, null, null, null, null, null, null, 
+                         "'0'" ];
+	static symbolicNames = [ null, null, null, null, null, null, null, null, 
+                          null, null, null, null, null, null, null, null, 
+                          null, null, null, null, null, null, null, null, 
+                          null, null, null, null, null, null, null, null, 
+                          null, null, null, null, null, null, null, null, 
+                          null, null, null, null, null, null, null, null, 
+                          null, null, null, null, null, null, "CYPHER", 
+                          "EXPLAIN", "PROFILE", "USING", "PERIODIC", "COMMIT", 
+                          "UNION", "ALL", "CREATE", "DROP", "INDEX", "ON", 
+                          "CONSTRAINT", "ASSERT", "IS", "UNIQUE", "EXISTS", 
+                          "LOAD", "CSV", "WITH", "HEADERS", "FROM", "AS", 
+                          "FIELDTERMINATOR", "OPTIONAL", "MATCH", "UNWIND", 
+                          "MERGE", "SET", "DETACH", "DELETE", "REMOVE", 
+                          "FOREACH", "IN", "DISTINCT", "RETURN", "ORDER", 
+                          "BY", "L_SKIP", "LIMIT", "ASCENDING", "ASC", "DESCENDING", 
+                          "DESC", "JOIN", "SCAN", "START", "NODE", "RELATIONSHIP", 
+                          "REL", "WHERE", "SHORTESTPATH", "ALLSHORTESTPATHS", 
+                          "OR", "XOR", "AND", "NOT", "STARTS", "ENDS", "CONTAINS", 
+                          "NULL", "COUNT", "FILTER", "EXTRACT", "ANY", "NONE", 
+                          "SINGLE", "TRUE", "FALSE", "REDUCE", "CASE", "ELSE", 
+                          "END", "WHEN", "THEN", "CALL", "YIELD", "KEY", 
+                          "BTREE", "EXIST", "FOR", "OPTIONS", "EXECUTE", 
+                          "DEFINED", "FUNCTION", "FUNCTIONS", "BOOSTED", 
+                          "PROCEDURE", "PROCEDURES", "ADMIN", "ADMINISTRATOR", 
+                          "BRIEF", "VERBOSE", "OUTPUT", "StringLiteral", 
+                          "UrlHex", "EscapedChar", "HexInteger", "DecimalInteger", 
+                          "OctalInteger", "HexLetter", "HexDigit", "Digit", 
+                          "NonZeroDigit", "NonZeroOctDigit", "OctDigit", 
+                          "ZeroDigit", "ExponentDecimalReal", "RegularDecimalReal", 
+                          "UnescapedSymbolicName", "IdentifierStart", "IdentifierPart", 
+                          "EscapedSymbolicName", "SP", "WHITESPACE", "Comment", 
+                          "ERROR_TOKEN" ];
+	static ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", 
+                      "T__7", "T__8", "T__9", "T__10", "T__11", "T__12", 
+                      "T__13", "T__14", "T__15", "T__16", "T__17", "T__18", 
+                      "T__19", "T__20", "T__21", "T__22", "T__23", "T__24", 
+                      "T__25", "T__26", "T__27", "T__28", "T__29", "T__30", 
+                      "T__31", "T__32", "T__33", "T__34", "T__35", "T__36", 
+                      "T__37", "T__38", "T__39", "T__40", "T__41", "T__42", 
+                      "T__43", "T__44", "T__45", "T__46", "T__47", "T__48", 
+                      "T__49", "T__50", "T__51", "T__52", "CYPHER", "EXPLAIN", 
+                      "PROFILE", "USING", "PERIODIC", "COMMIT", "UNION", 
+                      "ALL", "CREATE", "DROP", "INDEX", "ON", "CONSTRAINT", 
+                      "ASSERT", "IS", "UNIQUE", "EXISTS", "LOAD", "CSV", 
+                      "WITH", "HEADERS", "FROM", "AS", "FIELDTERMINATOR", 
+                      "OPTIONAL", "MATCH", "UNWIND", "MERGE", "SET", "DETACH", 
+                      "DELETE", "REMOVE", "FOREACH", "IN", "DISTINCT", "RETURN", 
+                      "ORDER", "BY", "L_SKIP", "LIMIT", "ASCENDING", "ASC", 
+                      "DESCENDING", "DESC", "JOIN", "SCAN", "START", "NODE", 
+                      "RELATIONSHIP", "REL", "WHERE", "SHORTESTPATH", "ALLSHORTESTPATHS", 
+                      "OR", "XOR", "AND", "NOT", "STARTS", "ENDS", "CONTAINS", 
+                      "NULL", "COUNT", "FILTER", "EXTRACT", "ANY", "NONE", 
+                      "SINGLE", "TRUE", "FALSE", "REDUCE", "CASE", "ELSE", 
+                      "END", "WHEN", "THEN", "CALL", "YIELD", "KEY", "BTREE", 
+                      "EXIST", "FOR", "OPTIONS", "EXECUTE", "DEFINED", "FUNCTION", 
+                      "FUNCTIONS", "BOOSTED", "PROCEDURE", "PROCEDURES", 
+                      "ADMIN", "ADMINISTRATOR", "BRIEF", "VERBOSE", "OUTPUT", 
+                      "StringLiteral", "UrlHex", "EscapedChar", "HexInteger", 
+                      "DecimalInteger", "OctalInteger", "HexLetter", "HexDigit", 
+                      "Digit", "NonZeroDigit", "NonZeroOctDigit", "OctDigit", 
+                      "ZeroDigit", "ExponentDecimalReal", "RegularDecimalReal", 
+                      "UnescapedSymbolicName", "IdentifierStart", "IdentifierPart", 
+                      "EscapedSymbolicName", "SP", "WHITESPACE", "Comment", 
+                      "ERROR_TOKEN", "FF", "RS", "ID_Continue", "GS", "FS", 
+                      "CR", "Sc", "SPACE", "TAB", "LF", "VT", "US", "ID_Start", 
+                      "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
+                      "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", 
+                      "U", "V", "W", "X", "Y", "Z" ];
+
+    constructor(input) {
+        super(input)
+        this._interp = new antlr4.atn.LexerATNSimulator(this, atn, decisionsToDFA, new antlr4.PredictionContextCache());
+    }
+
+    get atn() {
+        return atn;
+    }
 }
-
-CypherLexer.prototype = Object.create(antlr4.Lexer.prototype);
-CypherLexer.prototype.constructor = CypherLexer;
 
 CypherLexer.EOF = antlr4.Token.EOF;
 CypherLexer.T__0 = 1;
@@ -1278,142 +1378,5 @@ CypherLexer.WHITESPACE = 168;
 CypherLexer.Comment = 169;
 CypherLexer.ERROR_TOKEN = 170;
 
-CypherLexer.prototype.channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
 
-CypherLexer.prototype.modeNames = [ "DEFAULT_MODE" ];
-
-CypherLexer.prototype.literalNames = [ null, "';'", "':'", "'-'", "'=>'", 
-                                       "'://'", "'/'", "'.'", "'@'", "'#'", 
-                                       "'?'", "'&'", "'='", "'+'", "'{'", 
-                                       "','", "'}'", "'['", "']'", "'('", 
-                                       "')'", "'+='", "'|'", "'*'", "'..'", 
-                                       "'%'", "'^'", "'=~'", "'<>'", "'!='", 
-                                       "'<'", "'>'", "'<='", "'>='", "'$'", 
-                                       "'\u27E8'", "'\u3008'", "'\uFE64'", 
-                                       "'\uFF1C'", "'\u27E9'", "'\u3009'", 
-                                       "'\uFE65'", "'\uFF1E'", "'\u00AD'", 
-                                       "'\u2010'", "'\u2011'", "'\u2012'", 
-                                       "'\u2013'", "'\u2014'", "'\u2015'", 
-                                       "'\u2212'", "'\uFE58'", "'\uFE63'", 
-                                       "'\uFF0D'", null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       null, null, null, null, null, null, 
-                                       "'0'" ];
-
-CypherLexer.prototype.symbolicNames = [ null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        null, null, null, null, null, null, 
-                                        "CYPHER", "EXPLAIN", "PROFILE", 
-                                        "USING", "PERIODIC", "COMMIT", "UNION", 
-                                        "ALL", "CREATE", "DROP", "INDEX", 
-                                        "ON", "CONSTRAINT", "ASSERT", "IS", 
-                                        "UNIQUE", "EXISTS", "LOAD", "CSV", 
-                                        "WITH", "HEADERS", "FROM", "AS", 
-                                        "FIELDTERMINATOR", "OPTIONAL", "MATCH", 
-                                        "UNWIND", "MERGE", "SET", "DETACH", 
-                                        "DELETE", "REMOVE", "FOREACH", "IN", 
-                                        "DISTINCT", "RETURN", "ORDER", "BY", 
-                                        "L_SKIP", "LIMIT", "ASCENDING", 
-                                        "ASC", "DESCENDING", "DESC", "JOIN", 
-                                        "SCAN", "START", "NODE", "RELATIONSHIP", 
-                                        "REL", "WHERE", "SHORTESTPATH", 
-                                        "ALLSHORTESTPATHS", "OR", "XOR", 
-                                        "AND", "NOT", "STARTS", "ENDS", 
-                                        "CONTAINS", "NULL", "COUNT", "FILTER", 
-                                        "EXTRACT", "ANY", "NONE", "SINGLE", 
-                                        "TRUE", "FALSE", "REDUCE", "CASE", 
-                                        "ELSE", "END", "WHEN", "THEN", "CALL", 
-                                        "YIELD", "KEY", "BTREE", "EXIST", 
-                                        "FOR", "OPTIONS", "EXECUTE", "DEFINED", 
-                                        "FUNCTION", "FUNCTIONS", "BOOSTED", 
-                                        "PROCEDURE", "PROCEDURES", "ADMIN", 
-                                        "ADMINISTRATOR", "BRIEF", "VERBOSE", 
-                                        "OUTPUT", "StringLiteral", "UrlHex", 
-                                        "EscapedChar", "HexInteger", "DecimalInteger", 
-                                        "OctalInteger", "HexLetter", "HexDigit", 
-                                        "Digit", "NonZeroDigit", "NonZeroOctDigit", 
-                                        "OctDigit", "ZeroDigit", "ExponentDecimalReal", 
-                                        "RegularDecimalReal", "UnescapedSymbolicName", 
-                                        "IdentifierStart", "IdentifierPart", 
-                                        "EscapedSymbolicName", "SP", "WHITESPACE", 
-                                        "Comment", "ERROR_TOKEN" ];
-
-CypherLexer.prototype.ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", 
-                                    "T__5", "T__6", "T__7", "T__8", "T__9", 
-                                    "T__10", "T__11", "T__12", "T__13", 
-                                    "T__14", "T__15", "T__16", "T__17", 
-                                    "T__18", "T__19", "T__20", "T__21", 
-                                    "T__22", "T__23", "T__24", "T__25", 
-                                    "T__26", "T__27", "T__28", "T__29", 
-                                    "T__30", "T__31", "T__32", "T__33", 
-                                    "T__34", "T__35", "T__36", "T__37", 
-                                    "T__38", "T__39", "T__40", "T__41", 
-                                    "T__42", "T__43", "T__44", "T__45", 
-                                    "T__46", "T__47", "T__48", "T__49", 
-                                    "T__50", "T__51", "T__52", "CYPHER", 
-                                    "EXPLAIN", "PROFILE", "USING", "PERIODIC", 
-                                    "COMMIT", "UNION", "ALL", "CREATE", 
-                                    "DROP", "INDEX", "ON", "CONSTRAINT", 
-                                    "ASSERT", "IS", "UNIQUE", "EXISTS", 
-                                    "LOAD", "CSV", "WITH", "HEADERS", "FROM", 
-                                    "AS", "FIELDTERMINATOR", "OPTIONAL", 
-                                    "MATCH", "UNWIND", "MERGE", "SET", "DETACH", 
-                                    "DELETE", "REMOVE", "FOREACH", "IN", 
-                                    "DISTINCT", "RETURN", "ORDER", "BY", 
-                                    "L_SKIP", "LIMIT", "ASCENDING", "ASC", 
-                                    "DESCENDING", "DESC", "JOIN", "SCAN", 
-                                    "START", "NODE", "RELATIONSHIP", "REL", 
-                                    "WHERE", "SHORTESTPATH", "ALLSHORTESTPATHS", 
-                                    "OR", "XOR", "AND", "NOT", "STARTS", 
-                                    "ENDS", "CONTAINS", "NULL", "COUNT", 
-                                    "FILTER", "EXTRACT", "ANY", "NONE", 
-                                    "SINGLE", "TRUE", "FALSE", "REDUCE", 
-                                    "CASE", "ELSE", "END", "WHEN", "THEN", 
-                                    "CALL", "YIELD", "KEY", "BTREE", "EXIST", 
-                                    "FOR", "OPTIONS", "EXECUTE", "DEFINED", 
-                                    "FUNCTION", "FUNCTIONS", "BOOSTED", 
-                                    "PROCEDURE", "PROCEDURES", "ADMIN", 
-                                    "ADMINISTRATOR", "BRIEF", "VERBOSE", 
-                                    "OUTPUT", "StringLiteral", "UrlHex", 
-                                    "EscapedChar", "HexInteger", "DecimalInteger", 
-                                    "OctalInteger", "HexLetter", "HexDigit", 
-                                    "Digit", "NonZeroDigit", "NonZeroOctDigit", 
-                                    "OctDigit", "ZeroDigit", "ExponentDecimalReal", 
-                                    "RegularDecimalReal", "UnescapedSymbolicName", 
-                                    "IdentifierStart", "IdentifierPart", 
-                                    "EscapedSymbolicName", "SP", "WHITESPACE", 
-                                    "Comment", "ERROR_TOKEN", "FF", "RS", 
-                                    "ID_Continue", "GS", "FS", "CR", "Sc", 
-                                    "SPACE", "TAB", "LF", "VT", "US", "ID_Start", 
-                                    "A", "B", "C", "D", "E", "F", "G", "H", 
-                                    "I", "J", "K", "L", "M", "N", "O", "P", 
-                                    "Q", "R", "S", "T", "U", "V", "W", "X", 
-                                    "Y", "Z" ];
-
-CypherLexer.prototype.grammarFileName = "Cypher.g4";
-
-
-
-exports.CypherLexer = CypherLexer;
 

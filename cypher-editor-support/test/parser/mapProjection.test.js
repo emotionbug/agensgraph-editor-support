@@ -19,41 +19,41 @@
  */
 
 import assert from 'assert';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 
 describe('Parser - map projections', () => {
   it('should successfully parse map projections with all property selector', () => {
     const b = new CypherEditorSupport('RETURN person { .* };');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse map projections with property selector', () => {
     const b = new CypherEditorSupport('RETURN person { .name };');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse map projections with literal entry and map projection inside', () => {
     const b = new CypherEditorSupport('RETURN person { someProp: collect(moreProps { .variable1, .variable2 })};');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse map projections with literal entry', () => {
     const b = new CypherEditorSupport('RETURN person { someProp: collect(expression)};');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse map projections with a variable', () => {
     const b = new CypherEditorSupport('RETURN person { person };');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse map projections with a variable without spaces', () => {
     const b = new CypherEditorSupport('RETURN person{person};');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 
   it('should successfully parse map projections with a variable without spaces', () => {
     const b = new CypherEditorSupport('RETURN person{ person, .person, something: expression(), .*};');
-    assert.deepEqual(b.parseErrors, []);
+    assert.deepStrictEqual(b.parseErrors, []);
   });
 });

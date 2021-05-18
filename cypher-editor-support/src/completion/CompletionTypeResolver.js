@@ -50,7 +50,7 @@ function evaluateRules(element) {
   return [];
 }
 
-export class CompletionTypeResolver {
+export default class CompletionTypeResolver {
   static getTypes(element) {
     // If element is null, then no types
     if (element == null) {

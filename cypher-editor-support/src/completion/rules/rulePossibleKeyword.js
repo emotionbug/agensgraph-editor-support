@@ -25,7 +25,7 @@ import CypherKeywords from '../../lang/CypherKeywords';
 // If any of the keywords contains element text, return ALL
 export default (element) => {
   const text = element.getText().toLowerCase();
-  if (CypherKeywords.find(keyword => _.includes(keyword.toLowerCase(), text))) {
+  if (CypherKeywords.find((keyword) => _.includes(keyword.toLowerCase(), text))) {
     return CompletionTypes.ALL;
   }
   return [];

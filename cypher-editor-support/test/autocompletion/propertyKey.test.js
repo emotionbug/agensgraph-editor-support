@@ -46,8 +46,12 @@ describe('AutoCompletion - Property Key', () => {
         from: { line: 1, column: 19 },
         to: { line: 1, column: 20 },
         items: [
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null },
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null,
+          },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH (a) RETURN a.▼b', expected);
@@ -59,8 +63,12 @@ describe('AutoCompletion - Property Key', () => {
         from: { line: 1, column: 16 },
         to: { line: 1, column: 16 },
         items: [
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null },
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null,
+          },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH (a) SET a.▼', expected);
@@ -71,8 +79,12 @@ describe('AutoCompletion - Property Key', () => {
         from: { line: 1, column: 17 },
         to: { line: 1, column: 17 },
         items: [
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null },
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null,
+          },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop2', content: 'prop2', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH(a) WHERE n.▼', expected);
@@ -85,7 +97,9 @@ describe('AutoCompletion - Property Key', () => {
         from: { line: 1, column: 19 },
         to: { line: 1, column: 21 },
         items: [
-          { type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null },
+          {
+            type: CompletionTypes.PROPERTY_KEY, view: 'prop1', content: 'prop1', postfix: null,
+          },
         ],
       };
       checkCompletion('MATCH (a) RETURN a.p1▼', expected, true);
@@ -93,5 +107,4 @@ describe('AutoCompletion - Property Key', () => {
       checkCompletion('MATCH (a) RETURN a.▼p1', expected, true);
     });
   });
-})
-;
+});

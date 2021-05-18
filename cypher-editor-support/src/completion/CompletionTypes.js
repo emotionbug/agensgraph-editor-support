@@ -40,4 +40,4 @@ export const ALL = [
   PROPERTY_KEY,
   FUNCTION_NAME,
   KEYWORD,
-].map(type => ({ type }));
+].map((type) => ({ type }));

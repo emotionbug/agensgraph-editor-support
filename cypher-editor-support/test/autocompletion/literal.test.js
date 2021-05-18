@@ -26,7 +26,7 @@ describe('AutoCompletion - Literal', () => {
     describe('types', () => {
       it('yields nothing type', () => {
         checkCompletionTypes('RETURN "▼"', true, [{ type: CompletionTypes.NOOP }]);
-        checkCompletionTypes("RETURN '▼'", true, [{ type: CompletionTypes.NOOP }]);
+        checkCompletionTypes('RETURN \'▼\'', true, [{ type: CompletionTypes.NOOP }]);
       });
     });
 
@@ -39,7 +39,7 @@ describe('AutoCompletion - Literal', () => {
         };
 
         checkCompletion('RETURN ":▼"', expected, true);
-        checkCompletion("RETURN ':▼'", expected, true);
+        checkCompletion('RETURN \':▼\'', expected, true);
       });
     });
   });

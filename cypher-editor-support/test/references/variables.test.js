@@ -19,7 +19,7 @@
  */
 
 import { expect } from 'chai';
-import { CypherEditorSupport } from '../../src/CypherEditorSupport';
+import CypherEditorSupport from '../../src/CypherEditorSupport';
 import { reduceElement } from '../util';
 
 describe('Reference Traverser - Variables', () => {
@@ -27,7 +27,7 @@ describe('Reference Traverser - Variables', () => {
     const b = new CypherEditorSupport('RETURN n');
 
     const refs = b.getReferences(1, 7);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'VariableContext',
         start: {
@@ -47,7 +47,7 @@ describe('Reference Traverser - Variables', () => {
     const b = new CypherEditorSupport('MATCH (n)-[r]->(n) RETURN n');
 
     const refs = b.getReferences(1, 7);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'VariableContext',
         start: {
@@ -91,7 +91,7 @@ describe('Reference Traverser - Variables', () => {
     const b = new CypherEditorSupport('MATCH (n) RETURN n; MATCH (n) RETURN n');
 
     const refs = b.getReferences(1, 7);
-    expect(refs.map(r => reduceElement(r))).to.deep.equal([
+    expect(refs.map((r) => reduceElement(r))).to.deep.equal([
       {
         rule: 'VariableContext',
         start: {
