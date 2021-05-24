@@ -7,7 +7,7 @@
   "version": "1.1.6",
   "author": "Neo Technology Inc.",
   "license": "GPL-3.0",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/neo4j-contrib/cypher-editor.git"
@@ -16,7 +16,7 @@
     "url": "https://github.com/neo4j-contrib/cypher-editor/issues"
   },
   "scripts": {
-    "build": "rm -rf dist/ && webpack",
+    "build": "babel -d ./dist ./src -s",
     "test": "jest",
     "eslint": "eslint src/** test/**",
     "eslint-fix": "eslint --fix src/** test/**",
@@ -31,9 +31,17 @@
     "yarn.lock",
     "webpack.config.js"
   ],
-  "engineStrict": true,
-  "engines": {
-    "node": ">=8.2.0"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
     "antlr4": "4.9.2",
@@ -57,6 +65,7 @@
     "eslint-plugin-jest": "^24.3.6",
     "jest": "^26.6.3",
     "mocha": "8.4.0",
-    "webpack": "5.37.0"
+    "webpack": "5.37.0",
+    "webpack-cli": "^4.7.0"
   }
 }
