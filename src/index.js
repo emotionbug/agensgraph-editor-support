@@ -25,6 +25,6 @@ import extractStatements from './util/extractStatements';
 import * as CypherTypes from './lang/CypherTypes';
 import CypherKeywords from './lang/CypherKeywords';
 
-export {
+export default {
   CypherEditorSupport, CypherTypes, CypherKeywords, TreeUtils, parse, extractStatements,
 };
