@@ -51,325 +51,325 @@ lexer grammar SQLLexer;
     PG_ABORT: [aA] [bB] [oO] [rR] [tT];    // first identifier rule, sync with CustomSQLAntlrErrorStrategy & AntlrUtils
     PG_ABSOLUTE: [aA] [bB] [sS] [oO] [lL] [uU] [tT] [eE];
     PG_ACCESS: [aA] [cC] [cC] [eE] [sS] [sS];
-    ACTION: [aA] [cC] [tT] [iI] [oO] [nN];
-    ADD: [aA] [dD] [dD];
-    ADMIN: [aA] [dD] [mM] [iI] [nN];
-    AFTER: [aA] [fF] [tT] [eE] [rR];
-    AGGREGATE: [aA] [gG] [gG] [rR] [eE] [gG] [aA] [tT] [eE];
-    ALSO: [aA] [lL] [sS] [oO];
+    PG_ACTION: [aA] [cC] [tT] [iI] [oO] [nN];
+    PG_ADD: [aA] [dD] [dD];
+    PG_ADMIN: [aA] [dD] [mM] [iI] [nN];
+    PG_AFTER: [aA] [fF] [tT] [eE] [rR];
+    PG_AGGREGATE: [aA] [gG] [gG] [rR] [eE] [gG] [aA] [tT] [eE];
+    PG_ALSO: [aA] [lL] [sS] [oO];
     PG_ALTER: [aA] [lL] [tT] [eE] [rR];
-    ALWAYS: [aA] [lL] [wW] [aA] [yY] [sS];
-    ASSERTION: [aA] [sS] [sS] [eE] [rR] [tT] [iI] [oO] [nN];
-    ASSIGNMENT: [aA] [sS] [sS] [iI] [gG] [nN] [mM] [eE] [nN] [tT];
-    AT: [aA] [tT];
-    ATTACH: [aA] [tT] [tT] [aA] [cC] [hH];
-    ATTRIBUTE: [aA] [tT] [tT] [rR] [iI] [bB] [uU] [tT] [eE];
+    PG_ALWAYS: [aA] [lL] [wW] [aA] [yY] [sS];
+    PG_ASSERTION: [aA] [sS] [sS] [eE] [rR] [tT] [iI] [oO] [nN];
+    PG_ASSIGNMENT: [aA] [sS] [sS] [iI] [gG] [nN] [mM] [eE] [nN] [tT];
+    PG_AT: [aA] [tT];
+    PG_ATTACH: [aA] [tT] [tT] [aA] [cC] [hH];
+    PG_ATTRIBUTE: [aA] [tT] [tT] [rR] [iI] [bB] [uU] [tT] [eE];
 
     PG_BACKWARD: [bB] [aA] [cC] [kK] [wW] [aA] [rR] [dD];
-    BEFORE: [bB] [eE] [fF] [oO] [rR] [eE];
+    PG_BEFORE: [bB] [eE] [fF] [oO] [rR] [eE];
     PG_BEGIN: [bB] [eE] [gG] [iI] [nN];
-    BY: [bB] [yY];
+    PG_BY: [bB] [yY];
 
-    CACHE: [cC] [aA] [cC] [hH] [eE];
+    PG_CACHE: [cC] [aA] [cC] [hH] [eE];
     PG_CALL: [cC] [aA] [lL] [lL];
-    CALLED: [cC] [aA] [lL] [lL] [eE] [dD];
-    CASCADE: [cC] [aA] [sS] [cC] [aA] [dD] [eE];
-    CASCADED: [cC] [aA] [sS] [cC] [aA] [dD] [eE] [dD];
-    CATALOG: [cC] [aA] [tT] [aA] [lL] [oO] [gG];
+    PG_CALLED: [cC] [aA] [lL] [lL] [eE] [dD];
+    PG_CASCADE: [cC] [aA] [sS] [cC] [aA] [dD] [eE];
+    PG_CASCADED: [cC] [aA] [sS] [cC] [aA] [dD] [eE] [dD];
+    PG_CATALOG: [cC] [aA] [tT] [aA] [lL] [oO] [gG];
     PG_CHAIN: [cC] [hH] [aA] [iI] [nN];
-    CHARACTERISTICS: [cC] [hH] [aA] [rR] [aA] [cC] [tT] [eE] [rR] [iI] [sS] [tT] [iI] [cC] [sS];
+    PG_CHARACTERISTICS: [cC] [hH] [aA] [rR] [aA] [cC] [tT] [eE] [rR] [iI] [sS] [tT] [iI] [cC] [sS];
     PG_CHECKPOINT: [cC] [hH] [eE] [cC] [kK] [pP] [oO] [iI] [nN] [tT];
-    CLASS: [cC] [lL] [aA] [sS] [sS];
+    PG_CLASS: [cC] [lL] [aA] [sS] [sS];
     PG_CLOSE: [cC] [lL] [oO] [sS] [eE];
     PG_CLUSTER: [cC] [lL] [uU] [sS] [tT] [eE] [rR];
-    COLUMNS: [cC] [oO] [lL] [uU] [mM] [nN] [sS];
-    COMMENT: [cC] [oO] [mM] [mM] [eE] [nN] [tT];
-    COMMENTS: [cC] [oO] [mM] [mM] [eE] [nN] [tT] [sS];
+    PG_COLUMNS: [cC] [oO] [lL] [uU] [mM] [nN] [sS];
+    PG_COMMENT: [cC] [oO] [mM] [mM] [eE] [nN] [tT];
+    PG_COMMENTS: [cC] [oO] [mM] [mM] [eE] [nN] [tT] [sS];
     PG_COMMIT: [cC] [oO] [mM] [mM] [iI] [tT];
     PG_COMMITTED: [cC] [oO] [mM] [mM] [iI] [tT] [tT] [eE] [dD];
-    CONFIGURATION: [cC] [oO] [nN] [fF] [iI] [gG] [uU] [rR] [aA] [tT] [iI] [oO] [nN];
-    CONFLICT: [cC] [oO] [nN] [fF] [lL] [iI] [cC] [tT];
-    CONNECTION: [cC] [oO] [nN] [nN] [eE] [cC] [tT] [iI] [oO] [nN];
-    CONSTRAINTS: [cC] [oO] [nN] [sS] [tT] [rR] [aA] [iI] [nN] [tT] [sS];
-    CONTENT: [cC] [oO] [nN] [tT] [eE] [nN] [tT];
-    CONTINUE: [cC] [oO] [nN] [tT] [iI] [nN] [uU] [eE];
-    CONVERSION: [cC] [oO] [nN] [vV] [eE] [rR] [sS] [iI] [oO] [nN];
-    COPY: [cC] [oO] [pP] [yY];
-    COST: [cC] [oO] [sS] [tT];
-    CSV: [cC] [sS] [vV];
-    CUBE: [cC] [uU] [bB] [eE];
-    CURRENT: [cC] [uU] [rR] [rR] [eE] [nN] [tT];
+    PG_CONFIGURATION: [cC] [oO] [nN] [fF] [iI] [gG] [uU] [rR] [aA] [tT] [iI] [oO] [nN];
+    PG_CONFLICT: [cC] [oO] [nN] [fF] [lL] [iI] [cC] [tT];
+    PG_CONNECTION: [cC] [oO] [nN] [nN] [eE] [cC] [tT] [iI] [oO] [nN];
+    PG_CONSTRAINTS: [cC] [oO] [nN] [sS] [tT] [rR] [aA] [iI] [nN] [tT] [sS];
+    PG_CONTENT: [cC] [oO] [nN] [tT] [eE] [nN] [tT];
+    PG_CONTINUE: [cC] [oO] [nN] [tT] [iI] [nN] [uU] [eE];
+    PG_CONVERSION: [cC] [oO] [nN] [vV] [eE] [rR] [sS] [iI] [oO] [nN];
+    PG_COPY: [cC] [oO] [pP] [yY];
+    PG_COST: [cC] [oO] [sS] [tT];
+    PG_CSV: [cC] [sS] [vV];
+    PG_CUBE: [cC] [uU] [bB] [eE];
+    PG_CURRENT: [cC] [uU] [rR] [rR] [eE] [nN] [tT];
     PG_CURSOR: [cC] [uU] [rR] [sS] [oO] [rR];
-    CYCLE: [cC] [yY] [cC] [lL] [eE];
+    PG_CYCLE: [cC] [yY] [cC] [lL] [eE];
 
     PG_DATA: [dD] [aA] [tT] [aA];
     PG_DATABASE: [dD] [aA] [tT] [aA] [bB] [aA] [sS] [eE];
-    DAY: [dD] [aA] [yY];
+    PG_DAY: [dD] [aA] [yY];
     PG_DEALLOCATE: [dD] [eE] [aA] [lL] [lL] [oO] [cC] [aA] [tT] [eE];
     PG_DECLARE: [dD] [eE] [cC] [lL] [aA] [rR] [eE];
-    DEFAULTS: [dD] [eE] [fF] [aA] [uU] [lL] [tT] [sS];
-    DEFERRED: [dD] [eE] [fF] [eE] [rR] [rR] [eE] [dD];
-    DEFINER: [dD] [eE] [fF] [iI] [nN] [eE] [rR];
-    DELETE: [dD] [eE] [lL] [eE] [tT] [eE];
-    DELIMITER: [dD] [eE] [lL] [iI] [mM] [iI] [tT] [eE] [rR];
-    DELIMITERS: [dD] [eE] [lL] [iI] [mM] [iI] [tT] [eE] [rR] [sS];
-    DEPENDS: [dD] [eE] [pP] [eE] [nN] [dD] [sS];
-    DETACH: [dD] [eE] [tT] [aA] [cC] [hH];
-    DICTIONARY: [dD] [iI] [cC] [tT] [iI] [oO] [nN] [aA] [rR] [yY];
-    DISABLE: [dD] [iI] [sS] [aA] [bB] [lL] [eE];
+    PG_DEFAULTS: [dD] [eE] [fF] [aA] [uU] [lL] [tT] [sS];
+    PG_DEFERRED: [dD] [eE] [fF] [eE] [rR] [rR] [eE] [dD];
+    PG_DEFINER: [dD] [eE] [fF] [iI] [nN] [eE] [rR];
+    PG_DELETE: [dD] [eE] [lL] [eE] [tT] [eE];
+    PG_DELIMITER: [dD] [eE] [lL] [iI] [mM] [iI] [tT] [eE] [rR];
+    PG_DELIMITERS: [dD] [eE] [lL] [iI] [mM] [iI] [tT] [eE] [rR] [sS];
+    PG_DEPENDS: [dD] [eE] [pP] [eE] [nN] [dD] [sS];
+    PG_DETACH: [dD] [eE] [tT] [aA] [cC] [hH];
+    PG_DICTIONARY: [dD] [iI] [cC] [tT] [iI] [oO] [nN] [aA] [rR] [yY];
+    PG_DISABLE: [dD] [iI] [sS] [aA] [bB] [lL] [eE];
     PG_DISCARD: [dD] [iI] [sS] [cC] [aA] [rR] [dD];
-    DOCUMENT: [dD] [oO] [cC] [uU] [mM] [eE] [nN] [tT];
-    DOMAIN: [dD] [oO] [mM] [aA] [iI] [nN];
-    DOUBLE: [dD] [oO] [uU] [bB] [lL] [eE];
-    DROP: [dD] [rR] [oO] [pP];
+    PG_DOCUMENT: [dD] [oO] [cC] [uU] [mM] [eE] [nN] [tT];
+    PG_DOMAIN: [dD] [oO] [mM] [aA] [iI] [nN];
+    PG_DOUBLE: [dD] [oO] [uU] [bB] [lL] [eE];
+    PG_DROP: [dD] [rR] [oO] [pP];
 
-    EACH: [eE] [aA] [cC] [hH];
-    ENABLE: [eE] [nN] [aA] [bB] [lL] [eE];
-    ENCODING: [eE] [nN] [cC] [oO] [dD] [iI] [nN] [gG];
-    ENCRYPTED: [eE] [nN] [cC] [rR] [yY] [pP] [tT] [eE] [dD];
-    ENUM: [eE] [nN] [uU] [mM];
-    ESCAPE: [eE] [sS] [cC] [aA] [pP] [eE];
-    EVENT: [eE] [vV] [eE] [nN] [tT];
-    EXCLUDE: [eE] [xX] [cC] [lL] [uU] [dD] [eE];
-    EXCLUDING: [eE] [xX] [cC] [lL] [uU] [dD] [iI] [nN] [gG];
+    PG_EACH: [eE] [aA] [cC] [hH];
+    PG_ENABLE: [eE] [nN] [aA] [bB] [lL] [eE];
+    PG_ENCODING: [eE] [nN] [cC] [oO] [dD] [iI] [nN] [gG];
+    PG_ENCRYPTED: [eE] [nN] [cC] [rR] [yY] [pP] [tT] [eE] [dD];
+    PG_ENUM: [eE] [nN] [uU] [mM];
+    PG_ESCAPE: [eE] [sS] [cC] [aA] [pP] [eE];
+    PG_EVENT: [eE] [vV] [eE] [nN] [tT];
+    PG_EXCLUDE: [eE] [xX] [cC] [lL] [uU] [dD] [eE];
+    PG_EXCLUDING: [eE] [xX] [cC] [lL] [uU] [dD] [iI] [nN] [gG];
     PG_EXCLUSIVE: [eE] [xX] [cC] [lL] [uU] [sS] [iI] [vV] [eE];
     PG_EXECUTE: [eE] [xX] [eE] [cC] [uU] [tT] [eE];
     PG_EXPLAIN: [eE] [xX] [pP] [lL] [aA] [iI] [nN];
-    EXPRESSION: [eE] [xX] [pP] [rR] [eE] [sS] [sS] [iI] [oO] [nN];
-    EXTENSION: [eE] [xX] [tT] [eE] [nN] [sS] [iI] [oO] [nN];
-    EXTERNAL: [eE] [xX] [tT] [eE] [rR] [nN] [aA] [lL];
+    PG_EXPRESSION: [eE] [xX] [pP] [rR] [eE] [sS] [sS] [iI] [oO] [nN];
+    PG_EXTENSION: [eE] [xX] [tT] [eE] [nN] [sS] [iI] [oO] [nN];
+    PG_EXTERNAL: [eE] [xX] [tT] [eE] [rR] [nN] [aA] [lL];
 
-    FAMILY: [fF] [aA] [mM] [iI] [lL] [yY];
-    FILTER: [fF] [iI] [lL] [tT] [eE] [rR];
+    PG_FAMILY: [fF] [aA] [mM] [iI] [lL] [yY];
+    PG_FILTER: [fF] [iI] [lL] [tT] [eE] [rR];
     PG_FIRST: [fF] [iI] [rR] [sS] [tT];
-    FOLLOWING: [fF] [oO] [lL] [lL] [oO] [wW] [iI] [nN] [gG];
-    FORCE: [fF] [oO] [rR] [cC] [eE];
+    PG_FOLLOWING: [fF] [oO] [lL] [lL] [oO] [wW] [iI] [nN] [gG];
+    PG_FORCE: [fF] [oO] [rR] [cC] [eE];
     PG_FORWARD: [fF] [oO] [rR] [wW] [aA] [rR] [dD];
-    FUNCTION: [fF] [uU] [nN] [cC] [tT] [iI] [oO] [nN];
-    FUNCTIONS: [fF] [uU] [nN] [cC] [tT] [iI] [oO] [nN] [sS];
+    PG_FUNCTION: [fF] [uU] [nN] [cC] [tT] [iI] [oO] [nN];
+    PG_FUNCTIONS: [fF] [uU] [nN] [cC] [tT] [iI] [oO] [nN] [sS];
 
-    GENERATED: [gG] [eE] [nN] [eE] [rR] [aA] [tT] [eE] [dD];
-    GLOBAL: [gG] [lL] [oO] [bB] [aA] [lL];
-    GRANTED: [gG] [rR] [aA] [nN] [tT] [eE] [dD];
-    GROUPS: [gG] [rR] [oO] [uU] [pP] [sS];
+    PG_GENERATED: [gG] [eE] [nN] [eE] [rR] [aA] [tT] [eE] [dD];
+    PG_GLOBAL: [gG] [lL] [oO] [bB] [aA] [lL];
+    PG_GRANTED: [gG] [rR] [aA] [nN] [tT] [eE] [dD];
+    PG_GROUPS: [gG] [rR] [oO] [uU] [pP] [sS];
 
-    HANDLER: [hH] [aA] [nN] [dD] [lL] [eE] [rR];
-    HEADER: [hH] [eE] [aA] [dD] [eE] [rR];
+    PG_HANDLER: [hH] [aA] [nN] [dD] [lL] [eE] [rR];
+    PG_HEADER: [hH] [eE] [aA] [dD] [eE] [rR];
     PG_HOLD: [hH] [oO] [lL] [dD];
-    HOUR: [hH] [oO] [uU] [rR];
+    PG_HOUR: [hH] [oO] [uU] [rR];
 
-    IDENTITY: [iI] [dD] [eE] [nN] [tT] [iI] [tT] [yY];
-    IF: [iI] [fF];
-    IMMEDIATE: [iI] [mM] [mM] [eE] [dD] [iI] [aA] [tT] [eE];
-    IMMUTABLE: [iI] [mM] [mM] [uU] [tT] [aA] [bB] [lL] [eE];
-    IMPLICIT: [iI] [mM] [pP] [lL] [iI] [cC] [iI] [tT];
-    IMPORT: [iI] [mM] [pP] [oO] [rR] [tT];
-    INCLUDE: [iI] [nN] [cC] [lL] [uU] [dD] [eE];
-    INCLUDING: [iI] [nN] [cC] [lL] [uU] [dD] [iI] [nN] [gG];
-    INCREMENT: [iI] [nN] [cC] [rR] [eE] [mM] [eE] [nN] [tT];
+    PG_IDENTITY: [iI] [dD] [eE] [nN] [tT] [iI] [tT] [yY];
+    PG_IF: [iI] [fF];
+    PG_IMMEDIATE: [iI] [mM] [mM] [eE] [dD] [iI] [aA] [tT] [eE];
+    PG_IMMUTABLE: [iI] [mM] [mM] [uU] [tT] [aA] [bB] [lL] [eE];
+    PG_IMPLICIT: [iI] [mM] [pP] [lL] [iI] [cC] [iI] [tT];
+    PG_IMPORT: [iI] [mM] [pP] [oO] [rR] [tT];
+    PG_INCLUDE: [iI] [nN] [cC] [lL] [uU] [dD] [eE];
+    PG_INCLUDING: [iI] [nN] [cC] [lL] [uU] [dD] [iI] [nN] [gG];
+    PG_INCREMENT: [iI] [nN] [cC] [rR] [eE] [mM] [eE] [nN] [tT];
     PG_INDEX: [iI] [nN] [dD] [eE] [xX];
-    INDEXES: [iI] [nN] [dD] [eE] [xX] [eE] [sS];
-    INHERIT: [iI] [nN] [hH] [eE] [rR] [iI] [tT];
-    INHERITS: [iI] [nN] [hH] [eE] [rR] [iI] [tT] [sS];
-    INLINE: [iI] [nN] [lL] [iI] [nN] [eE];
-    INPUT: [iI] [nN] [pP] [uU] [tT];
+    PG_INDEXES: [iI] [nN] [dD] [eE] [xX] [eE] [sS];
+    PG_INHERIT: [iI] [nN] [hH] [eE] [rR] [iI] [tT];
+    PG_INHERITS: [iI] [nN] [hH] [eE] [rR] [iI] [tT] [sS];
+    PG_INLINE: [iI] [nN] [lL] [iI] [nN] [eE];
+    PG_INPUT: [iI] [nN] [pP] [uU] [tT];
     PG_INSENSITIVE: [iI] [nN] [sS] [eE] [nN] [sS] [iI] [tT] [iI] [vV] [eE];
-    INSERT: [iI] [nN] [sS] [eE] [rR] [tT];
-    INSTEAD: [iI] [nN] [sS] [tT] [eE] [aA] [dD];
-    INVOKER: [iI] [nN] [vV] [oO] [kK] [eE] [rR];
+    PG_INSERT: [iI] [nN] [sS] [eE] [rR] [tT];
+    PG_INSTEAD: [iI] [nN] [sS] [tT] [eE] [aA] [dD];
+    PG_INVOKER: [iI] [nN] [vV] [oO] [kK] [eE] [rR];
     PG_ISOLATION: [iI] [sS] [oO] [lL] [aA] [tT] [iI] [oO] [nN];
 
-    KEY: [kK] [eE] [yY];
+    PG_KEY: [kK] [eE] [yY];
 
-    LABEL: [lL] [aA] [bB] [eE] [lL];
-    LANGUAGE: [lL] [aA] [nN] [gG] [uU] [aA] [gG] [eE];
-    LARGE: [lL] [aA] [rR] [gG] [eE];
+    PG_LABEL: [lL] [aA] [bB] [eE] [lL];
+    PG_LANGUAGE: [lL] [aA] [nN] [gG] [uU] [aA] [gG] [eE];
+    PG_LARGE: [lL] [aA] [rR] [gG] [eE];
     PG_LAST: [lL] [aA] [sS] [tT];
-    LEAKPROOF: [lL] [eE] [aA] [kK] [pP] [rR] [oO] [oO] [fF];
+    PG_LEAKPROOF: [lL] [eE] [aA] [kK] [pP] [rR] [oO] [oO] [fF];
     PG_LEVEL: [lL] [eE] [vV] [eE] [lL];
     PG_LISTEN: [lL] [iI] [sS] [tT] [eE] [nN];
     PG_LOAD: [lL] [oO] [aA] [dD];
-    LOCAL: [lL] [oO] [cC] [aA] [lL];
-    LOCATION: [lL] [oO] [cC] [aA] [tT] [iI] [oO] [nN];
+    PG_LOCAL: [lL] [oO] [cC] [aA] [lL];
+    PG_LOCATION: [lL] [oO] [cC] [aA] [tT] [iI] [oO] [nN];
     PG_LOCK: [lL] [oO] [cC] [kK];
-    LOCKED: [lL] [oO] [cC] [kK] [eE] [dD];
-    LOGGED: [lL] [oO] [gG] [gG] [eE] [dD];
+    PG_LOCKED: [lL] [oO] [cC] [kK] [eE] [dD];
+    PG_LOGGED: [lL] [oO] [gG] [gG] [eE] [dD];
 
-    MAPPING: [mM] [aA] [pP] [pP] [iI] [nN] [gG];
-    MATCH: [mM] [aA] [tT] [cC] [hH];
+    PG_MAPPING: [mM] [aA] [pP] [pP] [iI] [nN] [gG];
+    PG_MATCH: [mM] [aA] [tT] [cC] [hH];
     PG_MATERIALIZED: [mM] [aA] [tT] [eE] [rR] [iI] [aA] [lL] [iI] [zZ] [eE] [dD];
-    MAXVALUE: [mM] [aA] [xX] [vV] [aA] [lL] [uU] [eE];
-    METHOD: [mM] [eE] [tT] [hH] [oO] [dD];
-    MINUTE: [mM] [iI] [nN] [uU] [tT] [eE];
-    MINVALUE: [mM] [iI] [nN] [vV] [aA] [lL] [uU] [eE];
+    PG_MAXVALUE: [mM] [aA] [xX] [vV] [aA] [lL] [uU] [eE];
+    PG_METHOD: [mM] [eE] [tT] [hH] [oO] [dD];
+    PG_MINUTE: [mM] [iI] [nN] [uU] [tT] [eE];
+    PG_MINVALUE: [mM] [iI] [nN] [vV] [aA] [lL] [uU] [eE];
     PG_MODE: [mM] [oO] [dD] [eE];
-    MONTH: [mM] [oO] [nN] [tT] [hH];
+    PG_MONTH: [mM] [oO] [nN] [tT] [hH];
     PG_MOVE: [mM] [oO] [vV] [eE];
 
-    NAME: [nN] [aA] [mM] [eE];
-    NAMES: [nN] [aA] [mM] [eE] [sS];
-    NEW: [nN] [eE] [wW];
+    PG_NAME: [nN] [aA] [mM] [eE];
+    PG_NAMES: [nN] [aA] [mM] [eE] [sS];
+    PG_NEW: [nN] [eE] [wW];
     PG_NEXT: [nN] [eE] [xX] [tT];
-    NFC: [nN] [fF] [cC];
-    NFD: [nN] [fF] [dD];
-    NFKC: [nN] [fF] [kK] [cC];
-    NFKD: [nN] [fF] [kK] [dD];
+    PG_NFC: [nN] [fF] [cC];
+    PG_NFD: [nN] [fF] [dD];
+    PG_NFKC: [nN] [fF] [kK] [cC];
+    PG_NFKD: [nN] [fF] [kK] [dD];
     PG_NO: [nN] [oO];
-    NORMALIZED: [nN] [oO] [rR] [mM] [aA] [lL] [iI] [zZ] [eE] [dD];
-    NOTHING: [nN] [oO] [tT] [hH] [iI] [nN] [gG];
-    NOTIFY: [nN] [oO] [tT] [iI] [fF] [yY];
+    PG_NORMALIZED: [nN] [oO] [rR] [mM] [aA] [lL] [iI] [zZ] [eE] [dD];
+    PG_NOTHING: [nN] [oO] [tT] [hH] [iI] [nN] [gG];
+    PG_NOTIFY: [nN] [oO] [tT] [iI] [fF] [yY];
     PG_NOWAIT: [nN] [oO] [wW] [aA] [iI] [tT];
-    NULLS: [nN] [uU] [lL] [lL] [sS];
+    PG_NULLS: [nN] [uU] [lL] [lL] [sS];
 
-    OBJECT: [oO] [bB] [jJ] [eE] [cC] [tT];
-    OF: [oO] [fF];
+    PG_OBJECT: [oO] [bB] [jJ] [eE] [cC] [tT];
+    PG_OF: [oO] [fF];
     PG_OFF: [oO] [fF] [fF];
-    OIDS: [oO] [iI] [dD] [sS];
-    OLD: [oO] [lL] [dD];
-    OPERATOR: [oO] [pP] [eE] [rR] [aA] [tT] [oO] [rR];
-    OPTION: [oO] [pP] [tT] [iI] [oO] [nN];
-    OPTIONS: [oO] [pP] [tT] [iI] [oO] [nN] [sS];
-    ORDINALITY: [oO] [rR] [dD] [iI] [nN] [aA] [lL] [iI] [tT] [yY];
-    OTHERS: [oO] [tT] [hH] [eE] [rR] [sS];
-    OVER: [oO] [vV] [eE] [rR];
-    OVERRIDING: [oO] [vV] [eE] [rR] [rR] [iI] [dD] [iI] [nN] [gG];
-    OWNED: [oO] [wW] [nN] [eE] [dD];
-    OWNER: [oO] [wW] [nN] [eE] [rR];
+    PG_OIDS: [oO] [iI] [dD] [sS];
+    PG_OLD: [oO] [lL] [dD];
+    PG_OPERATOR: [oO] [pP] [eE] [rR] [aA] [tT] [oO] [rR];
+    PG_OPTION: [oO] [pP] [tT] [iI] [oO] [nN];
+    PG_OPTIONS: [oO] [pP] [tT] [iI] [oO] [nN] [sS];
+    PG_ORDINALITY: [oO] [rR] [dD] [iI] [nN] [aA] [lL] [iI] [tT] [yY];
+    PG_OTHERS: [oO] [tT] [hH] [eE] [rR] [sS];
+    PG_OVER: [oO] [vV] [eE] [rR];
+    PG_OVERRIDING: [oO] [vV] [eE] [rR] [rR] [iI] [dD] [iI] [nN] [gG];
+    PG_OWNED: [oO] [wW] [nN] [eE] [dD];
+    PG_OWNER: [oO] [wW] [nN] [eE] [rR];
 
     PG_PARALLEL: [pP] [aA] [rR] [aA] [lL] [lL] [eE] [lL];
-    PARSER: [pP] [aA] [rR] [sS] [eE] [rR];
-    PARTIAL: [pP] [aA] [rR] [tT] [iI] [aA] [lL];
-    PARTITION: [pP] [aA] [rR] [tT] [iI] [tT] [iI] [oO] [nN];
-    PASSING: [pP] [aA] [sS] [sS] [iI] [nN] [gG];
-    PASSWORD: [pP] [aA] [sS] [sS] [wW] [oO] [rR] [dD];
+    PG_PARSER: [pP] [aA] [rR] [sS] [eE] [rR];
+    PG_PARTIAL: [pP] [aA] [rR] [tT] [iI] [aA] [lL];
+    PG_PARTITION: [pP] [aA] [rR] [tT] [iI] [tT] [iI] [oO] [nN];
+    PG_PASSING: [pP] [aA] [sS] [sS] [iI] [nN] [gG];
+    PG_PASSWORD: [pP] [aA] [sS] [sS] [wW] [oO] [rR] [dD];
     PG_PLANS: [pP] [lL] [aA] [nN] [sS];
-    POLICY: [pP] [oO] [lL] [iI] [cC] [yY];
-    PRECEDING: [pP] [rR] [eE] [cC] [eE] [dD] [iI] [nN] [gG];
+    PG_POLICY: [pP] [oO] [lL] [iI] [cC] [yY];
+    PG_PRECEDING: [pP] [rR] [eE] [cC] [eE] [dD] [iI] [nN] [gG];
     PG_PREPARE: [pP] [rR] [eE] [pP] [aA] [rR] [eE];
     PG_PREPARED: [pP] [rR] [eE] [pP] [aA] [rR] [eE] [dD];
-    PRESERVE: [pP] [rR] [eE] [sS] [eE] [rR] [vV] [eE];
+    PG_PRESERVE: [pP] [rR] [eE] [sS] [eE] [rR] [vV] [eE];
     PG_PRIOR: [pP] [rR] [iI] [oO] [rR];
-    PRIVILEGES: [pP] [rR] [iI] [vV] [iI] [lL] [eE] [gG] [eE] [sS];
-    PROCEDURAL: [pP] [rR] [oO] [cC] [eE] [dD] [uU] [rR] [aA] [lL];
-    PROCEDURE: [pP] [rR] [oO] [cC] [eE] [dD] [uU] [rR] [eE];
-    PROCEDURES: [pP] [rR] [oO] [cC] [eE] [dD] [uU] [rR] [eE] [sS];
-    PROGRAM: [pP] [rR] [oO] [gG] [rR] [aA] [mM];
-    PUBLICATION: [pP] [uU] [bB] [lL] [iI] [cC] [aA] [tT] [iI] [oO] [nN];
+    PG_PRIVILEGES: [pP] [rR] [iI] [vV] [iI] [lL] [eE] [gG] [eE] [sS];
+    PG_PROCEDURAL: [pP] [rR] [oO] [cC] [eE] [dD] [uU] [rR] [aA] [lL];
+    PG_PROCEDURE: [pP] [rR] [oO] [cC] [eE] [dD] [uU] [rR] [eE];
+    PG_PROCEDURES: [pP] [rR] [oO] [cC] [eE] [dD] [uU] [rR] [eE] [sS];
+    PG_PROGRAM: [pP] [rR] [oO] [gG] [rR] [aA] [mM];
+    PG_PUBLICATION: [pP] [uU] [bB] [lL] [iI] [cC] [aA] [tT] [iI] [oO] [nN];
 
-    QUOTE: [qQ] [uU] [oO] [tT] [eE];
+    PG_QUOTE: [qQ] [uU] [oO] [tT] [eE];
 
-    RANGE: [rR] [aA] [nN] [gG] [eE];
+    PG_RANGE: [rR] [aA] [nN] [gG] [eE];
     PG_READ: [rR] [eE] [aA] [dD];
-    REASSIGN: [rR] [eE] [aA] [sS] [sS] [iI] [gG] [nN];
-    RECHECK: [rR] [eE] [cC] [hH] [eE] [cC] [kK];
-    RECURSIVE: [rR] [eE] [cC] [uU] [rR] [sS] [iI] [vV] [eE];
-    REF: [rR] [eE] [fF];
-    REFERENCING: [rR] [eE] [fF] [eE] [rR] [eE] [nN] [cC] [iI] [nN] [gG];
+    PG_REASSIGN: [rR] [eE] [aA] [sS] [sS] [iI] [gG] [nN];
+    PG_RECHECK: [rR] [eE] [cC] [hH] [eE] [cC] [kK];
+    PG_RECURSIVE: [rR] [eE] [cC] [uU] [rR] [sS] [iI] [vV] [eE];
+    PG_REF: [rR] [eE] [fF];
+    PG_REFERENCING: [rR] [eE] [fF] [eE] [rR] [eE] [nN] [cC] [iI] [nN] [gG];
     PG_REFRESH: [rR] [eE] [fF] [rR] [eE] [sS] [hH];
     PG_REINDEX: [rR] [eE] [iI] [nN] [dD] [eE] [xX];
     PG_RELATIVE: [rR] [eE] [lL] [aA] [tT] [iI] [vV] [eE];
     PG_RELEASE: [rR] [eE] [lL] [eE] [aA] [sS] [eE];
-    RENAME: [rR] [eE] [nN] [aA] [mM] [eE];
+    PG_RENAME: [rR] [eE] [nN] [aA] [mM] [eE];
     PG_REPEATABLE: [rR] [eE] [pP] [eE] [aA] [tT] [aA] [bB] [lL] [eE];
-    REPLACE: [rR] [eE] [pP] [lL] [aA] [cC] [eE];
-    REPLICA: [rR] [eE] [pP] [lL] [iI] [cC] [aA];
+    PG_REPLACE: [rR] [eE] [pP] [lL] [aA] [cC] [eE];
+    PG_REPLICA: [rR] [eE] [pP] [lL] [iI] [cC] [aA];
     PG_RESET: [rR] [eE] [sS] [eE] [tT];
-    RESTART: [rR] [eE] [sS] [tT] [aA] [rR] [tT];
-    RESTRICT: [rR] [eE] [sS] [tT] [rR] [iI] [cC] [tT];
-    RETURNS: [rR] [eE] [tT] [uU] [rR] [nN] [sS];
-    REVOKE: [rR] [eE] [vV] [oO] [kK] [eE];
-    ROLE: [rR] [oO] [lL] [eE];
+    PG_RESTART: [rR] [eE] [sS] [tT] [aA] [rR] [tT];
+    PG_RESTRICT: [rR] [eE] [sS] [tT] [rR] [iI] [cC] [tT];
+    PG_RETURNS: [rR] [eE] [tT] [uU] [rR] [nN] [sS];
+    PG_REVOKE: [rR] [eE] [vV] [oO] [kK] [eE];
+    PG_ROLE: [rR] [oO] [lL] [eE];
     PG_ROLLBACK: [rR] [oO] [lL] [lL] [bB] [aA] [cC] [kK];
-    ROLLUP: [rR] [oO] [lL] [lL] [uU] [pP];
-    ROUTINE: [rR] [oO] [uU] [tT] [iI] [nN] [eE];
-    ROUTINES: [rR] [oO] [uU] [tT] [iI] [nN] [eE] [sS];
-    ROWS: [rR] [oO] [wW] [sS];
-    RULE: [rR] [uU] [lL] [eE];
+    PG_ROLLUP: [rR] [oO] [lL] [lL] [uU] [pP];
+    PG_ROUTINE: [rR] [oO] [uU] [tT] [iI] [nN] [eE];
+    PG_ROUTINES: [rR] [oO] [uU] [tT] [iI] [nN] [eE] [sS];
+    PG_ROWS: [rR] [oO] [wW] [sS];
+    PG_RULE: [rR] [uU] [lL] [eE];
 
     PG_SAVEPOINT: [sS] [aA] [vV] [eE] [pP] [oO] [iI] [nN] [tT];
     PG_SCHEMA: [sS] [cC] [hH] [eE] [mM] [aA];
-    SCHEMAS: [sS] [cC] [hH] [eE] [mM] [aA] [sS];
+    PG_SCHEMAS: [sS] [cC] [hH] [eE] [mM] [aA] [sS];
     PG_SCROLL: [sS] [cC] [rR] [oO] [lL] [lL];
-    SEARCH: [sS] [eE] [aA] [rR] [cC] [hH];
-    SECOND: [sS] [eE] [cC] [oO] [nN] [dD];
-    SECURITY: [sS] [eE] [cC] [uU] [rR] [iI] [tT] [yY];
-    SEQUENCE: [sS] [eE] [qQ] [uU] [eE] [nN] [cC] [eE];
+    PG_SEARCH: [sS] [eE] [aA] [rR] [cC] [hH];
+    PG_SECOND: [sS] [eE] [cC] [oO] [nN] [dD];
+    PG_SECURITY: [sS] [eE] [cC] [uU] [rR] [iI] [tT] [yY];
+    PG_SEQUENCE: [sS] [eE] [qQ] [uU] [eE] [nN] [cC] [eE];
     PG_SEQUENCES: [sS] [eE] [qQ] [uU] [eE] [nN] [cC] [eE] [sS];
     PG_SERIALIZABLE: [sS] [eE] [rR] [iI] [aA] [lL] [iI] [zZ] [aA] [bB] [lL] [eE];
-    SERVER: [sS] [eE] [rR] [vV] [eE] [rR];
+    PG_SERVER: [sS] [eE] [rR] [vV] [eE] [rR];
     PG_SESSION: [sS] [eE] [sS] [sS] [iI] [oO] [nN];
-    SET: [sS] [eE] [tT];
-    SETS: [sS] [eE] [tT] [sS];
+    PG_SET: [sS] [eE] [tT];
+    PG_SETS: [sS] [eE] [tT] [sS];
     PG_SHARE: [sS] [hH] [aA] [rR] [eE];
     PG_SHOW: [sS] [hH] [oO] [wW];
-    SIMPLE: [sS] [iI] [mM] [pP] [lL] [eE];
+    PG_SIMPLE: [sS] [iI] [mM] [pP] [lL] [eE];
     // SKIP is reserved by ANTLR
-    SKIP_: [sS] [kK] [iI] [pP];
-    SNAPSHOT: [sS] [nN] [aA] [pP] [sS] [hH] [oO] [tT];
-    SQL: [sS] [qQ] [lL];
-    STABLE: [sS] [tT] [aA] [bB] [lL] [eE];
-    STANDALONE: [sS] [tT] [aA] [nN] [dD] [aA] [lL] [oO] [nN] [eE];
+    PG_SKIP_: [sS] [kK] [iI] [pP];
+    PG_SNAPSHOT: [sS] [nN] [aA] [pP] [sS] [hH] [oO] [tT];
+    PG_SQL: [sS] [qQ] [lL];
+    PG_STABLE: [sS] [tT] [aA] [bB] [lL] [eE];
+    PG_STANDALONE: [sS] [tT] [aA] [nN] [dD] [aA] [lL] [oO] [nN] [eE];
     PG_START: [sS] [tT] [aA] [rR] [tT];
-    STATEMENT: [sS] [tT] [aA] [tT] [eE] [mM] [eE] [nN] [tT];
-    STATISTICS: [sS] [tT] [aA] [tT] [iI] [sS] [tT] [iI] [cC] [sS];
-    STDIN: [sS] [tT] [dD] [iI] [nN];
-    STDOUT: [sS] [tT] [dD] [oO] [uU] [tT];
-    STORAGE: [sS] [tT] [oO] [rR] [aA] [gG] [eE];
-    STORED: [sS] [tT] [oO] [rR] [eE] [dD];
-    STRICT: [sS] [tT] [rR] [iI] [cC] [tT];
-    STRIP: [sS] [tT] [rR] [iI] [pP];
-    SUBSCRIPTION: [sS] [uU] [bB] [sS] [cC] [rR] [iI] [pP] [tT] [iI] [oO] [nN];
-    SUPPORT: [sS] [uU] [pP] [pP] [oO] [rR] [tT];
-    SYSID: [sS] [yY] [sS] [iI] [dD];
+    PG_STATEMENT: [sS] [tT] [aA] [tT] [eE] [mM] [eE] [nN] [tT];
+    PG_STATISTICS: [sS] [tT] [aA] [tT] [iI] [sS] [tT] [iI] [cC] [sS];
+    PG_STDIN: [sS] [tT] [dD] [iI] [nN];
+    PG_STDOUT: [sS] [tT] [dD] [oO] [uU] [tT];
+    PG_STORAGE: [sS] [tT] [oO] [rR] [aA] [gG] [eE];
+    PG_STORED: [sS] [tT] [oO] [rR] [eE] [dD];
+    PG_STRICT: [sS] [tT] [rR] [iI] [cC] [tT];
+    PG_STRIP: [sS] [tT] [rR] [iI] [pP];
+    PG_SUBSCRIPTION: [sS] [uU] [bB] [sS] [cC] [rR] [iI] [pP] [tT] [iI] [oO] [nN];
+    PG_SUPPORT: [sS] [uU] [pP] [pP] [oO] [rR] [tT];
+    PG_SYSID: [sS] [yY] [sS] [iI] [dD];
     PG_SYSTEM: [sS] [yY] [sS] [tT] [eE] [mM];
 
-    TABLES: [tT] [aA] [bB] [lL] [eE] [sS];
-    TABLESPACE: [tT] [aA] [bB] [lL] [eE] [sS] [pP] [aA] [cC] [eE];
+    PG_TABLES: [tT] [aA] [bB] [lL] [eE] [sS];
+    PG_TABLESPACE: [tT] [aA] [bB] [lL] [eE] [sS] [pP] [aA] [cC] [eE];
     PG_TEMP: [tT] [eE] [mM] [pP];
-    TEMPLATE: [tT] [eE] [mM] [pP] [lL] [aA] [tT] [eE];
+    PG_TEMPLATE: [tT] [eE] [mM] [pP] [lL] [aA] [tT] [eE];
     PG_TEMPORARY: [tT] [eE] [mM] [pP] [oO] [rR] [aA] [rR] [yY];
     PG_TEXT: [tT] [eE] [xX] [tT];
-    TIES: [tT] [iI] [eE] [sS];
+    PG_TIES: [tT] [iI] [eE] [sS];
     PG_TRANSACTION: [tT] [rR] [aA] [nN] [sS] [aA] [cC] [tT] [iI] [oO] [nN];
-    TRANSFORM: [tT] [rR] [aA] [nN] [sS] [fF] [oO] [rR] [mM];
-    TRIGGER: [tT] [rR] [iI] [gG] [gG] [eE] [rR];
+    PG_TRANSFORM: [tT] [rR] [aA] [nN] [sS] [fF] [oO] [rR] [mM];
+    PG_TRIGGER: [tT] [rR] [iI] [gG] [gG] [eE] [rR];
     PG_TRUNCATE: [tT] [rR] [uU] [nN] [cC] [aA] [tT] [eE];
-    TRUSTED: [tT] [rR] [uU] [sS] [tT] [eE] [dD];
-    TYPE: [tT] [yY] [pP] [eE];
-    TYPES: [tT] [yY] [pP] [eE] [sS];
+    PG_TRUSTED: [tT] [rR] [uU] [sS] [tT] [eE] [dD];
+    PG_TYPE: [tT] [yY] [pP] [eE];
+    PG_TYPES: [tT] [yY] [pP] [eE] [sS];
 
-    UESCAPE: [uU] [eE] [sS] [cC] [aA] [pP] [eE];
-    UNBOUNDED: [uU] [nN] [bB] [oO] [uU] [nN] [dD] [eE] [dD];
+    PG_UESCAPE: [uU] [eE] [sS] [cC] [aA] [pP] [eE];
+    PG_UNBOUNDED: [uU] [nN] [bB] [oO] [uU] [nN] [dD] [eE] [dD];
     PG_UNCOMMITTED: [uU] [nN] [cC] [oO] [mM] [mM] [iI] [tT] [tT] [eE] [dD];
-    UNENCRYPTED: [uU] [nN] [eE] [nN] [cC] [rR] [yY] [pP] [tT] [eE] [dD];
-    UNKNOWN: [uU] [nN] [kK] [nN] [oO] [wW] [nN];
+    PG_UNENCRYPTED: [uU] [nN] [eE] [nN] [cC] [rR] [yY] [pP] [tT] [eE] [dD];
+    PG_UNKNOWN: [uU] [nN] [kK] [nN] [oO] [wW] [nN];
     PG_UNLISTEN: [uU] [nN] [lL] [iI] [sS] [tT] [eE] [nN];
-    UNLOGGED: [uU] [nN] [lL] [oO] [gG] [gG] [eE] [dD];
-    UNTIL: [uU] [nN] [tT] [iI] [lL];
+    PG_UNLOGGED: [uU] [nN] [lL] [oO] [gG] [gG] [eE] [dD];
+    PG_UNTIL: [uU] [nN] [tT] [iI] [lL];
     PG_UPDATE: [uU] [pP] [dD] [aA] [tT] [eE];
 
     PG_VACUUM: [vV] [aA] [cC] [uU] [uU] [mM];
-    VALID: [vV] [aA] [lL] [iI] [dD];
-    VALIDATE: [vV] [aA] [lL] [iI] [dD] [aA] [tT] [eE];
-    VALIDATOR: [vV] [aA] [lL] [iI] [dD] [aA] [tT] [oO] [rR];
-    VALUE: [vV] [aA] [lL] [uU] [eE];
-    VARYING: [vV] [aA] [rR] [yY] [iI] [nN] [gG];
-    VERSION: [vV] [eE] [rR] [sS] [iI] [oO] [nN];
+    PG_VALID: [vV] [aA] [lL] [iI] [dD];
+    PG_VALIDATE: [vV] [aA] [lL] [iI] [dD] [aA] [tT] [eE];
+    PG_VALIDATOR: [vV] [aA] [lL] [iI] [dD] [aA] [tT] [oO] [rR];
+    PG_VALUE: [vV] [aA] [lL] [uU] [eE];
+    PG_VARYING: [vV] [aA] [rR] [yY] [iI] [nN] [gG];
+    PG_VERSION: [vV] [eE] [rR] [sS] [iI] [oO] [nN];
     PG_VIEW: [vV] [iI] [eE] [wW];
-    VIEWS: [vV] [iI] [eE] [wW] [sS];
-    VOLATILE: [vV] [oO] [lL] [aA] [tT] [iI] [lL] [eE];
+    PG_VIEWS: [vV] [iI] [eE] [wW] [sS];
+    PG_VOLATILE: [vV] [oO] [lL] [aA] [tT] [iI] [lL] [eE];
 
-    WHITESPACE: [wW] [hH] [iI] [tT] [eE] [sS] [pP] [aA] [cC] [eE];
-    WITHIN: [wW] [iI] [tT] [hH] [iI] [nN];
+    PG_WHITESPACE: [wW] [hH] [iI] [tT] [eE] [sS] [pP] [aA] [cC] [eE];
+    PG_WITHIN: [wW] [iI] [tT] [hH] [iI] [nN];
     PG_WITHOUT: [wW] [iI] [tT] [hH] [oO] [uU] [tT];
     PG_WORK: [wW] [oO] [rR] [kK];
-    WRAPPER: [wW] [rR] [aA] [pP] [pP] [eE] [rR];
+    PG_WRAPPER: [wW] [rR] [aA] [pP] [pP] [eE] [rR];
     PG_WRITE: [wW] [rR] [iI] [tT] [eE];
 
     PG_XML: [xX] [mM] [lL];
 
-    YEAR: [yY] [eE] [aA] [rR];
-    YES: [yY] [eE] [sS];
+    PG_YEAR: [yY] [eE] [aA] [rR];
+    PG_YES: [yY] [eE] [sS];
 
     PG_ZONE: [zZ] [oO] [nN] [eE];
 
@@ -379,72 +379,72 @@ lexer grammar SQLLexer;
     ==================================================
     */
 
-    BETWEEN: [bB] [eE] [tT] [wW] [eE] [eE] [nN];
-    BIGINT: [bB] [iI] [gG] [iI] [nN] [tT];
-    BIT: [bB] [iI] [tT];
-    BOOLEAN: [bB] [oO] [oO] [lL] [eE] [aA] [nN];
+    PG_BETWEEN: [bB] [eE] [tT] [wW] [eE] [eE] [nN];
+    PG_BIGINT: [bB] [iI] [gG] [iI] [nN] [tT];
+    PG_BIT: [bB] [iI] [tT];
+    PG_BOOLEAN: [bB] [oO] [oO] [lL] [eE] [aA] [nN];
 
-    CHAR: [cC] [hH] [aA] [rR];
-    CHARACTER: [cC] [hH] [aA] [rR] [aA] [cC] [tT] [eE] [rR];
-    COALESCE: [cC] [oO] [aA] [lL] [eE] [sS] [cC] [eE];
+    PG_CHAR: [cC] [hH] [aA] [rR];
+    PG_CHARACTER: [cC] [hH] [aA] [rR] [aA] [cC] [tT] [eE] [rR];
+    PG_COALESCE: [cC] [oO] [aA] [lL] [eE] [sS] [cC] [eE];
 
-    DEC: [dD] [eE] [cC];
-    DECIMAL: [dD] [eE] [cC] [iI] [mM] [aA] [lL];
+    PG_DEC: [dD] [eE] [cC];
+    PG_DECIMAL: [dD] [eE] [cC] [iI] [mM] [aA] [lL];
 
-    EXISTS: [eE] [xX] [iI] [sS] [tT] [sS];
-    EXTRACT: [eE] [xX] [tT] [rR] [aA] [cC] [tT];
+    PG_EXISTS: [eE] [xX] [iI] [sS] [tT] [sS];
+    PG_EXTRACT: [eE] [xX] [tT] [rR] [aA] [cC] [tT];
 
-    FLOAT: [fF] [lL] [oO] [aA] [tT];
+    PG_FLOAT: [fF] [lL] [oO] [aA] [tT];
 
-    GREATEST: [gG] [rR] [eE] [aA] [tT] [eE] [sS] [tT];
-    GROUPING: [gG] [rR] [oO] [uU] [pP] [iI] [nN] [gG];
+    PG_GREATEST: [gG] [rR] [eE] [aA] [tT] [eE] [sS] [tT];
+    PG_GROUPING: [gG] [rR] [oO] [uU] [pP] [iI] [nN] [gG];
 
-    INOUT: [iI] [nN] [oO] [uU] [tT];
-    INT: [iI] [nN] [tT];
-    INTEGER: [iI] [nN] [tT] [eE] [gG] [eE] [rR];
-    INTERVAL: [iI] [nN] [tT] [eE] [rR] [vV] [aA] [lL];
+    PG_INOUT: [iI] [nN] [oO] [uU] [tT];
+    PG_INT: [iI] [nN] [tT];
+    PG_INTEGER: [iI] [nN] [tT] [eE] [gG] [eE] [rR];
+    PG_INTERVAL: [iI] [nN] [tT] [eE] [rR] [vV] [aA] [lL];
 
-    LEAST: [lL] [eE] [aA] [sS] [tT];
+    PG_LEAST: [lL] [eE] [aA] [sS] [tT];
 
-    NATIONAL: [nN] [aA] [tT] [iI] [oO] [nN] [aA] [lL];
-    NCHAR: [nN] [cC] [hH] [aA] [rR];
-    NONE: [nN] [oO] [nN] [eE];
-    NORMALIZE: [nN] [oO] [rR] [mM] [aA] [lL] [iI] [zZ] [eE];
-    NULLIF: [nN] [uU] [lL] [lL] [iI] [fF];
-    NUMERIC: [nN] [uU] [mM] [eE] [rR] [iI] [cC];
+    PG_NATIONAL: [nN] [aA] [tT] [iI] [oO] [nN] [aA] [lL];
+    PG_NCHAR: [nN] [cC] [hH] [aA] [rR];
+    PG_NONE: [nN] [oO] [nN] [eE];
+    PG_NORMALIZE: [nN] [oO] [rR] [mM] [aA] [lL] [iI] [zZ] [eE];
+    PG_NULLIF: [nN] [uU] [lL] [lL] [iI] [fF];
+    PG_NUMERIC: [nN] [uU] [mM] [eE] [rR] [iI] [cC];
 
-    OUT: [oO] [uU] [tT];
-    OVERLAY: [oO] [vV] [eE] [rR] [lL] [aA] [yY];
+    PG_OUT: [oO] [uU] [tT];
+    PG_OVERLAY: [oO] [vV] [eE] [rR] [lL] [aA] [yY];
 
-    POSITION: [pP] [oO] [sS] [iI] [tT] [iI] [oO] [nN];
-    PRECISION: [pP] [rR] [eE] [cC] [iI] [sS] [iI] [oO] [nN];
+    PG_POSITION: [pP] [oO] [sS] [iI] [tT] [iI] [oO] [nN];
+    PG_PRECISION: [pP] [rR] [eE] [cC] [iI] [sS] [iI] [oO] [nN];
 
-    REAL: [rR] [eE] [aA] [lL];
+    PG_REAL: [rR] [eE] [aA] [lL];
     PG_ROW: [rR] [oO] [wW];
 
-    SETOF: [sS] [eE] [tT] [oO] [fF];
-    SMALLINT: [sS] [mM] [aA] [lL] [lL] [iI] [nN] [tT];
-    SUBSTRING: [sS] [uU] [bB] [sS] [tT] [rR] [iI] [nN] [gG];
+    PG_SETOF: [sS] [eE] [tT] [oO] [fF];
+    PG_SMALLINT: [sS] [mM] [aA] [lL] [lL] [iI] [nN] [tT];
+    PG_SUBSTRING: [sS] [uU] [bB] [sS] [tT] [rR] [iI] [nN] [gG];
 
     PG_TIME: [tT] [iI] [mM] [eE];
-    TIMESTAMP: [tT] [iI] [mM] [eE] [sS] [tT] [aA] [mM] [pP];
-    TREAT: [tT] [rR] [eE] [aA] [tT];
-    TRIM: [tT] [rR] [iI] [mM];
+    PG_TIMESTAMP: [tT] [iI] [mM] [eE] [sS] [tT] [aA] [mM] [pP];
+    PG_TREAT: [tT] [rR] [eE] [aA] [tT];
+    PG_TRIM: [tT] [rR] [iI] [mM];
 
-    VALUES: [vV] [aA] [lL] [uU] [eE] [sS];
-    VARCHAR: [vV] [aA] [rR] [cC] [hH] [aA] [rR];
+    PG_VALUES: [vV] [aA] [lL] [uU] [eE] [sS];
+    PG_VARCHAR: [vV] [aA] [rR] [cC] [hH] [aA] [rR];
 
-    XMLATTRIBUTES: [xX] [mM] [lL] [aA] [tT] [tT] [rR] [iI] [bB] [uU] [tT] [eE] [sS];
-    XMLCONCAT: [xX] [mM] [lL] [cC] [oO] [nN] [cC] [aA] [tT];
-    XMLELEMENT: [xX] [mM] [lL] [eE] [lL] [eE] [mM] [eE] [nN] [tT];
-    XMLEXISTS: [xX] [mM] [lL] [eE] [xX] [iI] [sS] [tT] [sS];
-    XMLFOREST: [xX] [mM] [lL] [fF] [oO] [rR] [eE] [sS] [tT];
-    XMLNAMESPACES: [xX] [mM] [lL] [nN] [aA] [mM] [eE] [sS] [pP] [aA] [cC] [eE] [sS];
-    XMLPARSE: [xX] [mM] [lL] [pP] [aA] [rR] [sS] [eE];
-    XMLPI: [xX] [mM] [lL] [pP] [iI];
-    XMLROOT: [xX] [mM] [lL] [rR] [oO] [oO] [tT];
-    XMLSERIALIZE: [xX] [mM] [lL] [sS] [eE] [rR] [iI] [aA] [lL] [iI] [zZ] [eE];
-    XMLTABLE: [xX] [mM] [lL] [tT] [aA] [bB] [lL] [eE];
+    PG_XMLATTRIBUTES: [xX] [mM] [lL] [aA] [tT] [tT] [rR] [iI] [bB] [uU] [tT] [eE] [sS];
+    PG_XMLCONCAT: [xX] [mM] [lL] [cC] [oO] [nN] [cC] [aA] [tT];
+    PG_XMLELEMENT: [xX] [mM] [lL] [eE] [lL] [eE] [mM] [eE] [nN] [tT];
+    PG_XMLEXISTS: [xX] [mM] [lL] [eE] [xX] [iI] [sS] [tT] [sS];
+    PG_XMLFOREST: [xX] [mM] [lL] [fF] [oO] [rR] [eE] [sS] [tT];
+    PG_XMLNAMESPACES: [xX] [mM] [lL] [nN] [aA] [mM] [eE] [sS] [pP] [aA] [cC] [eE] [sS];
+    PG_XMLPARSE: [xX] [mM] [lL] [pP] [aA] [rR] [sS] [eE];
+    PG_XMLPI: [xX] [mM] [lL] [pP] [iI];
+    PG_XMLROOT: [xX] [mM] [lL] [rR] [oO] [oO] [tT];
+    PG_XMLSERIALIZE: [xX] [mM] [lL] [sS] [eE] [rR] [iI] [aA] [lL] [iI] [zZ] [eE];
+    PG_XMLTABLE: [xX] [mM] [lL] [tT] [aA] [bB] [lL] [eE];
 
     /*
     ==================================================
@@ -456,35 +456,35 @@ lexer grammar SQLLexer;
 
     PG_BINARY: [bB] [iI] [nN] [aA] [rR] [yY];
 
-    COLLATION: [cC] [oO] [lL] [lL] [aA] [tT] [iI] [oO] [nN];
+    PG_COLLATION: [cC] [oO] [lL] [lL] [aA] [tT] [iI] [oO] [nN];
     PG_CONCURRENTLY: [cC] [oO] [nN] [cC] [uU] [rR] [rR] [eE] [nN] [tT] [lL] [yY];
-    CROSS: [cC] [rR] [oO] [sS] [sS];
-    CURRENT_SCHEMA: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [sS] [cC] [hH] [eE] [mM] [aA];
+    PG_CROSS: [cC] [rR] [oO] [sS] [sS];
+    PG_CURRENT_SCHEMA: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [sS] [cC] [hH] [eE] [mM] [aA];
 
     PG_FREEZE: [fF] [rR] [eE] [eE] [zZ] [eE];
     PG_FULL: [fF] [uU] [lL] [lL];
 
-    ILIKE: [iI] [lL] [iI] [kK] [eE];
-    INNER: [iI] [nN] [nN] [eE] [rR];
-    IS: [iI] [sS];
-    ISNULL: [iI] [sS] [nN] [uU] [lL] [lL];
+    PG_ILIKE: [iI] [lL] [iI] [kK] [eE];
+    PG_INNER: [iI] [nN] [nN] [eE] [rR];
+    PG_IS: [iI] [sS];
+    PG_ISNULL: [iI] [sS] [nN] [uU] [lL] [lL];
 
-    JOIN: [jJ] [oO] [iI] [nN];
+    PG_JOIN: [jJ] [oO] [iI] [nN];
 
-    LEFT: [lL] [eE] [fF] [tT];
-    LIKE: [lL] [iI] [kK] [eE];
+    PG_LEFT: [lL] [eE] [fF] [tT];
+    PG_LIKE: [lL] [iI] [kK] [eE];
 
-    NATURAL: [nN] [aA] [tT] [uU] [rR] [aA] [lL];
-    NOTNULL: [nN] [oO] [tT] [nN] [uU] [lL] [lL];
+    PG_NATURAL: [nN] [aA] [tT] [uU] [rR] [aA] [lL];
+    PG_NOTNULL: [nN] [oO] [tT] [nN] [uU] [lL] [lL];
 
-    OUTER: [oO] [uU] [tT] [eE] [rR];
-    OVERLAPS: [oO] [vV] [eE] [rR] [lL] [aA] [pP] [sS];
+    PG_OUTER: [oO] [uU] [tT] [eE] [rR];
+    PG_OVERLAPS: [oO] [vV] [eE] [rR] [lL] [aA] [pP] [sS];
 
-    RIGHT: [rR] [iI] [gG] [hH] [tT];
+    PG_RIGHT: [rR] [iI] [gG] [hH] [tT];
 
-    SIMILAR: [sS] [iI] [mM] [iI] [lL] [aA] [rR];
+    PG_SIMILAR: [sS] [iI] [mM] [iI] [lL] [aA] [rR];
 
-    TABLESAMPLE: [tT] [aA] [bB] [lL] [eE] [sS] [aA] [mM] [pP] [lL] [eE];
+    PG_TABLESAMPLE: [tT] [aA] [bB] [lL] [eE] [sS] [aA] [mM] [pP] [lL] [eE];
 
     PG_VERBOSE: [vV] [eE] [rR] [bB] [oO] [sS] [eE];
 
@@ -497,96 +497,96 @@ lexer grammar SQLLexer;
     PG_ALL: [aA] [lL] [lL];   // first RESERVED_KEYWORD, sync with AntlrUtils.normalizeWhitespaceUnquoted
     PG_ANALYZE: [aA] [nN] [aA] [lL] [yY] [zZsS] [eE];
     PG_AND: [aA] [nN] [dD];
-    ANY: [aA] [nN] [yY];
-    ARRAY: [aA] [rR] [rR] [aA] [yY];
+    PG_ANY: [aA] [nN] [yY];
+    PG_ARRAY: [aA] [rR] [rR] [aA] [yY];
     PG_AS: [aA] [sS];
-    ASC: [aA] [sS] [cC];
-    ASYMMETRIC: [aA] [sS] [yY] [mM] [mM] [eE] [tT] [rR] [iI] [cC];
+    PG_ASC: [aA] [sS] [cC];
+    PG_ASYMMETRIC: [aA] [sS] [yY] [mM] [mM] [eE] [tT] [rR] [iI] [cC];
 
-    BOTH: [bB] [oO] [tT] [hH];
+    PG_BOTH: [bB] [oO] [tT] [hH];
 
-    CASE: [cC] [aA] [sS] [eE];
-    CAST: [cC] [aA] [sS] [tT];
-    CHECK: [cC] [hH] [eE] [cC] [kK];
-    COLLATE: [cC] [oO] [lL] [lL] [aA] [tT] [eE];
-    COLUMN: [cC] [oO] [lL] [uU] [mM] [nN];
-    CONSTRAINT: [cC] [oO] [nN] [sS] [tT] [rR] [aA] [iI] [nN] [tT];
+    PG_CASE: [cC] [aA] [sS] [eE];
+    PG_CAST: [cC] [aA] [sS] [tT];
+    PG_CHECK: [cC] [hH] [eE] [cC] [kK];
+    PG_COLLATE: [cC] [oO] [lL] [lL] [aA] [tT] [eE];
+    PG_COLUMN: [cC] [oO] [lL] [uU] [mM] [nN];
+    PG_CONSTRAINT: [cC] [oO] [nN] [sS] [tT] [rR] [aA] [iI] [nN] [tT];
     PG_CREATE: [cC] [rR] [eE] [aA] [tT] [eE];
-    CURRENT_CATALOG: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [cC] [aA] [tT] [aA] [lL] [oO] [gG];
-    CURRENT_DATE: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [dD] [aA] [tT] [eE];
-    CURRENT_ROLE: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [rR] [oO] [lL] [eE];
-    CURRENT_TIME: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [tT] [iI] [mM] [eE];
-    CURRENT_TIMESTAMP: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [tT] [iI] [mM] [eE] [sS] [tT] [aA] [mM] [pP];
-    PG_CURRENT_USER: [cC] [uU] [rR] [rR] [eE] [nN] [tT] UNDERLINE  [uU] [sS] [eE] [rR];
+    PG_CURRENT_CATALOG: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [cC] [aA] [tT] [aA] [lL] [oO] [gG];
+    PG_CURRENT_DATE: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [dD] [aA] [tT] [eE];
+    PG_CURRENT_ROLE: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [rR] [oO] [lL] [eE];
+    PG_CURRENT_TIME: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [tT] [iI] [mM] [eE];
+    PG_CURRENT_TIMESTAMP: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [tT] [iI] [mM] [eE] [sS] [tT] [aA] [mM] [pP];
+    PG_CURRENT_USER: [cC] [uU] [rR] [rR] [eE] [nN] [tT] PG_UNDERLINE  [uU] [sS] [eE] [rR];
 
-    DEFAULT: [dD] [eE] [fF] [aA] [uU] [lL] [tT];
+    PG_DEFAULT: [dD] [eE] [fF] [aA] [uU] [lL] [tT];
     PG_DEFERRABLE: [dD] [eE] [fF] [eE] [rR] [rR] [aA] [bB] [lL] [eE];
-    DESC: [dD] [eE] [sS] [cC];
-    DISTINCT: [dD] [iI] [sS] [tT] [iI] [nN] [cC] [tT];
-    DO: [dD] [oO];
+    PG_DESC: [dD] [eE] [sS] [cC];
+    PG_DISTINCT: [dD] [iI] [sS] [tT] [iI] [nN] [cC] [tT];
+    PG_DO: [dD] [oO];
 
-    ELSE: [eE] [lL] [sS] [eE];
+    PG_ELSE: [eE] [lL] [sS] [eE];
     PG_END: [eE] [nN] [dD];
-    EXCEPT: [eE] [xX] [cC] [eE] [pP] [tT];
+    PG_EXCEPT: [eE] [xX] [cC] [eE] [pP] [tT];
 
     PG_FALSE: [fF] [aA] [lL] [sS] [eE];
     PG_FETCH: [fF] [eE] [tT] [cC] [hH];
     PG_FOR: [fF] [oO] [rR];
-    FOREIGN: [fF] [oO] [rR] [eE] [iI] [gG] [nN];
+    PG_FOREIGN: [fF] [oO] [rR] [eE] [iI] [gG] [nN];
     PG_FROM: [fF] [rR] [oO] [mM];
 
-    GRANT: [gG] [rR] [aA] [nN] [tT];
-    GROUP: [gG] [rR] [oO] [uU] [pP];
+    PG_GRANT: [gG] [rR] [aA] [nN] [tT];
+    PG_GROUP: [gG] [rR] [oO] [uU] [pP];
 
-    HAVING: [hH] [aA] [vV] [iI] [nN] [gG];
+    PG_HAVING: [hH] [aA] [vV] [iI] [nN] [gG];
 
     PG_IN: [iI] [nN];
-    INITIALLY: [iI] [nN] [iI] [tT] [iI] [aA] [lL] [lL] [yY];
-    INTERSECT: [iI] [nN] [tT] [eE] [rR] [sS] [eE] [cC] [tT];
-    INTO: [iI] [nN] [tT] [oO];
+    PG_INITIALLY: [iI] [nN] [iI] [tT] [iI] [aA] [lL] [lL] [yY];
+    PG_INTERSECT: [iI] [nN] [tT] [eE] [rR] [sS] [eE] [cC] [tT];
+    PG_INTO: [iI] [nN] [tT] [oO];
 
-    LATERAL: [lL] [aA] [tT] [eE] [rR] [aA] [lL];
-    LEADING: [lL] [eE] [aA] [dD] [iI] [nN] [gG];
-    LIMIT: [lL] [iI] [mM] [iI] [tT];
-    LOCALTIME: [lL] [oO] [cC] [aA] [lL] [tT] [iI] [mM] [eE];
-    LOCALTIMESTAMP: [lL] [oO] [cC] [aA] [lL] [tT] [iI] [mM] [eE] [sS] [tT] [aA] [mM] [pP];
+    PG_LATERAL: [lL] [aA] [tT] [eE] [rR] [aA] [lL];
+    PG_LEADING: [lL] [eE] [aA] [dD] [iI] [nN] [gG];
+    PG_LIMIT: [lL] [iI] [mM] [iI] [tT];
+    PG_LOCALTIME: [lL] [oO] [cC] [aA] [lL] [tT] [iI] [mM] [eE];
+    PG_LOCALTIMESTAMP: [lL] [oO] [cC] [aA] [lL] [tT] [iI] [mM] [eE] [sS] [tT] [aA] [mM] [pP];
 
     PG_NOT: [nN] [oO] [tT];
-    NULL: [nN] [uU] [lL] [lL];
+    PG_NULL: [nN] [uU] [lL] [lL];
 
-    OFFSET: [oO] [fF] [fF] [sS] [eE] [tT];
+    PG_OFFSET: [oO] [fF] [fF] [sS] [eE] [tT];
     PG_ON: [oO] [nN];
     PG_ONLY: [oO] [nN] [lL] [yY];
-    OR: [oO] [rR];
-    ORDER: [oO] [rR] [dD] [eE] [rR];
+    PG_OR: [oO] [rR];
+    PG_ORDER: [oO] [rR] [dD] [eE] [rR];
 
-    PLACING: [pP] [lL] [aA] [cC] [iI] [nN] [gG];
-    PRIMARY: [pP] [rR] [iI] [mM] [aA] [rR] [yY];
+    PG_PLACING: [pP] [lL] [aA] [cC] [iI] [nN] [gG];
+    PG_PRIMARY: [pP] [rR] [iI] [mM] [aA] [rR] [yY];
 
-    REFERENCES: [rR] [eE] [fF] [eE] [rR] [eE] [nN] [cC] [eE] [sS];
-    RETURNING: [rR] [eE] [tT] [uU] [rR] [nN] [iI] [nN] [gG];
+    PG_REFERENCES: [rR] [eE] [fF] [eE] [rR] [eE] [nN] [cC] [eE] [sS];
+    PG_RETURNING: [rR] [eE] [tT] [uU] [rR] [nN] [iI] [nN] [gG];
 
-    SELECT: [sS] [eE] [lL] [eE] [cC] [tT];
-    PG_SESSION_USER: [sS] [eE] [sS] [sS] [iI] [oO] [nN] UNDERLINE  [uU] [sS] [eE] [rR];
-    SOME: [sS] [oO] [mM] [eE];
-    SYMMETRIC: [sS] [yY] [mM] [mM] [eE] [tT] [rR] [iI] [cC];
+    PG_SELECT: [sS] [eE] [lL] [eE] [cC] [tT];
+    PG_SESSION_USER: [sS] [eE] [sS] [sS] [iI] [oO] [nN] PG_UNDERLINE  [uU] [sS] [eE] [rR];
+    PG_SOME: [sS] [oO] [mM] [eE];
+    PG_SYMMETRIC: [sS] [yY] [mM] [mM] [eE] [tT] [rR] [iI] [cC];
 
     PG_TABLE: [tT] [aA] [bB] [lL] [eE];
-    THEN: [tT] [hH] [eE] [nN];
-    TO: [tT] [oO];
-    TRAILING: [tT] [rR] [aA] [iI] [lL] [iI] [nN] [gG];
+    PG_THEN: [tT] [hH] [eE] [nN];
+    PG_TO: [tT] [oO];
+    PG_TRAILING: [tT] [rR] [aA] [iI] [lL] [iI] [nN] [gG];
     PG_TRUE: [tT] [rR] [uU] [eE];
 
-    UNION: [uU] [nN] [iI] [oO] [nN];
-    UNIQUE: [uU] [nN] [iI] [qQ] [uU] [eE];
-    USER: [uU] [sS] [eE] [rR];
+    PG_UNION: [uU] [nN] [iI] [oO] [nN];
+    PG_UNIQUE: [uU] [nN] [iI] [qQ] [uU] [eE];
+    PG_USER: [uU] [sS] [eE] [rR];
     PG_USING: [uU] [sS] [iI] [nN] [gG];
 
-    VARIADIC: [vV] [aA] [rR] [iI] [aA] [dD] [iI] [cC];
+    PG_VARIADIC: [vV] [aA] [rR] [iI] [aA] [dD] [iI] [cC];
 
-    WHEN: [wW] [hH] [eE] [nN];
-    WHERE: [wW] [hH] [eE] [rR] [eE];
-    WINDOW: [wW] [iI] [nN] [dD] [oO] [wW];
+    PG_WHEN: [wW] [hH] [eE] [nN];
+    PG_WHERE: [wW] [hH] [eE] [rR] [eE];
+    PG_WINDOW: [wW] [iI] [nN] [dD] [oO] [wW];
     PG_WITH: [wW] [iI] [tT] [hH];   // last RESERVED_KEYWORD, sync with AntlrUtils.normalizeWhitespaceUnquoted
 
     /*
@@ -594,125 +594,125 @@ lexer grammar SQLLexer;
      * Some sql words/data types are not keywords but we need a token to be able to parse them.
      */
 
-    ALIGNMENT: [aA] [lL] [iI] [gG] [nN] [mM] [eE] [nN] [tT];
-    ALLOW_CONNECTIONS: [aA] [lL] [lL] [oO] [wW] UNDERLINE [cC] [oO] [nN] [nN] [eE] [cC] [tT] [iI] [oO] [nN] [sS];
+    PG_ALIGNMENT: [aA] [lL] [iI] [gG] [nN] [mM] [eE] [nN] [tT];
+    PG_ALLOW_CONNECTIONS: [aA] [lL] [lL] [oO] [wW] PG_UNDERLINE [cC] [oO] [nN] [nN] [eE] [cC] [tT] [iI] [oO] [nN] [sS];
 
-    BASETYPE: [bB] [aA] [sS] [eE] [tT] [yY] [pP] [eE];
+    PG_BASETYPE: [bB] [aA] [sS] [eE] [tT] [yY] [pP] [eE];
     PG_BUFFERS: [bB] [uU] [fF] [fF] [eE] [rR] [sS];
-    BYPASSRLS: [bB] [yY] [pP] [aA] [sS] [sS] [rR] [lL] [sS];
+    PG_BYPASSRLS: [bB] [yY] [pP] [aA] [sS] [sS] [rR] [lL] [sS];
 
-    CANONICAL: [cC] [aA] [nN] [oO] [nN] [iI] [cC] [aA] [lL];
-    CATEGORY: [cC] [aA] [tT] [eE] [gG] [oO] [rR] [yY];
-    COLLATABLE: [cC] [oO] [lL] [lL] [aA] [tT] [aA] [bB] [lL] [eE];
-    COMBINEFUNC: [cC] [oO] [mM] [bB] [iI] [nN] [eE] [fF] [uU] [nN] [cC];
-    COMMUTATOR: [cC] [oO] [mM] [mM] [uU] [tT] [aA] [tT] [oO] [rR];
-    CONNECT: [cC] [oO] [nN] [nN] [eE] [cC] [tT];
+    PG_CANONICAL: [cC] [aA] [nN] [oO] [nN] [iI] [cC] [aA] [lL];
+    PG_CATEGORY: [cC] [aA] [tT] [eE] [gG] [oO] [rR] [yY];
+    PG_COLLATABLE: [cC] [oO] [lL] [lL] [aA] [tT] [aA] [bB] [lL] [eE];
+    PG_COMBINEFUNC: [cC] [oO] [mM] [bB] [iI] [nN] [eE] [fF] [uU] [nN] [cC];
+    PG_COMMUTATOR: [cC] [oO] [mM] [mM] [uU] [tT] [aA] [tT] [oO] [rR];
+    PG_CONNECT: [cC] [oO] [nN] [nN] [eE] [cC] [tT];
     PG_COSTS: [cC] [oO] [sS] [tT] [sS];
-    CREATEDB: [cC] [rR] [eE] [aA] [tT] [eE] [dD] [bB];
-    CREATEROLE: [cC] [rR] [eE] [aA] [tT] [eE] [rR] [oO] [lL] [eE];
+    PG_CREATEDB: [cC] [rR] [eE] [aA] [tT] [eE] [dD] [bB];
+    PG_CREATEROLE: [cC] [rR] [eE] [aA] [tT] [eE] [rR] [oO] [lL] [eE];
 
-    DESERIALFUNC: [dD] [eE] [sS] [eE] [rR] [iI] [aA] [lL] [fF] [uU] [nN] [cC];
-    DETERMINISTIC: [dD] [eE] [tT] [eE] [rR] [mM] [iI] [nN] [iI] [sS] [tT] [iI] [cC];
-    PG_DISABLE_PAGE_SKIPPING: DISABLE UNDERLINE [pP] [aA] [gG] [eE] UNDERLINE [sS] [kK] [iI] [pP] [pP] [iI] [nN] [gG];
+    PG_DESERIALFUNC: [dD] [eE] [sS] [eE] [rR] [iI] [aA] [lL] [fF] [uU] [nN] [cC];
+    PG_DETERMINISTIC: [dD] [eE] [tT] [eE] [rR] [mM] [iI] [nN] [iI] [sS] [tT] [iI] [cC];
+    PG_DISABLE_PAGE_SKIPPING: PG_DISABLE PG_UNDERLINE [pP] [aA] [gG] [eE] PG_UNDERLINE [sS] [kK] [iI] [pP] [pP] [iI] [nN] [gG];
 
-    ELEMENT: [eE] [lL] [eE] [mM] [eE] [nN] [tT];
-    EXTENDED: [eE] [xX] [tT] [eE] [nN] [dD] [eE] [dD];
+    PG_ELEMENT: [eE] [lL] [eE] [mM] [eE] [nN] [tT];
+    PG_EXTENDED: [eE] [xX] [tT] [eE] [nN] [dD] [eE] [dD];
 
-    FINALFUNC: [fF] [iI] [nN] [aA] [lL] [fF] [uU] [nN] [cC];
-    FINALFUNC_EXTRA: FINALFUNC UNDERLINE  [eE] [xX] [tT] [rR] [aA];
-    FINALFUNC_MODIFY: FINALFUNC UNDERLINE [mM] [oO] [dD] [iI] [fF] [yY];
-    FORCE_NOT_NULL: [fF] [oO] [rR] [cC] [eE] UNDERLINE [nN] [oO] [tT] UNDERLINE [nN] [uU] [lL] [lL];
-    FORCE_NULL: [fF] [oO] [rR] [cC] [eE] UNDERLINE [nN] [uU] [lL] [lL];
-    FORCE_QUOTE: [fF] [oO] [rR] [cC] [eE] UNDERLINE [qQ] [uU] [oO] [tT] [eE];
+    PG_FINALFUNC: [fF] [iI] [nN] [aA] [lL] [fF] [uU] [nN] [cC];
+    PG_FINALFUNC_EXTRA: PG_FINALFUNC PG_UNDERLINE  [eE] [xX] [tT] [rR] [aA];
+    PG_FINALFUNC_MODIFY: PG_FINALFUNC PG_UNDERLINE [mM] [oO] [dD] [iI] [fF] [yY];
+    PG_FORCE_NOT_NULL: [fF] [oO] [rR] [cC] [eE] PG_UNDERLINE [nN] [oO] [tT] PG_UNDERLINE [nN] [uU] [lL] [lL];
+    PG_FORCE_NULL: [fF] [oO] [rR] [cC] [eE] PG_UNDERLINE [nN] [uU] [lL] [lL];
+    PG_FORCE_QUOTE: [fF] [oO] [rR] [cC] [eE] PG_UNDERLINE [qQ] [uU] [oO] [tT] [eE];
     PG_FORMAT: [fF] [oO] [rR] [mM] [aA] [tT];
 
-    GETTOKEN: [gG] [eE] [tT] [tT] [oO] [kK] [eE] [nN];
+    PG_GETTOKEN: [gG] [eE] [tT] [tT] [oO] [kK] [eE] [nN];
 
-    HASH: [hH] [aA] [sS] [hH];
-    HASHES: [hH] [aA] [sS] [hH] [eE] [sS];
-    HEADLINE: [hH] [eE] [aA] [dD] [lL] [iI] [nN] [eE];
-    HYPOTHETICAL: [hH] [yY] [pP] [oO] [tT] [hH] [eE] [tT] [iI] [cC] [aA] [lL];
+    PG_HASH: [hH] [aA] [sS] [hH];
+    PG_HASHES: [hH] [aA] [sS] [hH] [eE] [sS];
+    PG_HEADLINE: [hH] [eE] [aA] [dD] [lL] [iI] [nN] [eE];
+    PG_HYPOTHETICAL: [hH] [yY] [pP] [oO] [tT] [hH] [eE] [tT] [iI] [cC] [aA] [lL];
 
-    PG_INDEX_CLEANUP: [iI] [nN] [dD] [eE] [xX] UNDERLINE [cC] [lL] [eE] [aA] [nN] [uU] [pP];
-    INIT: [iI] [nN] [iI] [tT];
-    INITCOND: [iI] [nN] [iI] [tT] [cC] [oO] [nN] [dD];
-    INTERNALLENGTH: [iI] [nN] [tT] [eE] [rR] [nN] [aA] [lL] [lL] [eE] [nN] [gG] [tT] [hH];
-    IS_TEMPLATE: [iI] [sS] UNDERLINE [tT] [eE] [mM] [pP] [lL] [aA] [tT] [eE];
+    PG_INDEX_CLEANUP: [iI] [nN] [dD] [eE] [xX] PG_UNDERLINE [cC] [lL] [eE] [aA] [nN] [uU] [pP];
+    PG_INIT: [iI] [nN] [iI] [tT];
+    PG_INITCOND: [iI] [nN] [iI] [tT] [cC] [oO] [nN] [dD];
+    PG_INTERNALLENGTH: [iI] [nN] [tT] [eE] [rR] [nN] [aA] [lL] [lL] [eE] [nN] [gG] [tT] [hH];
+    PG_IS_TEMPLATE: [iI] [sS] PG_UNDERLINE [tT] [eE] [mM] [pP] [lL] [aA] [tT] [eE];
 
     PG_JSON: [jJ] [sS] [oO] [nN];
 
-    LC_COLLATE: [lL] [cC] UNDERLINE [cC] [oO] [lL] [lL] [aA] [tT] [eE];
-    LC_CTYPE: [lL] [cC] UNDERLINE [cC] [tT] [yY] [pP] [eE];
-    LEFTARG: [lL] [eE] [fF] [tT] [aA] [rR] [gG];
-    LEXIZE: [lL] [eE] [xX] [iI] [zZ] [eE];
-    LEXTYPES: [lL] [eE] [xX] [tT] [yY] [pP] [eE] [sS];
-    LIST: [lL] [iI] [sS] [tT];
-    LOCALE: [lL] [oO] [cC] [aA] [lL] [eE];
-    LOGIN: [lL] [oO] [gG] [iI] [nN];
+    PG_LC_COLLATE: [lL] [cC] PG_UNDERLINE [cC] [oO] [lL] [lL] [aA] [tT] [eE];
+    PG_LC_CTYPE: [lL] [cC] PG_UNDERLINE [cC] [tT] [yY] [pP] [eE];
+    PG_LEFTARG: [lL] [eE] [fF] [tT] [aA] [rR] [gG];
+    PG_LEXIZE: [lL] [eE] [xX] [iI] [zZ] [eE];
+    PG_LEXTYPES: [lL] [eE] [xX] [tT] [yY] [pP] [eE] [sS];
+    PG_LIST: [lL] [iI] [sS] [tT];
+    PG_LOCALE: [lL] [oO] [cC] [aA] [lL] [eE];
+    PG_LOGIN: [lL] [oO] [gG] [iI] [nN];
 
-    MAIN: [mM] [aA] [iI]  [nN];
-    MERGES: [mM] [eE] [rR] [gG] [eE] [sS];
-    MFINALFUNC: [mM] [fF] [iI] [nN] [aA] [lL] [fF] [uU] [nN] [cC];
-    MFINALFUNC_EXTRA: MFINALFUNC UNDERLINE [eE] [xX] [tT] [rR] [aA];
-    MFINALFUNC_MODIFY: MFINALFUNC UNDERLINE [mM] [oO] [dD] [iI] [fF] [yY];
-    MINITCOND: [mM] [iI] [nN] [iI] [tT] [cC] [oO] [nN] [dD];
-    MINVFUNC: [mM] [iI] [nN] [vV] [fF] [uU] [nN] [cC];
-    MODULUS: [mM] [oO] [dD] [uU] [lL] [uU] [sS];
-    MSFUNC: [mM] [sS] [fF] [uU] [nN] [cC];
-    MSSPACE: [mM] [sS] [sS] [pP] [aA] [cC] [eE];
-    MSTYPE: [mM] [sS] [tT] [yY] [pP] [eE];
+    PG_MAIN: [mM] [aA] [iI]  [nN];
+    PG_MERGES: [mM] [eE] [rR] [gG] [eE] [sS];
+    PG_MFINALFUNC: [mM] [fF] [iI] [nN] [aA] [lL] [fF] [uU] [nN] [cC];
+    PG_MFINALFUNC_EXTRA: PG_MFINALFUNC  PG_UNDERLINE [eE] [xX] [tT] [rR] [aA];
+    PG_MFINALFUNC_MODIFY: PG_MFINALFUNC  PG_UNDERLINE [mM] [oO] [dD] [iI] [fF] [yY];
+    PG_MINITCOND: [mM] [iI] [nN] [iI] [tT] [cC] [oO] [nN] [dD];
+    PG_MINVFUNC: [mM] [iI] [nN] [vV] [fF] [uU] [nN] [cC];
+    PG_MODULUS: [mM] [oO] [dD] [uU] [lL] [uU] [sS];
+    PG_MSFUNC: [mM] [sS] [fF] [uU] [nN] [cC];
+    PG_MSSPACE: [mM] [sS] [sS] [pP] [aA] [cC] [eE];
+    PG_MSTYPE: [mM] [sS] [tT] [yY] [pP] [eE];
 
-    NEGATOR: [nN] [eE] [gG] [aA] [tT] [oO] [rR];
-    NOBYPASSRLS: [nN] [oO] [bB] [yY] [pP] [aA] [sS] [sS] [rR] [lL] [sS];
-    NOCREATEDB: [nN] [oO] [cC] [rR] [eE] [aA] [tT] [eE] [dD] [bB];
-    NOCREATEROLE: [nN] [oO] [cC] [rR] [eE] [aA] [tT] [eE] [rR] [oO] [lL] [eE];
-    NOINHERIT: [nN] [oO] [iI] [nN] [hH] [eE] [rR] [iI] [tT];
-    NOLOGIN: [nN] [oO] [lL] [oO] [gG] [iI] [nN];
-    NOREPLICATION: [nN] [oO] [rR] [eE] [pP] [lL] [iI] [cC] [aA] [tT] [iI] [oO] [nN];
-    NOSUPERUSER: [nN] [oO] [sS] [uU] [pP] [eE] [rR] [uU] [sS] [eE] [rR];
+    PG_NEGATOR: [nN] [eE] [gG] [aA] [tT] [oO] [rR];
+    PG_NOBYPASSRLS: [nN] [oO] [bB] [yY] [pP] [aA] [sS] [sS] [rR] [lL] [sS];
+    PG_NOCREATEDB: [nN] [oO] [cC] [rR] [eE] [aA] [tT] [eE] [dD] [bB];
+    PG_NOCREATEROLE: [nN] [oO] [cC] [rR] [eE] [aA] [tT] [eE] [rR] [oO] [lL] [eE];
+    PG_NOINHERIT: [nN] [oO] [iI] [nN] [hH] [eE] [rR] [iI] [tT];
+    PG_NOLOGIN: [nN] [oO] [lL] [oO] [gG] [iI] [nN];
+    PG_NOREPLICATION: [nN] [oO] [rR] [eE] [pP] [lL] [iI] [cC] [aA] [tT] [iI] [oO] [nN];
+    PG_NOSUPERUSER: [nN] [oO] [sS] [uU] [pP] [eE] [rR] [uU] [sS] [eE] [rR];
 
-    OUTPUT: [oO] [uU] [tT] [pP] [uU] [tT];
+    PG_OUTPUT: [oO] [uU] [tT] [pP] [uU] [tT];
 
-    PASSEDBYVALUE: [pP] [aA] [sS] [sS] [eE] [dD] [bB] [yY] [vV] [aA] [lL] [uU] [eE];
-    PATH: [pP] [aA] [tT] [hH];
-    PERMISSIVE: [pP] [eE] [rR] [mM] [iI] [sS] [sS] [iI] [vV] [eE];
-    PLAIN: [pP] [lL] [aA] [iI]  [nN];
-    PREFERRED: [pP] [rR] [eE] [fF] [eE] [rR] [rR] [eE] [dD];
-    PROVIDER: [pP] [rR] [oO] [vV] [iI] [dD] [eE] [rR];
+    PG_PASSEDBYVALUE: [pP] [aA] [sS] [sS] [eE] [dD] [bB] [yY] [vV] [aA] [lL] [uU] [eE];
+    PG_PATH: [pP] [aA] [tT] [hH];
+    PG_PERMISSIVE: [pP] [eE] [rR] [mM] [iI] [sS] [sS] [iI] [vV] [eE];
+    PG_PLAIN: [pP] [lL] [aA] [iI]  [nN];
+    PG_PREFERRED: [pP] [rR] [eE] [fF] [eE] [rR] [rR] [eE] [dD];
+    PG_PROVIDER: [pP] [rR] [oO] [vV] [iI] [dD] [eE] [rR];
 
-    READ_ONLY: PG_READ UNDERLINE PG_ONLY;
-    READ_WRITE: PG_READ UNDERLINE PG_WRITE;
-    RECEIVE: [rR] [eE] [cC] [eE] [iI] [vV] [eE];
-    REMAINDER: [rR] [eE] [mM] [aA] [iI] [nN] [dD] [eE] [rR];
-    REPLICATION: [rR] [eE] [pP] [lL] [iI] [cC] [aA] [tT] [iI] [oO] [nN];
-    RESTRICTED: [rR] [eE] [sS] [tT] [rR] [iI] [cC] [tT] [eE] [dD];
-    RESTRICTIVE: [rR] [eE] [sS] [tT] [rR] [iI] [cC] [tT] [iI] [vV] [eE];
-    RIGHTARG: [rR] [iI] [gG] [hH] [tT] [aA] [rR] [gG];
+    PG_READ_ONLY: PG_READ PG_UNDERLINE PG_ONLY;
+    PG_READ_WRITE: PG_READ PG_UNDERLINE PG_WRITE;
+    PG_RECEIVE: [rR] [eE] [cC] [eE] [iI] [vV] [eE];
+    PG_REMAINDER: [rR] [eE] [mM] [aA] [iI] [nN] [dD] [eE] [rR];
+    PG_REPLICATION: [rR] [eE] [pP] [lL] [iI] [cC] [aA] [tT] [iI] [oO] [nN];
+    PG_RESTRICTED: [rR] [eE] [sS] [tT] [rR] [iI] [cC] [tT] [eE] [dD];
+    PG_RESTRICTIVE: [rR] [eE] [sS] [tT] [rR] [iI] [cC] [tT] [iI] [vV] [eE];
+    PG_RIGHTARG: [rR] [iI] [gG] [hH] [tT] [aA] [rR] [gG];
 
-    SAFE: [sS] [aA] [fF] [eE];
-    SEND: [sS] [eE] [nN] [dD];
-    SERIALFUNC: [sS] [eE] [rR] [iI] [aA] [lL] [fF] [uU] [nN] [cC];
+    PG_SAFE: [sS] [aA] [fF] [eE];
+    PG_SEND: [sS] [eE] [nN] [dD];
+    PG_SERIALFUNC: [sS] [eE] [rR] [iI] [aA] [lL] [fF] [uU] [nN] [cC];
     PG_SETTINGS: [sS] [eE] [tT] [tT] [iI] [nN] [gG] [sS];
-    SFUNC: [sS] [fF] [uU] [nN] [cC];
-    SHAREABLE: [sS] [hH] [aA] [rR] [eE] [aA] [bB] [lL] [eE];
-    PG_SKIP_LOCKED: [sS] [kK] [iI] [pP] UNDERLINE [lL] [oO] [cC] [kK] [eE] [dD];
-    SORTOP: [sS] [oO] [rR] [tT] [oO] [pP];
-    SSPACE: [sS] [sS] [pP] [aA] [cC] [eE];
-    STYPE: [sS] [tT] [yY] [pP] [eE];
-    SUBTYPE_DIFF: [sS] [uU] [bB] [tT] [yY] [pP] [eE] UNDERLINE [dD] [iI] [fF] [fF];
-    SUBTYPE_OPCLASS: [sS] [uU] [bB] [tT] [yY] [pP] [eE] UNDERLINE [oO] [pP] [cC] [lL] [aA] [sS] [sS];
-    SUBTYPE: [sS] [uU] [bB] [tT] [yY] [pP] [eE];
+    PG_SFUNC: [sS] [fF] [uU] [nN] [cC];
+    PG_SHAREABLE: [sS] [hH] [aA] [rR] [eE] [aA] [bB] [lL] [eE];
+    PG_SKIP_LOCKED: [sS] [kK] [iI] [pP] PG_UNDERLINE [lL] [oO] [cC] [kK] [eE] [dD];
+    PG_SORTOP: [sS] [oO] [rR] [tT] [oO] [pP];
+    PG_SSPACE: [sS] [sS] [pP] [aA] [cC] [eE];
+    PG_STYPE: [sS] [tT] [yY] [pP] [eE];
+    PG_SUBTYPE_DIFF: [sS] [uU] [bB] [tT] [yY] [pP] [eE] PG_UNDERLINE [dD] [iI] [fF] [fF];
+    PG_SUBTYPE_OPCLASS: [sS] [uU] [bB] [tT] [yY] [pP] [eE] PG_UNDERLINE [oO] [pP] [cC] [lL] [aA] [sS] [sS];
+    PG_SUBTYPE: [sS] [uU] [bB] [tT] [yY] [pP] [eE];
     PG_SUMMARY: [sS] [uU] [mM] [mM] [aA] [rR] [yY];
-    SUPERUSER: [sS] [uU] [pP] [eE] [rR] [uU] [sS] [eE] [rR];
+    PG_SUPERUSER: [sS] [uU] [pP] [eE] [rR] [uU] [sS] [eE] [rR];
 
     PG_TIMING: [tT] [iI] [mM] [iI] [nN] [gG];
-    TYPMOD_IN: [tT] [yY] [pP] [mM] [oO] [dD] UNDERLINE [iI]  [nN];
-    TYPMOD_OUT: [tT] [yY] [pP] [mM] [oO] [dD] UNDERLINE [oO] [uU] [tT];
+    PG_TYPMOD_IN: [tT] [yY] [pP] [mM] [oO] [dD] PG_UNDERLINE [iI]  [nN];
+    PG_TYPMOD_OUT: [tT] [yY] [pP] [mM] [oO] [dD] PG_UNDERLINE [oO] [uU] [tT];
 
-    UNSAFE: [uU] [nN] [sS] [aA] [fF] [eE];
-    USAGE: [uU] [sS] [aA] [gG] [eE];
+    PG_UNSAFE: [uU] [nN] [sS] [aA] [fF] [eE];
+    PG_USAGE: [uU] [sS] [aA] [gG] [eE];
 
-    VARIABLE: [vV] [aA] [rR] [iI] [aA] [bB] [lL] [eE];
+    PG_VARIABLE: [vV] [aA] [rR] [iI] [aA] [bB] [lL] [eE];
 
     PG_WAL: [wW] [aA] [lL];
 
@@ -720,141 +720,141 @@ lexer grammar SQLLexer;
 
     // plpgsql tokens
 
-    ALIAS: [aA] [lL] [iI] [aA] [sS];
-    ASSERT: [aA] [sS] [sS] [eE] [rR] [tT];
+    PG_ALIAS: [aA] [lL] [iI] [aA] [sS];
+    PG_ASSERT: [aA] [sS] [sS] [eE] [rR] [tT];
 
-    CONSTANT: [cC] [oO] [nN] [sS] [tT] [aA] [nN] [tT];
+    PG_CONSTANT: [cC] [oO] [nN] [sS] [tT] [aA] [nN] [tT];
 
-    DATATYPE: [dD] [aA] [tT] [aA] [tT] [yY] [pP] [eE];
-    DEBUG: [dD] [eE] [bB] [uU] [gG];
-    DETAIL: [dD] [eE] [tT] [aA] [iI] [lL];
-    DIAGNOSTICS: [dD] [iI] [aA] [gG] [nN] [oO] [sS] [tT] [iI] [cC] [sS];
+    PG_DATATYPE: [dD] [aA] [tT] [aA] [tT] [yY] [pP] [eE];
+    PG_DEBUG: [dD] [eE] [bB] [uU] [gG];
+    PG_DETAIL: [dD] [eE] [tT] [aA] [iI] [lL];
+    PG_DIAGNOSTICS: [dD] [iI] [aA] [gG] [nN] [oO] [sS] [tT] [iI] [cC] [sS];
 
-    ELSEIF: [eE] [lL] [sS] [eE] [iI] [fF];
-    ELSIF: [eE] [lL] [sS] [iI] [fF];
-    ERRCODE: [eE] [rR] [rR] [cC] [oO] [dD] [eE];
-    EXIT: [eE] [xX] [iI] [tT];
-    EXCEPTION: [eE] [xX] [cC] [eE] [pP] [tT] [iI] [oO] [nN];
+    PG_ELSEIF: [eE] [lL] [sS] [eE] [iI] [fF];
+    PG_ELSIF: [eE] [lL] [sS] [iI] [fF];
+    PG_ERRCODE: [eE] [rR] [rR] [cC] [oO] [dD] [eE];
+    PG_EXIT: [eE] [xX] [iI] [tT];
+    PG_EXCEPTION: [eE] [xX] [cC] [eE] [pP] [tT] [iI] [oO] [nN];
 
-    FOREACH: [fF] [oO] [rR] [eE] [aA] [cC] [hH];
+    PG_FOREACH: [fF] [oO] [rR] [eE] [aA] [cC] [hH];
 
-    GET: [gG] [eE] [tT];
+    PG_GET: [gG] [eE] [tT];
 
-    HINT: [hH] [iI] [nN] [tT];
+    PG_HINT: [hH] [iI] [nN] [tT];
 
-    INFO: [iI] [nN] [fF] [oO];
+    PG_INFO: [iI] [nN] [fF] [oO];
 
-    LOG: [lL] [oO] [gG];
-    LOOP: [lL] [oO] [oO] [pP];
+    PG_LOG: [lL] [oO] [gG];
+    PG_LOOP: [lL] [oO] [oO] [pP];
 
-    MESSAGE: [mM] [eE] [sS] [sS] [aA] [gG] [eE];
+    PG_MESSAGE: [mM] [eE] [sS] [sS] [aA] [gG] [eE];
 
-    NOTICE: [nN] [oO] [tT] [iI] [cC] [eE];
+    PG_NOTICE: [nN] [oO] [tT] [iI] [cC] [eE];
 
-    OPEN: [oO] [pP] [eE] [nN];
+    PG_OPEN: [oO] [pP] [eE] [nN];
 
-    PERFORM: [pP] [eE] [rR] [fF] [oO] [rR] [mM];
+    PG_PERFORM: [pP] [eE] [rR] [fF] [oO] [rR] [mM];
 
-    QUERY: [qQ] [uU] [eE] [rR] [yY];
+    PG_QUERY: [qQ] [uU] [eE] [rR] [yY];
 
-    RAISE: [rR] [aA] [iI] [sS] [eE];
-    RECORD: [rR] [eE] [cC] [oO] [rR] [dD];
-    RETURN: [rR] [eE] [tT] [uU] [rR] [nN];
-    REVERSE: [rR] [eE] [vV] [eE] [rR] [sS] [eE];
-    ROWTYPE: [rR] [oO] [wW] [tT] [yY] [pP] [eE];
+    PG_RAISE: [rR] [aA] [iI] [sS] [eE];
+    PG_RECORD: [rR] [eE] [cC] [oO] [rR] [dD];
+    PG_RETURN: [rR] [eE] [tT] [uU] [rR] [nN];
+    PG_REVERSE: [rR] [eE] [vV] [eE] [rR] [sS] [eE];
+    PG_ROWTYPE: [rR] [oO] [wW] [tT] [yY] [pP] [eE];
 
-    SLICE: [sS] [lL] [iI] [cC] [eE];
-    SQLSTATE: [sS] [qQ] [lL] [sS] [tT] [aA] [tT] [eE];
-    STACKED: [sS] [tT] [aA] [cC] [kK] [eE] [dD];
+    PG_SLICE: [sS] [lL] [iI] [cC] [eE];
+    PG_SQLSTATE: [sS] [qQ] [lL] [sS] [tT] [aA] [tT] [eE];
+    PG_STACKED: [sS] [tT] [aA] [cC] [kK] [eE] [dD];
 
-    WARNING: [wW] [aA] [rR] [nN] [iI] [nN] [gG];
-    WHILE: [wW] [hH] [iI] [lL] [eE];     // last identifier rule, sync with CustomSQLAntlrErrorStrategy & AntlrUtils
+    PG_WARNING: [wW] [aA] [rR] [nN] [iI] [nN] [gG];
+    PG_WHILE: [wW] [hH] [iI] [lL] [eE];     // last identifier rule, sync with CustomSQLAntlrErrorStrategy & AntlrUtils
 
-fragment UNDERLINE : '_';
+fragment PG_UNDERLINE : '_';
 
 // Operators
 
 // Cast Operator
-CAST_EXPRESSION : ':' ':';   // first operator rule, sync with CustomSQLAntlrErrorStrategy
+PG_CAST_EXPRESSION : ':' ':';   // first operator rule, sync with CustomSQLAntlrErrorStrategy
 
-EQUAL : '=';
-COLON :  ':';
-SEMI_COLON :  ';';
+PG_EQUAL : '=';
+PG_COLON :  ':';
+PG_SEMI_COLON :  ';';
 PG_COMMA : ',';
-NOT_EQUAL : '<>' | '!=';
-LTH : '<';
-LEQ : '<=';
-GTH : '>';
-GEQ : '>=';
+PG_NOT_EQUAL : '<>' | '!=';
+PG_LTH : '<';
+PG_LEQ : '<=';
+PG_GTH : '>';
+PG_GEQ : '>=';
 PG_LEFT_PAREN :  '(';
 PG_RIGHT_PAREN : ')';
-PLUS  : '+';
-MINUS : '-';
+PG_PLUS  : '+';
+PG_MINUS : '-';
 PG_MULTIPLY: '*';
-DIVIDE  : '/';
-MODULAR : '%';
-EXP : '^';
+PG_DIVIDE  : '/';
+PG_MODULAR : '%';
+PG_EXP : '^';
 
 PG_DOT : '.';
-QUOTE_CHAR : '\'';
-DOUBLE_QUOTE : '"';
-DOLLAR : '$';
-LEFT_BRACKET : '[';
-RIGHT_BRACKET : ']';
+PG_QUOTE_CHAR : '\'';
+PG_DOUBLE_QUOTE : '"';
+PG_DOLLAR : '$';
+PG_LEFT_BRACKET : '[';
+PG_RIGHT_BRACKET : ']';
 
-EQUAL_GTH : '=>';
-COLON_EQUAL : ':=';
+PG_EQUAL_GTH : '=>';
+PG_COLON_EQUAL : ':=';
 
-LESS_LESS : '<<';
-GREATER_GREATER : '>>';
-DOUBLE_DOT: '..';
-HASH_SIGN: '#';              // last operator rule, sync with CustomSQLAntlrErrorStrategy
+PG_LESS_LESS : '<<';
+PG_GREATER_GREATER : '>>';
+PG_DOUBLE_DOT: '..';
+PG_HASH_SIGN: '#';              // last operator rule, sync with CustomSQLAntlrErrorStrategy
 
-BlockComment
-    :   '/*' (BlockComment |.)*? '*/' -> channel(HIDDEN)
+PG_BlockComment
+    :   '/*' (PG_BlockComment |.)*? '*/' -> channel(HIDDEN)
     ;
 
-LineComment
+PG_LineComment
     :   '--' ~[\r\n]* -> channel(HIDDEN)
     ;
 
 // must follow all explicitly defined operators and comments
 // so that they are matched first
-OP_CHARS
+PG_OP_CHARS
     // may not end with + or -
-    : OperatorBasic+ OperatorBasicEnd
+    : PG_OperatorBasic+ PG_OperatorBasicEnd
     // may end with any character but must include at least one of OperatorSpecial
-    | (OperatorBasic | OperatorSpecial)* OperatorSpecial (OperatorBasic | OperatorSpecial)*
+    | (PG_OperatorBasic | PG_OperatorSpecial)* PG_OperatorSpecial (PG_OperatorBasic | PG_OperatorSpecial)*
     ;
 
 fragment
-OperatorBasic
+PG_OperatorBasic
     : [+*<>=]
     // check so that comment start sequences are not matched by this
     | '-' {this._input.LA(1) !== '-'}?
     | '/' {this._input.LA(1) !== '*'}?;
 fragment
-OperatorBasicEnd: [*/<>=];
+PG_OperatorBasicEnd: [*/<>=];
 fragment
-OperatorSpecial: [~!@#%^&|`?];
+PG_OperatorSpecial: [~!@#%^&|`?];
 
-PG_NUMBER_LITERAL : Digit+;
+PG_NUMBER_LITERAL : PG_Digit+;
 
 fragment
-Digit : '0'..'9';
+PG_Digit : '0'..'9';
 
-REAL_NUMBER
+PG_REAL_NUMBER
     // fail double dots into a separate token
     // otherwise 1..10 would lex into 2 numbers
-    :   Digit+ '.' {this._input.LA(1) !== '.'}?
-    |   Digit+ '.' Digit+ EXPONENT?
-    |   Digit+ '.' EXPONENT
-    |   '.' Digit+ EXPONENT?
-    |   Digit+ EXPONENT
+    :   PG_Digit+ '.' {this._input.LA(1) !== '.'}?
+    |   PG_Digit+ '.' PG_Digit+ PG_EXPONENT?
+    |   PG_Digit+ '.' PG_EXPONENT
+    |   '.' PG_Digit+ PG_EXPONENT?
+    |   PG_Digit+ PG_EXPONENT
     ;
 
-DOLLAR_NUMBER
-    : DOLLAR PG_NUMBER_LITERAL
+PG_DOLLAR_NUMBER
+    : PG_DOLLAR PG_NUMBER_LITERAL
     ;
 
 /*
@@ -863,13 +863,13 @@ DOLLAR_NUMBER
 ===============================================================================
 */
 
-Identifier
-    : IdentifierStartChar IdentifierChar*
+PG_Identifier
+    : PG_IdentifierStartChar PG_IdentifierChar*
     // always lowercase unquoted ids
         { localctx.setText(localctx.getText().toLowerCase(java.util.Locale.ROOT)); }
     ;
 fragment
-IdentifierStartChar
+PG_IdentifierStartChar
     : // these are the valid identifier start characters below 0x7F
     [a-zA-Z_]
     | // these are the valid characters from 0x80 to 0xFF
@@ -880,13 +880,13 @@ IdentifierStartChar
     [\uD800-\uDBFF] [\uDC00-\uDFFF] {this.isLetter(String.fromCharCode(this._input.LA(-2), this._input.LA(-1)))}?
     ;
 fragment
-IdentifierChar
-    : StrictIdentifierChar
+PG_IdentifierChar
+    : PG_StrictIdentifierChar
     | '$'
     ;
 fragment
-StrictIdentifierChar
-    : IdentifierStartChar
+PG_StrictIdentifierChar
+    : PG_IdentifierStartChar
     | [0-9]
     ;
 
@@ -895,8 +895,8 @@ StrictIdentifierChar
 * These are divided into four separate tokens, allowing distinction of valid quoted identifiers from invalid quoted
 * identifiers without sacrificing the ability of the lexer to reliably recover from lexical errors in the input.
 */
-QuotedIdentifier
-    : UnterminatedQuotedIdentifier '"'
+PG_QuotedIdentifier
+    : PG_UnterminatedQuotedIdentifier '"'
     // unquote so that we may always call localctx.getText() and not worry about quotes
         {
             const __tx = localctx.getText();
@@ -904,7 +904,7 @@ QuotedIdentifier
         }
     ;
 // This is a quoted identifier which only contains valid characters but is not terminated
-fragment UnterminatedQuotedIdentifier
+fragment PG_UnterminatedQuotedIdentifier
     : '"'
     ( '""' | ~[\u0000"] )*
     ;
@@ -916,35 +916,35 @@ fragment UnterminatedQuotedIdentifier
 
 // Some Unicode Character Ranges
 fragment
-Control_Characters                  :   '\u0001' .. '\u0008' | '\u000B' | '\u000C' | '\u000E' .. '\u001F';
+PG_Control_Characters                  :   '\u0001' .. '\u0008' | '\u000B' | '\u000C' | '\u000E' .. '\u001F';
 fragment
-Extended_Control_Characters         :   '\u0080' .. '\u009F';
+PG_Extended_Control_Characters         :   '\u0080' .. '\u009F';
 
 PG_Character_String_Literal
-    : [eEnNxXbB]? Single_String (String_Joiner Single_String)*
+    : [eEnNxXbB]? PG_Single_String (PG_String_Joiner PG_Single_String)*
     ;
 
 fragment
-Single_String
-    : QUOTE_CHAR ( ~'\'' | '\'\'')* QUOTE_CHAR
+PG_Single_String
+    : PG_QUOTE_CHAR ( ~'\'' | '\'\'')* PG_QUOTE_CHAR
     ;
 
 fragment
-String_Joiner
-    :  ((Space | Tab | White_Space | LineComment)* New_Line)+ (Space | Tab | White_Space)*
+PG_String_Joiner
+    :  ((PG_Space | PG_Tab | PG_White_Space | PG_LineComment)* PG_New_Line)+ (PG_Space | PG_Tab | PG_White_Space)*
     ;
 
 fragment
-EXPONENT : ('e'|'E') ('+'|'-')? Digit+ ;
+PG_EXPONENT : ('e'|'E') ('+'|'-')? PG_Digit+ ;
 
 // Dollar-quoted String Constants (§4.1.2.4)
-BeginDollarStringConstant
-    : '$' Tag? '$' {this._tags.push(localctx.getText());} -> pushMode(DollarQuotedStringMode)
+PG_BeginDollarStringConstant
+    : '$' PG_Tag? '$' {this._tags.push(localctx.getText());} -> pushMode(PG_DollarQuotedStringMode)
     ;
 
 fragment
-Tag
-    : IdentifierStartChar StrictIdentifierChar*
+PG_Tag
+    : PG_IdentifierStartChar PG_StrictIdentifierChar*
     ;
 
 
@@ -954,36 +954,36 @@ Tag
 ===============================================================================
 */
 
-Space
+PG_Space
   : ' ' -> channel(HIDDEN)
   ;
 
-White_Space
-  : ( Control_Characters  | Extended_Control_Characters )+ -> channel(HIDDEN)
+PG_White_Space
+  : ( PG_Control_Characters  | PG_Extended_Control_Characters )+ -> channel(HIDDEN)
   ;
 
-New_Line
+PG_New_Line
     : ('\u000D' | '\u000D'? '\u000A') -> channel(HIDDEN)
     ;
 
-Tab
+PG_Tab
     : '\u0009' -> channel(HIDDEN)
     ;
 
-BOM: '\ufeff';
+PG_BOM: '\ufeff';
 
-BAD
+PG_BAD
   : .
   ;
 
-mode DollarQuotedStringMode;
-Text_between_Dollar
+mode PG_DollarQuotedStringMode;
+PG_Text_between_Dollar
    : ~'$'+
     | // this alternative improves the efficiency of handling $ characters within a dollar-quoted string which are
     // not part of the ending tag.
     '$' ~'$'*
     ;
 
-EndDollarStringConstant
-    : '$' Tag? '$' {localctx.getText() === this._tags[0]}? {this._tags.shift();} -> popMode
+PG_EndDollarStringConstant
+    : '$' PG_Tag? '$' {localctx.getText() === this._tags[0]}? {this._tags.shift();} -> popMode
     ;
