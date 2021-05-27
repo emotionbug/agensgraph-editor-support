@@ -5,7 +5,7 @@ java \
     -cp "tools/antlr-4.9.2-complete.jar" \
     org.antlr.v4.Tool \
     -Dlanguage=JavaScript \
-    src/_generated/Cypher.g4
+    src/_generated/AgensGraphLexer.g4 src/_generated/AgensGraphParser.g4
 
-rm -f src/_generated/Cypher.tokens
-rm -f src/_generated/CypherLexer.tokens
+rm -f src/_generated/AgensGraphParser.tokens
+rm -f src/_generated/AgensGraphLexer.tokens

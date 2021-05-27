@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import CypherListener from '../_generated/CypherListener';
+import AgensGraphListener from '../_generated/AgensGraphParserListener';
 import * as CypherTypes from '../lang/CypherTypes';
 
 class Index {
@@ -64,7 +64,8 @@ class Index {
   }
 }
 
-export default class ReferencesListener extends CypherListener {
+export default class ReferencesListener extends AgensGraphListener {
+  // todo
   queries = [];
 
   queriesAndCommands = [];
