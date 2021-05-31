@@ -7,9 +7,9 @@ options {
 // this eliminates the ambiguous parsing options and speeds up the process
 /******* Start symbols *******/
 
-pg_sql
-    : PG_BOM? PG_SEMI_COLON* (pg_statement (PG_SEMI_COLON+ | EOF))* EOF
-    ;
+pg_sql: raw ( ';' raw)* ';'? EOF;
+
+raw: ( .*? | pg_statement) ;
 
 pg_qname_parser
     : pg_schema_qualified_name EOF
@@ -3228,10 +3228,6 @@ pg_plpgsql_query
 
 
 /* CYPHER */
-
-raw: ( .*? | cypherPart) ;
-
-cypher: raw ( ';' raw)* ';'? EOF;
 
 cypherPart: PG_Space? (cypherQuery) PG_Space?  ;
 
