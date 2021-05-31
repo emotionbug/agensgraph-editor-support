@@ -30,6 +30,16 @@ lexer grammar AgensGraphLexer;
     ==================================================
     */
 
+    ALLSHORTESTPATHS: [aA] [lL] [lL] [sS] [hH] [oO] [rR] [tT] [eE] [sS] [tT] [pP] [aA] [tT] [hH] [sS];
+    ASCENDING: [aA] [sS] [cC] [eE] [nN] [dD] [iI] [nN] [gG];
+    CONTAINS: [cC] [oO] [nN] [tT] [aA] [iI] [nN] [sS];
+    COUNT: [cC] [oO] [uU] [nN] [tT];
+    DESCENDING: [dD] [eE] [sS] [cC] [eE] [nN] [dD] [iI] [nN] [gG];
+    ENDS: [eE] [nN] [dD] [sS];
+    FIELDTERMINATOR: [fF] [iI] [eE] [lL] [dD] [tT] [eE] [rR] [mM] [iI] [nN] [aA] [tT] [oO] [rR];
+    HEADERS: [hH] [eE] [aA] [dD] [eE] [rR] [sS];
+    OPTIONAL: [oO] [pP] [tT] [iI] [oO] [nN] [aA] [lL];
+
     PG_ABORT: [aA] [bB] [oO] [rR] [tT];    // first identifier rule, sync with CustomSQLAntlrErrorStrategy & AntlrUtils
     PG_ABSOLUTE: [aA] [bB] [sS] [oO] [lL] [uU] [tT] [eE];
     PG_ACCESS: [aA] [cC] [cC] [eE] [sS] [sS];
@@ -536,6 +546,9 @@ lexer grammar AgensGraphLexer;
     PG_NOT: [nN] [oO] [tT];
     PG_NULL: [nN] [uU] [lL] [lL];
 
+
+    PG_MERGE: [mM] [eE] [rR] [gG] [eE];
+
     PG_OFFSET: [oO] [fF] [fF] [sS] [eE] [tT];
     PG_ON: [oO] [nN];
     PG_ONLY: [oO] [nN] [lL] [yY];
@@ -756,6 +769,15 @@ lexer grammar AgensGraphLexer;
     AG_VLABEL: [vV] [lL] [aA] [bB] [eE] [lL];
     AG_ELABEL: [eE] [lL] [aA] [bB] [eE] [Ll];
 
+    REDUCE: [rR] [eE] [dD] [uU] [cC] [eE];
+    REMOVE: [rR] [eE] [mM] [oO] [vV] [eE];
+    SHORTESTPATH: [sS] [hH] [oO] [rR] [tT] [eE] [sS] [tT] [pP] [aA] [tT] [hH];
+    SINGLE: [sS] [iI] [nN] [gG] [lL] [eE];
+    STARTS: [sS] [tT] [aA] [rR] [tT] [sS];
+    UNWIND: [uU] [nN] [wW] [iI] [nN] [dD];
+    XOR: [xX] [oO] [rR];
+    YIELD: [yY] [iI] [eE] [lL] [dD];
+
 fragment PG_UNDERLINE : '_';
 
 // Operators
@@ -785,6 +807,8 @@ PG_DOT : '.';
 PG_QUOTE_CHAR : '\'';
 PG_DOUBLE_QUOTE : '"';
 PG_DOLLAR : '$';
+BRACKET_OPEN: '{';
+BRACKET_CLOSE: '}';
 PG_LEFT_BRACKET : '[';
 PG_RIGHT_BRACKET : ']';
 
@@ -795,6 +819,10 @@ PG_LESS_LESS : '<<';
 PG_GREATER_GREATER : '>>';
 PG_DOUBLE_DOT: '..';
 PG_HASH_SIGN: '#';              // last operator rule, sync with CustomSQLAntlrErrorStrategy
+
+PLUS_EQUAL: '+=';
+CHAR_OR: '|';
+ALMOST_EQUAL: '=~';
 
 PG_BlockComment
     :   '/*' (PG_BlockComment |.)*? '*/' -> channel(HIDDEN)

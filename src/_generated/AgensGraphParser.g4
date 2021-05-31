@@ -91,6 +91,7 @@ pg_script_additional
     | pg_execute_statement
     | pg_explain_statement
     | pg_show_statement
+    | ag_cypher_statement
     ;
 
 pg_additional_statement
@@ -1879,6 +1880,8 @@ ag_alter_label_statement
         | PG_DETACH PG_PARTITION child=pg_schema_qualified_name
         | PG_DISABLE PG_INDEX)
     ;
+ag_cypher_statement
+    : cypherQuery;
 /*
 ===============================================================================
   5.2 <token and separator>
@@ -3223,3 +3226,426 @@ pg_plpgsql_query
     | pg_explain_statement
     ;
 
+
+/* CYPHER */
+
+raw: ( .*? | cypherPart) ;
+
+cypher: raw ( ';' raw)* ';'? EOF;
+
+cypherPart: PG_Space? (cypherQuery) PG_Space?  ;
+
+cypherQuery : statement ;
+
+statement : query;
+
+query : regularQuery
+      | loadCSVQuery
+      ;
+
+regularQuery : singleQuery ( PG_Space? union )* ;
+
+singleQuery : clause ( PG_Space? clause )* ;
+
+loadCSVQuery : loadCSVClause ( PG_Space? clause )* ;
+
+union : ( PG_UNION PG_ALL PG_Space? singleQuery )
+      | ( PG_UNION PG_Space? singleQuery )
+      ;
+
+clause : loadCSVClause
+       | matchClause
+       | unwindClause
+       | mergeClause
+       | createClause
+       | createUniqueClause
+       | setClause
+       | deleteClause
+       | removeClause
+       | withClause
+       | returnClause
+       ;
+
+loadCSVClause : PG_LOAD PG_CSV ( PG_WITH HEADERS )? PG_FROM cypherExpression PG_AS variable ( FIELDTERMINATOR stringLiteral )? ;
+
+matchClause : ( OPTIONAL )? PG_MATCH PG_Space? pattern ( PG_Space? where )? ;
+
+unwindClause : UNWIND PG_Space? cypherExpression PG_AS variable ;
+
+mergeClause : PG_MERGE PG_Space? patternPart ( PG_Space? mergeAction )* ;
+
+mergeAction : ( PG_ON PG_MATCH setClause )
+            | ( PG_ON PG_CREATE setClause )
+            ;
+
+createClause : PG_CREATE PG_Space? pattern ;
+
+createUniqueClause : PG_CREATE PG_UNIQUE PG_Space? pattern ;
+
+setClause : PG_SET PG_Space? setItem ( PG_Space? PG_COMMA PG_Space? setItem )* ;
+
+setItem : ( propertyExpression PG_Space? PG_EQUAL PG_Space? cypherExpression )
+        | ( variable PG_Space? PG_EQUAL PG_Space? cypherExpression )
+        | ( variable PG_Space? PLUS_EQUAL PG_Space? cypherExpression )
+        | ( variable PG_Space? nodeLabels )
+        ;
+
+deleteClause : ( PG_DETACH )? PG_DELETE PG_Space? cypherExpression ( PG_Space? PG_COMMA PG_Space? cypherExpression )* ;
+
+removeClause : REMOVE removeItem ( PG_Space? PG_COMMA PG_Space? removeItem )* ;
+
+removeItem : ( variable nodeLabels )
+           | propertyExpression
+           ;
+
+withClause : PG_WITH ( PG_Space? PG_DISTINCT )? returnBody ( PG_Space? where )? ;
+
+returnClause : PG_RETURN ( PG_Space? PG_DISTINCT )? PG_Space? returnBody ;
+
+returnBody : returnItems ( order )? ( skip )? ( limit )? ;
+
+func : procedureInvocation PG_Space? procedureResults? ;
+
+returnItems : ( PG_MULTIPLY ( PG_Space? PG_COMMA PG_Space? returnItem )* )
+            | ( returnItem ( PG_Space? PG_COMMA PG_Space? returnItem )* )
+			| func
+            ;
+
+returnItem : ( cypherExpression PG_AS variable )
+           | cypherExpression
+           ;
+
+procedureInvocation : procedureInvocationBody PG_Space? procedureArguments? ;
+
+procedureInvocationBody : namespace procedureName ;
+
+procedureArguments : cypherLeftParen PG_Space? cypherExpression? ( PG_Space? PG_COMMA PG_Space? cypherExpression )* PG_Space? cypherRightParen ;
+
+procedureResults : YIELD procedureResult ( PG_Space? PG_COMMA PG_Space? procedureResult )* (where)?;
+
+procedureResult : aliasedProcedureResult
+                | simpleProcedureResult ;
+
+aliasedProcedureResult : procedureOutput PG_AS variable ;
+
+simpleProcedureResult : procedureOutput ;
+
+procedureOutput : symbolicName ;
+
+order : PG_ORDER PG_BY sortItem ( PG_Space? PG_COMMA PG_Space? sortItem )* ;
+
+skip : PG_SKIP_ cypherExpression ;
+
+limit : PG_LIMIT cypherExpression ;
+
+sortItem : cypherExpression ( PG_Space? ( ASCENDING | PG_ASC | DESCENDING | PG_DESC ) PG_Space? )? ;
+
+where : PG_WHERE cypherExpression ;
+
+pattern : patternPart ( PG_Space? PG_COMMA PG_Space? patternPart )* ;
+
+patternPart : ( variable PG_Space? PG_EQUAL PG_Space? anonymousPatternPart )
+            | anonymousPatternPart
+            ;
+
+anonymousPatternPart : shortestPathPatternFunction
+                     | patternElement
+                     ;
+
+patternElement : ( nodePattern ( PG_Space? patternElementChain )* )
+               | ( cypherLeftParen patternElement cypherRightParen )
+               ;
+
+nodePattern : cypherLeftParen PG_Space? ( variable PG_Space? )? ( nodeLabels PG_Space? )? ( properties PG_Space? )? cypherRightParen ;
+
+patternElementChain : relationshipPattern PG_Space? nodePattern ;
+
+relationshipPattern : relationshipPatternStart PG_Space? relationshipDetail? PG_Space? relationshipPatternEnd;
+
+relationshipPatternStart : ( leftArrowHead PG_Space? dash )
+                         | ( dash )
+                         ;
+
+relationshipPatternEnd : ( dash PG_Space? rightArrowHead )
+                       | ( dash )
+                       ;
+
+relationshipDetail : PG_LEFT_BRACKET PG_Space? ( variable PG_Space? )? ( relationshipTypes PG_Space? )? rangeLiteral? ( properties PG_Space? )? PG_RIGHT_BRACKET ;
+
+properties : mapLiteral
+           | parameter
+           ;
+
+relationshipTypes : relationshipType ( PG_Space? CHAR_OR relationshipTypeOptionalColon )* ;
+
+relationshipType : ':' relTypeName ;
+
+relationshipTypeOptionalColon : ':'? relTypeName ;
+
+nodeLabels : nodeLabel ( PG_Space? nodeLabel )* ;
+
+nodeLabel : ':' labelName ;
+
+rangeLiteral : PG_MULTIPLY PG_Space? ( integerLiteral PG_Space? )? ( '..' PG_Space? ( integerLiteral PG_Space? )? )? ;
+
+labelName : symbolicName ;
+
+relTypeName : symbolicName ;
+
+cypherExpression : orExpression ;
+
+orExpression : xorExpression ( PG_OR xorExpression )* ;
+
+xorExpression : andExpression ( XOR andExpression )* ;
+
+andExpression : notExpression ( PG_AND notExpression )* ;
+
+notExpression : ( PG_NOT PG_Space? )* comparisonExpression ;
+
+comparisonExpression : addOrSubtractExpression ( PG_Space? partialComparisonExpression )* ;
+
+addOrSubtractExpression : multiplyDivideModuloExpression ( ( PG_Space? PG_PLUS PG_Space? multiplyDivideModuloExpression ) | ( PG_Space? PG_MINUS PG_Space? multiplyDivideModuloExpression ) )* ;
+
+multiplyDivideModuloExpression : powerOfExpression ( ( PG_Space? PG_MULTIPLY PG_Space? powerOfExpression ) | ( PG_Space? PG_DIVIDE PG_Space? powerOfExpression ) | ( PG_Space? PG_MODULAR PG_Space? powerOfExpression ) )* ;
+
+powerOfExpression : unaryAddOrSubtractExpression ( PG_Space? PG_EXP PG_Space? unaryAddOrSubtractExpression )* ;
+
+unaryAddOrSubtractExpression : ( ( PG_PLUS | PG_MINUS ) PG_Space? )* stringListNullOperatorExpression ;
+
+stringListNullOperatorExpression : propertyOrLabelsExpression ( ( PG_Space? PG_LEFT_BRACKET cypherExpression PG_RIGHT_BRACKET ) | ( PG_Space? PG_LEFT_BRACKET cypherExpression? '..' cypherExpression? PG_RIGHT_BRACKET ) | ( ( ( PG_Space? ALMOST_EQUAL ) | ( PG_IN ) | ( STARTS PG_WITH ) | ( ENDS PG_WITH ) | ( CONTAINS ) ) PG_Space? propertyOrLabelsExpression ) | ( PG_IS PG_NULL ) | ( PG_IS PG_NOT PG_NULL ) )* ;
+
+propertyOrLabelsExpression : atom ( PG_Space? ( propertyLookup | nodeLabels ) )* ;
+
+filterFunction : ( filterFunctionName PG_Space? cypherLeftParen PG_Space? filterExpression PG_Space? cypherRightParen ) ;
+
+filterFunctionName : PG_FILTER ;
+
+existsFunction : ( existsFunctionName PG_Space? cypherLeftParen PG_Space? cypherExpression PG_Space? cypherRightParen ) ;
+
+existsFunctionName: PG_EXISTS ;
+
+allFunction : ( allFunctionName PG_Space? cypherLeftParen PG_Space? filterExpression PG_Space? cypherRightParen ) ;
+
+allFunctionName : PG_ALL ;
+
+anyFunction : ( anyFunctionName PG_Space? cypherLeftParen PG_Space? filterExpression PG_Space? cypherRightParen ) ;
+
+anyFunctionName : PG_ANY ;
+
+noneFunction : ( noneFunctionName PG_Space? cypherLeftParen PG_Space? filterExpression PG_Space? cypherRightParen ) ;
+
+noneFunctionName : PG_NONE ;
+
+singleFunction : ( singleFunctionName PG_Space? cypherLeftParen PG_Space? filterExpression PG_Space? cypherRightParen ) ;
+
+singleFunctionName : SINGLE ;
+
+extractFunction : ( extractFunctionName PG_Space? cypherLeftParen PG_Space? filterExpression ( PG_Space? CHAR_OR PG_Space? cypherExpression )? PG_Space? cypherRightParen ) ;
+
+extractFunctionName : PG_EXTRACT ;
+
+reduceFunction : ( reduceFunctionName PG_Space? cypherLeftParen PG_Space? variable PG_Space? PG_EQUAL PG_Space? cypherExpression PG_Space? PG_COMMA PG_Space? idInColl PG_Space? CHAR_OR PG_Space? cypherExpression PG_Space? cypherRightParen );
+
+reduceFunctionName : REDUCE ;
+
+shortestPathPatternFunction : (  shortestPathFunctionName PG_Space? cypherLeftParen PG_Space? patternElement PG_Space? cypherRightParen )
+                            | (  allShortestPathFunctionName PG_Space? cypherLeftParen PG_Space? patternElement PG_Space? cypherRightParen )
+                            ;
+
+shortestPathFunctionName : SHORTESTPATH ;
+
+allShortestPathFunctionName : ALLSHORTESTPATHS ;
+
+atom : literal
+     | parameter
+     | caseExpression
+     | ( COUNT PG_Space? cypherLeftParen PG_Space? PG_MULTIPLY PG_Space? cypherRightParen )
+     | listComprehension
+     | patternComprehension
+     | filterFunction
+     | extractFunction
+     | reduceFunction
+     | allFunction
+     | anyFunction
+     | noneFunction
+     | singleFunction
+     | existsFunction
+     | shortestPathPatternFunction
+     | relationshipsPattern
+     | parenthesizedExpression
+     | functionInvocation
+     | variable
+     ;
+
+literal : numberLiteral
+        | stringLiteral
+        | booleanLiteral
+        | PG_NULL
+        | mapLiteral
+        | listLiteral
+        | mapProjection
+        ;
+
+stringLiteral : PG_Character_String_Literal ;
+
+booleanLiteral : PG_TRUE
+               | PG_FALSE
+               ;
+
+listLiteral : PG_LEFT_BRACKET PG_Space? ( cypherExpression PG_Space? ( PG_COMMA PG_Space? cypherExpression PG_Space? )* )? PG_RIGHT_BRACKET ;
+
+partialComparisonExpression : ( PG_EQUAL PG_Space? addOrSubtractExpression )
+                            | ( PG_NOT_EQUAL PG_Space? addOrSubtractExpression )
+                            | ( PG_LTH PG_Space? addOrSubtractExpression )
+                            | ( PG_GTH PG_Space? addOrSubtractExpression )
+                            | ( PG_LEQ PG_Space? addOrSubtractExpression )
+                            | ( PG_GEQ PG_Space? addOrSubtractExpression )
+                            ;
+
+parenthesizedExpression : cypherLeftParen PG_Space? cypherExpression PG_Space? cypherRightParen ;
+
+relationshipsPattern : nodePattern ( PG_Space? patternElementChain )+ ;
+
+filterExpression : idInColl ( PG_Space? where )? ;
+
+idInColl : variable PG_IN cypherExpression ;
+
+functionInvocation : functionInvocationBody PG_Space? cypherLeftParen PG_Space? ( PG_DISTINCT PG_Space? )? ( cypherExpression PG_Space? ( PG_COMMA PG_Space? cypherExpression PG_Space? )* )? cypherRightParen ;
+
+functionInvocationBody : namespace functionName ;
+
+functionName : pg_identifier
+             | COUNT ;
+
+procedureName : symbolicName ;
+
+listComprehension : PG_LEFT_BRACKET PG_Space? filterExpression ( PG_Space? CHAR_OR PG_Space? cypherExpression )? PG_Space? PG_RIGHT_BRACKET ;
+
+patternComprehension : PG_LEFT_BRACKET PG_Space? ( variable PG_Space? PG_EQUAL PG_Space? )? relationshipsPattern PG_Space? ( PG_WHERE PG_Space? cypherExpression PG_Space? )? CHAR_OR PG_Space? cypherExpression PG_Space? PG_RIGHT_BRACKET ;
+
+propertyLookup : '.' PG_Space? ( propertyKeyName ) ;
+
+caseExpression : ( ( PG_CASE ( PG_Space? caseAlternatives )+ ) | ( PG_CASE PG_Space? cypherExpression ( PG_Space? caseAlternatives )+ ) ) ( PG_Space? PG_ELSE PG_Space? cypherExpression )? PG_Space? PG_END ;
+
+caseAlternatives : PG_WHEN PG_Space? cypherExpression PG_Space? PG_THEN PG_Space? cypherExpression ;
+
+variable : symbolicName ;
+
+numberLiteral : doubleLiteral
+              | integerLiteral
+              ;
+
+mapLiteral : cypherBraketOpen PG_Space? ( literalEntry PG_Space? ( PG_COMMA PG_Space? literalEntry PG_Space? )* )? cypherBraketClose ;
+
+mapProjection : variable PG_Space? cypherBraketOpen PG_Space?  mapProjectionVariants? (PG_Space? PG_COMMA PG_Space? mapProjectionVariants  )* PG_Space? cypherBraketClose ;
+
+mapProjectionVariants : ( literalEntry | propertySelector | variableSelector | allPropertiesSelector) ;
+
+literalEntry : propertyKeyName PG_Space? ':' PG_Space? cypherExpression ;
+
+propertySelector : '.' variable ;
+
+variableSelector : variable ;
+
+allPropertiesSelector : '.' PG_MULTIPLY ;
+
+parameter : legacyParameter
+          | newParameter
+          ;
+
+legacyParameter : cypherBraketOpen PG_Space? parameterName PG_Space? cypherBraketClose ;
+
+newParameter : '$' parameterName ;
+
+parameterName : symbolicName
+              | PG_NUMBER_LITERAL
+              ;
+
+propertyExpression : atom ( PG_Space? propertyLookup )+ ;
+
+propertyKeyName: symbolicName;
+
+integerLiteral: PG_NUMBER_LITERAL;
+
+doubleLiteral: PG_REAL_NUMBER;
+
+namespace: ( symbolicName '.')*;
+
+cypherBraketOpen: BRACKET_OPEN;
+cypherBraketClose: BRACKET_CLOSE;
+
+cypherLeftParen: PG_LEFT_PAREN;
+cypherRightParen: PG_RIGHT_PAREN;
+
+leftArrowHead: PG_LTH;
+
+rightArrowHead: PG_GTH;
+
+dash:
+	PG_MINUS;
+
+symbolicName:
+    pg_identifier
+    | keyword
+    ;
+
+keyword: PG_EXPLAIN
+	| PG_UNION
+	| PG_ALL
+	| PG_CREATE
+	| PG_ON
+	| PG_IS
+	| PG_UNIQUE
+	| PG_EXISTS
+	| PG_LOAD
+	| PG_CSV
+	| PG_WITH
+	| HEADERS
+	| PG_FROM
+	| PG_AS
+	| FIELDTERMINATOR
+	| OPTIONAL
+	| PG_MATCH
+	| UNWIND
+	| PG_MERGE
+	| PG_SET
+	| PG_DETACH
+	| PG_DELETE
+	| REMOVE
+	| PG_IN
+	| PG_DISTINCT
+	| PG_RETURN
+	| PG_ORDER
+	| PG_BY
+	| PG_SKIP_
+	| PG_LIMIT
+	| ASCENDING
+	| PG_ASC
+	| DESCENDING
+	| PG_DESC
+	| PG_WHERE
+	| SHORTESTPATH
+	| ALLSHORTESTPATHS
+	| PG_OR
+	| XOR
+	| PG_AND
+	| PG_NOT
+	| STARTS
+	| ENDS
+	| CONTAINS
+	| PG_NULL
+	| COUNT
+	| PG_FILTER
+	| PG_EXTRACT
+	| PG_ANY
+	| PG_NONE
+	| SINGLE
+	| PG_TRUE
+	| PG_FALSE
+	| REDUCE
+	| PG_CASE
+	| PG_ELSE
+	| PG_END
+	| PG_WHEN
+	| PG_THEN
+	| YIELD;
