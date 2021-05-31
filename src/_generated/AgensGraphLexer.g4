@@ -753,6 +753,8 @@ lexer grammar AgensGraphLexer;
     PG_WHILE: [wW] [hH] [iI] [lL] [eE];     // last identifier rule, sync with CustomSQLAntlrErrorStrategy & AntlrUtils
 
     AG_GRAPH: [gG] [rR] [aA] [pP] [hH];
+    AG_VLABEL: [vV] [lL] [aA] [bB] [eE] [lL];
+    AG_ELABEL: [eE] [lL] [aA] [bB] [eE] [Ll];
 
 fragment PG_UNDERLINE : '_';
 

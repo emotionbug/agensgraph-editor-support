@@ -102,7 +102,7 @@ pg_additional_statement
     | PG_CHECKPOINT
     | PG_LOAD PG_Character_String_Literal
     | PG_DEALLOCATE PG_PREPARE? (pg_identifier | PG_ALL)
-    | PG_REINDEX (PG_LEFT_PAREN PG_VERBOSE PG_RIGHT_PAREN)? (PG_INDEX | PG_TABLE | PG_SCHEMA | PG_DATABASE | PG_SYSTEM) PG_CONCURRENTLY? pg_schema_qualified_name
+    | PG_REINDEX (PG_LEFT_PAREN PG_VERBOSE PG_RIGHT_PAREN)? (PG_INDEX | PG_TABLE | PG_SCHEMA | PG_DATABASE | PG_SYSTEM | AG_VLABEL | AG_ELABEL) PG_CONCURRENTLY? pg_schema_qualified_name
     | PG_RESET ((pg_identifier PG_DOT)? pg_identifier | PG_TIME PG_ZONE | PG_SESSION PG_AUTHORIZATION | PG_ALL)
     | PG_REFRESH PG_MATERIALIZED PG_VIEW PG_CONCURRENTLY? pg_schema_qualified_name (PG_WITH PG_NO? PG_DATA)?
     | PG_PREPARE pg_identifier (PG_LEFT_PAREN pg_data_type (PG_COMMA pg_data_type)* PG_RIGHT_PAREN)? PG_AS pg_data_statement
@@ -119,6 +119,7 @@ pg_explain_query
     : pg_data_statement
     | pg_execute_statement
     | pg_declare_statement
+    | ag_cypher_statement
     | PG_CREATE (pg_create_table_as_statement | pg_create_view_statement)
     ;
 
@@ -231,7 +232,8 @@ pg_schema_create
     | pg_create_user_mapping_statement
     | pg_create_user_or_role_statement
     | pg_create_view_statement
-    | ag_create_graph_statement)
+    | ag_create_graph_statement
+    | ag_create_label_statement)
 
     | pg_comment_on_statement
     | pg_rule_common
@@ -275,7 +277,8 @@ pg_schema_alter
     | pg_alter_user_mapping_statement
     | pg_alter_user_or_role_statement
     | pg_alter_view_statement
-    | ag_alter_graph_statement)
+    | ag_alter_graph_statement
+    | ag_alter_label_statement)
     ;
 
 pg_schema_drop
@@ -1831,7 +1834,10 @@ pg_drop_statements
     | PG_TABLESPACE
     | PG_TYPE
     | PG_TEXT PG_SEARCH (PG_CONFIGURATION | PG_DICTIONARY | PG_PARSER | PG_TEMPLATE)
-    | PG_USER) pg_if_exist_names_restrict_cascade
+    | PG_USER
+    | AG_GRAPH
+    | AG_ELABEL
+    | AG_VLABEL) pg_if_exist_names_restrict_cascade
     ;
 
 pg_if_exist_names_restrict_cascade
@@ -1844,6 +1850,34 @@ ag_create_graph_statement
 
 ag_alter_graph_statement
     : AG_GRAPH pg_identifier (pg_rename_to | pg_owner_to)
+    ;
+
+ag_define_table
+    : (PG_INHERITS pg_names_in_parens)
+    | pg_define_type
+    | pg_define_partition
+    ;
+
+ag_create_label_statement
+    : ((PG_GLOBAL | PG_LOCAL)? (PG_TEMPORARY | PG_TEMP) | PG_UNLOGGED)? (AG_VLABEL | AG_ELABEL) pg_if_not_exists? name=pg_schema_qualified_name
+    ag_define_table?
+    pg_partition_by?
+    (PG_USING pg_identifier)?
+    pg_storage_parameter_oid?
+    pg_on_commit?
+    pg_table_space?
+    ;
+
+ag_alter_label_statement
+    : (AG_VLABEL | AG_ELABEL) pg_if_exists? PG_ONLY? name=pg_schema_qualified_name PG_MULTIPLY?(
+        pg_table_action (PG_COMMA pg_table_action)*
+        | PG_RENAME PG_COLUMN? pg_identifier PG_TO pg_identifier
+        | pg_set_schema
+        | pg_rename_to
+        | PG_RENAME PG_CONSTRAINT pg_identifier PG_TO pg_identifier
+        | PG_ATTACH PG_PARTITION child=pg_schema_qualified_name pg_for_values_bound
+        | PG_DETACH PG_PARTITION child=pg_schema_qualified_name
+        | PG_DISABLE PG_INDEX)
     ;
 /*
 ===============================================================================
@@ -3188,3 +3222,4 @@ pg_plpgsql_query
     | pg_show_statement
     | pg_explain_statement
     ;
+

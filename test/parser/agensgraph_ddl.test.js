@@ -1,23 +1,3 @@
-/*
- * Copyright (c) 2002-2017 "Neo Technology,"
- * Network Engine for Objects in Lund AB [http://neotechnology.com]
- *
- * This file is part of Neo4j.
- *
- * Neo4j is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 import { expect } from 'chai';
 import CypherEditorSupport from '../../src/CypherEditorSupport';
 
@@ -47,8 +27,68 @@ describe('Parser - AgensGraph DML', () => {
     expect(b.parseErrors).to.deep.equal([]);
   });
 
-  it('should successfully past call where string contains cypher with new lines', () => {
-    const b = new CypherEditorSupport('CALL foo.bar("MATCH (n) \nRETURN n")');
+  it('CREATE VLABEL', () => {
+    const b = new CypherEditorSupport('CREATE VLABEL v0;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('CREATE ELABEL', () => {
+    const b = new CypherEditorSupport('CREATE ELABEL "e0";');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('CREATE VLABEL INHERITS', () => {
+    const b = new CypherEditorSupport('CREATE VLABEL v00 INHERITS (v0);');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('CREATE ELABEL INHERITS', () => {
+    const b = new CypherEditorSupport('CREATE ELABEL e00 INHERITS (e0);');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name RENAME TO new_name', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name RENAME TO new_name;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name OWNER TO new_owner', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name OWNER TO new_owner');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name SET TABLESPACE new_tablespace', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name SET TABLESPACE new_tablespace;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name CLUSTER ON idxname', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name CLUSTER ON idxname;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name SET LOGGED', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name SET LOGGED;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name SET UNLOGGED', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name SET UNLOGGED;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name INHERIT parent_label', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name INHERIT parent_label;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name NO INHERIT parent_label', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name NO INHERIT parent_label;');
+    expect(b.parseErrors).to.deep.equal([]);
+  });
+
+  it('ALTER VLABEL IF EXISTS label_name DISABLE INDEX', () => {
+    const b = new CypherEditorSupport('ALTER VLABEL IF EXISTS label_name DISABLE INDEX;');
     expect(b.parseErrors).to.deep.equal([]);
   });
 });
