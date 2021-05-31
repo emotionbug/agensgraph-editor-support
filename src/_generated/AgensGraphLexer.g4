@@ -962,7 +962,7 @@ PG_Tag
 */
 
 PG_Space
-  : ' ' -> channel(HIDDEN)
+  : ' '
   ;
 
 PG_White_Space
