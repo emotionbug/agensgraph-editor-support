@@ -20,21 +20,9 @@
 
 import { expect } from 'chai';
 import CypherEditorSupport from '../../src/CypherEditorSupport';
-import cypherLegacy from './openCypherTestFiles/cypher-legacy';
 import cypher from './openCypherTestFiles/cypher';
 
 describe('openCypher test files', () => {
-  describe('cypherLegacy', () => {
-    let i = 0;
-    cypherLegacy.forEach((query) => {
-      i += 1;
-      it(`cypher-legacy-query-${i}`, () => {
-        const b = new CypherEditorSupport(query);
-        expect(b.parseErrors).to.deep.equal([]);
-      });
-    });
-  });
-
   describe('cypher', () => {
     let i = 0;
     cypher.forEach((query) => {

@@ -75,27 +75,6 @@ class SchemaBasedCompletion extends AbstractCachingCompletion {
       }
       return [];
     },
-    [CompletionTypes.CONSOLE_COMMAND_SUBCOMMAND]: (schema, typeData) => {
-      const { filterLastElement, path } = typeData;
-
-      const length = filterLastElement ? path.length - 1 : path.length;
-      let currentLevel = schema.consoleCommands;
-      for (let i = 0; i < length; i += 1) {
-        const foundCommand = _.find(currentLevel, ['name', path[i]]);
-        if (foundCommand) {
-          currentLevel = foundCommand.commands || [];
-        } else {
-          return [];
-        }
-      }
-
-      return currentLevel.map(({ name, description }) => ({
-        type: CompletionTypes.CONSOLE_COMMAND_SUBCOMMAND,
-        view: name,
-        content: name,
-        postfix: description || null,
-      }));
-    },
   };
 
   constructor(schema = {}) {
@@ -135,13 +114,6 @@ class SchemaBasedCompletion extends AbstractCachingCompletion {
           view: name,
           content: name,
           postfix: signature,
-        })),
-      [CompletionTypes.CONSOLE_COMMAND_NAME]: (schema.consoleCommands || [])
-        .map((consoleCommandName) => ({
-          type: CompletionTypes.CONSOLE_COMMAND_NAME,
-          view: consoleCommandName.name,
-          content: consoleCommandName.name,
-          postfix: consoleCommandName.description || null,
         })),
       [CompletionTypes.PARAMETER]: (schema.parameters || [])
         .map((parameter) => ({

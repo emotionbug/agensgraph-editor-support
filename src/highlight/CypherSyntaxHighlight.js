@@ -99,17 +99,6 @@ export default class CypherSyntaxHighlight {
         return true;
       }
 
-      if (e.constructor.name === CypherTypes.CONSOLE_COMMAND_NAME_CONTEXT) {
-        callback(e, 'consoleCommand');
-        return true;
-      }
-
-      if (e.constructor.name === CypherTypes.CONSOLE_COMMAND_SUBCOMMAND_CONTEXT
-        || e.constructor.name === CypherTypes.CONSOLE_COMMAND_PATH_CONTEXT) {
-        callback(e, 'property');
-        return true;
-      }
-
       return false;
     });
   }

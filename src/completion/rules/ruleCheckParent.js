@@ -47,9 +47,6 @@ const childToParentTypeMapping = {
   [CypherTypes.RELATIONSHIP_TYPE_OPTIONAL_COLON_CONTEXT]: [
     { type: CompletionTypes.RELATIONSHIP_TYPE },
   ],
-  [CypherTypes.CONSOLE_COMMAND_NAME_CONTEXT]: [
-    { type: CompletionTypes.CONSOLE_COMMAND_NAME },
-  ],
   [CypherTypes.NODE_LABELS_CONTEXT]: [
     { type: CompletionTypes.LABEL },
   ],

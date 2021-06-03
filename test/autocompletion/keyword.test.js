@@ -21,12 +21,6 @@
 import { checkCompletion } from './util';
 
 describe('AutoCompletion - Keyword', () => {
-  describe('types', () => {
-  });
-
-  describe('without filters', () => {
-  });
-
   describe('with filters', () => {
     it('yields keyword list', () => {
       const expected = {

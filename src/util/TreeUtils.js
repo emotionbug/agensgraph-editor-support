@@ -75,7 +75,8 @@ export default class TreeUtils {
           start: symbol.start,
           stop: symbol.stop,
         };
-      } else if (start != null && stop != null) {
+      }
+      if (start != null && stop != null) {
         return {
           start: start.start,
           stop: stop.stop,

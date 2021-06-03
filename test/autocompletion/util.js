@@ -43,34 +43,6 @@ export const schema = {
     },
     { name: 'org.neo4j.graph.traverse', signature: 'expression', returnItems: [] },
   ],
-  consoleCommands: [
-    {
-      name: ':clear',
-    },
-    {
-      name: ':play',
-    },
-    {
-      name: ':help',
-      description: 'helpdesc',
-      commands: [
-        { name: 'match' },
-        { name: 'create' },
-      ],
-    },
-    {
-      name: ':server',
-      commands: [
-        {
-          name: 'user',
-          commands: [
-            { name: 'list', description: 'listdesc' },
-            { name: 'add' },
-          ],
-        },
-      ],
-    },
-  ],
 };
 
 export function checkCompletion(queryWithCursor, expectedItems, doFilter = false) {

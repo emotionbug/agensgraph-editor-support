@@ -33,7 +33,6 @@ const orderedCompletionRules = [
   rules.ruleRelationshipPattern,
   rules.ruleProcedureOutputsInCallClause,
   rules.ruleCallClauseBeginning,
-  rules.ruleConsoleCommandSubcommands,
   rules.rulePropertyLookup,
   rules.rulePossibleKeyword,
 ];

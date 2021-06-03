@@ -65,7 +65,6 @@ class Index {
 }
 
 export default class ReferencesListener extends AgensGraphListener {
-  // todo
   queries = [];
 
   queriesAndCommands = [];
@@ -82,8 +81,6 @@ export default class ReferencesListener extends AgensGraphListener {
     {},
   );
 
-  inConsoleCommand = false;
-
   enterRaw(ctx) {
     this.raw.push(ctx);
   }
@@ -94,64 +91,36 @@ export default class ReferencesListener extends AgensGraphListener {
     }
   }
 
-  enterCypherPart(ctx) {
+  // eslint-disable-next-line camelcase
+  exitPg_statement(ctx) {
     this.statements.push(ctx);
   }
 
-  exitCypher(ctx) {
-    if (this.statements.length === 0) {
-      this.statements.push(ctx);
-    }
-  }
-
-  enterCypherConsoleCommand(ctx) {
-    this.queriesAndCommands.push(ctx);
-    Object.keys(this.indexes).forEach((k) => this.indexes[k].addQuery());
-    this.inConsoleCommand = true;
-  }
-
-  exitCypherConsoleCommand() {
-    this.inConsoleCommand = false;
-  }
-
-  enterCypherQuery(ctx) {
+  // eslint-disable-next-line camelcase
+  enterPg_sql(ctx) {
     this.queries.push(ctx);
     this.queriesAndCommands.push(ctx);
-    Object.keys(this.indexes).forEach((k) => this.indexes[k].addQuery());
+    Object.keys(this.indexes)
+      .forEach((k) => this.indexes[k].addQuery());
   }
 
   exitVariable(ctx) {
-    if (this.inConsoleCommand) {
-      return;
-    }
     this.indexes[CypherTypes.VARIABLE_CONTEXT].addVariable(ctx);
   }
 
   exitLabelName(ctx) {
-    if (this.inConsoleCommand) {
-      return;
-    }
     this.indexes[CypherTypes.LABEL_NAME_CONTEXT].add(ctx);
   }
 
   exitRelTypeName(ctx) {
-    if (this.inConsoleCommand) {
-      return;
-    }
     this.indexes[CypherTypes.RELATIONSHIP_TYPE_NAME_CONTEXT].add(ctx);
   }
 
   exitPropertyKeyName(ctx) {
-    if (this.inConsoleCommand) {
-      return;
-    }
     this.indexes[CypherTypes.PROPERTY_KEY_NAME_CONTEXT].add(ctx);
   }
 
   exitParameterName(ctx) {
-    if (this.inConsoleCommand) {
-      return;
-    }
     this.indexes[CypherTypes.PARAMETER_NAME_CONTEXT].add(ctx);
   }
 }
