@@ -965,7 +965,7 @@ PG_Tag
 */
 
 SP
-  : (PG_Space | PG_Tab | PG_White_Space | PG_New_Line | PG_LineComment)+;
+  : (PG_Space | PG_Tab | PG_White_Space | PG_New_Line | PG_LineComment | PG_BlockComment)+;
 
 PG_Space
   : ' '

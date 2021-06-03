@@ -3261,7 +3261,8 @@ createUniqueClause : PG_CREATE SP PG_UNIQUE SP? pattern ;
 setClause : PG_SET SP? setItem ( SP? PG_COMMA SP? setItem )* ;
 
 setItem : ( propertyExpression SP? PG_EQUAL SP? cypherExpression )
-        | ( variable SP? PG_PLUS? PG_EQUAL SP? cypherExpression )
+        | ( variable SP? PG_EQUAL SP? cypherExpression )
+        | ( variable SP? PLUS_EQUAL SP? cypherExpression )
         | ( variable SP? nodeLabels )
         ;
 
@@ -3498,7 +3499,7 @@ listComprehension : PG_LEFT_BRACKET SP? filterExpression ( SP? CHAR_OR SP? cyphe
 
 patternComprehension : PG_LEFT_BRACKET SP? ( variable SP? PG_EQUAL SP? )? relationshipsPattern SP? ( PG_WHERE SP? cypherExpression SP? )? CHAR_OR SP? cypherExpression SP? PG_RIGHT_BRACKET ;
 
-propertyLookup : '.' SP? ( propertyKeyName ) ;
+propertyLookup : PG_DOT SP? ( propertyKeyName ) ;
 
 caseExpression : ( ( PG_CASE ( SP? caseAlternatives )+ ) | ( PG_CASE SP? cypherExpression ( SP? caseAlternatives )+ ) ) ( SP? PG_ELSE SP? cypherExpression )? SP? PG_END ;
 
@@ -3544,7 +3545,7 @@ integerLiteral: PG_NUMBER_LITERAL;
 
 doubleLiteral: PG_REAL_NUMBER;
 
-namespace: ( symbolicName '.')*;
+namespace: ( symbolicName PG_DOT)*;
 
 cypherBraketOpen: BRACKET_OPEN;
 cypherBraketClose: BRACKET_CLOSE;
