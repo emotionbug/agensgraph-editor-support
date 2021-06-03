@@ -32,13 +32,10 @@ RETURN r§
 MATCH ()-[r:ACTED_IN*  ..  ]-()
 RETURN r§
 RETURN -1§
-RETURN ----+-+-1§
 RETURN -   -    + 1 - +2§
 RETURN 1-+2§
 RETURN -1.0§
-RETURN ----+-+-1.0§
 RETURN -   -    + 1 - +2.0§
-RETURN 0xd34db33f§
 RETURN 0777§
 RETURN 1e10§
 RETURN 1.5e10§
@@ -161,8 +158,6 @@ RETURN 0000§
 RETURN 012345670§
 RETURN 000012345670§
 RETURN 1234567890§
-RETURN 0x123§
-RETURN 0x1234567890abcdef§
 RETURN 1e10§
 RETURN 1e-10§
 RETURN 1.0e-10§
@@ -201,30 +196,8 @@ MATCH (n) SET n   =   $param§
 MATCH (n) SET n+=$param§
 MATCH (n) SET n   +=$param§
 MATCH (n) SET n   +=   $param§
-RETURN [()-->()|1]§
-RETURN   [()-->()|1]§
-RETURN   [   ()-->()|1]§
-RETURN   [   ()-->()   |1]§
-RETURN   [   ()-->()   |   1]§
-RETURN   [   ()-->()   |   1   ]§
-RETURN [(a)-->()WHERE a:Label|55 + a.prop]§
-RETURN [   (a)-->()WHERE a:Label|55 + a.prop]§
-RETURN [   (a)-->()   WHERE a:Label|55 + a.prop]§
-RETURN [   (a)-->()   WHERE   a:Label|55 + a.prop]§
-RETURN [   (a)-->()   WHERE   a   :Label|55 + a.prop]§
-RETURN [   (a)-->()   WHERE   a   :Label|55 + a.prop]§
-RETURN [   (a)-->()   WHERE   a   :Label   |55 + a.prop]§
-RETURN [   (a)-->()   WHERE   a   :Label   |   55 + a.prop]§
-RETURN [   (a)-->()   WHERE   a   :Label   |   55 + a.prop   ]§
-RETURN [p=(a)-->()WHERE a:Label|55 + a.prop]§
-RETURN [   p=(a)-->()WHERE a:Label|55 + a.prop]§
-RETURN [   p   =(a)-->()WHERE a:Label|55 + a.prop]§
-RETURN [   p   =   (a)-->()WHERE a:Label|55 + a.prop]§
-RETURN 1 // comment§
-RETURN 1 // * §
-RETURN 1 // */ §
-WITH 1 AS one // */
-RETURN 2 AS two // another§
+WITH 1 AS one
+RETURN 2 AS two§
 RETURN 1 /* blockcomment */§
 RETURN 1 /* blockcomment
 over several
@@ -256,15 +229,4 @@ WHERE all   (   a   IN   []   WHERE   a.prop )
 RETURN 1§
 MATCH (a)
 WHERE all   (   a   IN   []   WHERE   a.prop   )
-RETURN 1§
-CALL proc(  a  ,  b  ,  c  ) RETURN *§
-CALL proc(a,b  ,  c  ) RETURN *§
-CALL proc(  a  ) RETURN *§
-CALL proc() RETURN *§
-CALL proc() YIELD a AS v RETURN *§
-CALL proc(   ) RETURN *§
-MATCH (a) CALL proc(   )§
-MATCH (a) CALL proc( a, b   ,   c  )§
-MATCH (a) CALL proc( a, b   ,   c  ) YIELD a, b , c§
-CALL proc(   ) RETURN *
-`.split('§');
+RETURN 1§`.split('§');
