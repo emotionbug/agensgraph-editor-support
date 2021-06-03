@@ -4721,33 +4721,6 @@ export default class AgensGraphParserListener extends antlr4.tree.ParseTreeListe
 	}
 
 
-	// Enter a parse tree produced by AgensGraphParser#leftArrowHead.
-	enterLeftArrowHead(ctx) {
-	}
-
-	// Exit a parse tree produced by AgensGraphParser#leftArrowHead.
-	exitLeftArrowHead(ctx) {
-	}
-
-
-	// Enter a parse tree produced by AgensGraphParser#rightArrowHead.
-	enterRightArrowHead(ctx) {
-	}
-
-	// Exit a parse tree produced by AgensGraphParser#rightArrowHead.
-	exitRightArrowHead(ctx) {
-	}
-
-
-	// Enter a parse tree produced by AgensGraphParser#dash.
-	enterDash(ctx) {
-	}
-
-	// Exit a parse tree produced by AgensGraphParser#dash.
-	exitDash(ctx) {
-	}
-
-
 	// Enter a parse tree produced by AgensGraphParser#symbolicName.
 	enterSymbolicName(ctx) {
 	}

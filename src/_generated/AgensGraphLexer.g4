@@ -824,12 +824,15 @@ PLUS_EQUAL: '+=';
 CHAR_OR: '|';
 ALMOST_EQUAL: '=~';
 
+CYPHER_RELATION_LEFT: '<-';
+CYPHER_RELATION_RIGHT: '->';
+
 PG_BlockComment
-    :   '/*' (PG_BlockComment |.)*? '*/' -> channel(HIDDEN)
+    :   '/*' (PG_BlockComment |.)*? '*/'
     ;
 
 PG_LineComment
-    :   '--' ~[\r\n]* -> channel(HIDDEN)
+    :   '--' ~[\r\n]*
     ;
 
 // must follow all explicitly defined operators and comments
@@ -962,7 +965,7 @@ PG_Tag
 */
 
 SP
-  : (PG_Space | PG_Tab | PG_White_Space | PG_LineComment)+;
+  : (PG_Space | PG_Tab | PG_White_Space | PG_New_Line | PG_LineComment)+;
 
 PG_Space
   : ' '
@@ -973,11 +976,11 @@ PG_White_Space
   ;
 
 PG_New_Line
-    : ('\u000D' | '\u000D'? '\u000A') -> channel(HIDDEN)
+    : ('\u000D' | '\u000D'? '\u000A' | [\n])
     ;
 
 PG_Tab
-    : '\u0009' -> channel(HIDDEN)
+    : '\u0009'
     ;
 
 PG_BOM: '\ufeff';

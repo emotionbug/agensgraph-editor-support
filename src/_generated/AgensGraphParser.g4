@@ -2876,6 +2876,7 @@ pg_select_primary
         (SP PG_WINDOW SP pg_identifier SP PG_AS SP pg_window_definition (SP? PG_COMMA SP? pg_identifier SP PG_AS SP pg_window_definition)*)?
     | PG_TABLE SP (PG_ONLY SP)? pg_schema_qualified_name (SP PG_MULTIPLY)?
     | pg_values_stmt
+    | singleQuery
     ;
 
 pg_select_list
@@ -3336,12 +3337,12 @@ patternElementChain : relationshipPattern SP? nodePattern ;
 
 relationshipPattern : relationshipPatternStart SP? relationshipDetail? SP? relationshipPatternEnd;
 
-relationshipPatternStart : ( leftArrowHead SP? dash )
-                         | ( dash )
+relationshipPatternStart : ( CYPHER_RELATION_LEFT )
+                         | ( PG_MINUS )
                          ;
 
-relationshipPatternEnd : ( dash SP? rightArrowHead )
-                       | ( dash )
+relationshipPatternEnd : ( CYPHER_RELATION_RIGHT )
+                       | ( PG_MINUS )
                        ;
 
 relationshipDetail : PG_LEFT_BRACKET SP? ( variable SP? )? ( relationshipTypes SP? )? rangeLiteral? ( properties SP? )? PG_RIGHT_BRACKET ;
@@ -3550,13 +3551,6 @@ cypherBraketClose: BRACKET_CLOSE;
 
 cypherLeftParen: PG_LEFT_PAREN;
 cypherRightParen: PG_RIGHT_PAREN;
-
-leftArrowHead: PG_LTH;
-
-rightArrowHead: PG_GTH;
-
-dash:
-	PG_MINUS;
 
 symbolicName:
     pg_identifier
