@@ -8,7 +8,7 @@ options {
 /******* Start symbols *******/
 
 pg_sql
-    : PG_BOM? PG_SEMI_COLON* (raw (PG_SEMI_COLON+ | EOF))* EOF
+    : PG_BOM? PG_SEMI_COLON* (SP? raw SP? (PG_SEMI_COLON+ | EOF))* EOF
     ;
 
 raw:
@@ -2561,13 +2561,13 @@ pg_interval_field
     | PG_HOUR
     | PG_MINUTE
     | PG_SECOND
-    | PG_YEAR PG_TO PG_MONTH
-    | PG_DAY PG_TO PG_HOUR
-    | PG_DAY PG_TO PG_MINUTE
-    | PG_DAY PG_TO PG_SECOND
-    | PG_HOUR PG_TO PG_MINUTE
-    | PG_HOUR PG_TO PG_SECOND
-    | PG_MINUTE PG_TO PG_SECOND
+    | PG_YEAR SP PG_TO SP PG_MONTH
+    | PG_DAY SP PG_TO SP PG_HOUR
+    | PG_DAY SP PG_TO SP PG_MINUTE
+    | PG_DAY SP PG_TO SP PG_SECOND
+    | PG_HOUR SP PG_TO SP PG_MINUTE
+    | PG_HOUR SP PG_TO SP PG_SECOND
+    | PG_MINUTE SP PG_TO SP PG_SECOND
     ;
 
 pg_type_length
@@ -2753,59 +2753,59 @@ pg_string_value_function
     ;
 
 pg_xml_function
-    : PG_XMLELEMENT PG_LEFT_PAREN PG_NAME name=pg_identifier
-        (PG_COMMA PG_XMLATTRIBUTES PG_LEFT_PAREN pg_vex (PG_AS attname=pg_identifier)? (PG_COMMA pg_vex (PG_AS attname=pg_identifier)?)* PG_RIGHT_PAREN)?
-        (PG_COMMA pg_vex)* PG_RIGHT_PAREN
-    | PG_XMLFOREST PG_LEFT_PAREN pg_vex (PG_AS name=pg_identifier)? (PG_COMMA pg_vex (PG_AS name=pg_identifier)?)* PG_RIGHT_PAREN
-    | PG_XMLPI PG_LEFT_PAREN PG_NAME name=pg_identifier (PG_COMMA pg_vex)? PG_RIGHT_PAREN
-    | PG_XMLROOT PG_LEFT_PAREN pg_vex PG_COMMA PG_VERSION (pg_vex | PG_NO PG_VALUE) (PG_COMMA PG_STANDALONE (PG_YES | PG_NO | PG_NO PG_VALUE))? PG_RIGHT_PAREN
-    | PG_XMLEXISTS PG_LEFT_PAREN pg_vex PG_PASSING (PG_BY PG_REF)? pg_vex (PG_BY PG_REF)? PG_RIGHT_PAREN
-    | PG_XMLPARSE PG_LEFT_PAREN (PG_DOCUMENT | PG_CONTENT) pg_vex PG_RIGHT_PAREN
-    | PG_XMLSERIALIZE PG_LEFT_PAREN (PG_DOCUMENT | PG_CONTENT) pg_vex PG_AS pg_data_type PG_RIGHT_PAREN
-    | PG_XMLTABLE PG_LEFT_PAREN
-        (PG_XMLNAMESPACES PG_LEFT_PAREN pg_vex PG_AS name=pg_identifier (PG_COMMA pg_vex PG_AS name=pg_identifier)* PG_RIGHT_PAREN PG_COMMA)?
-        pg_vex PG_PASSING (PG_BY PG_REF)? pg_vex (PG_BY PG_REF)?
-        PG_COLUMNS pg_xml_table_column (PG_COMMA pg_xml_table_column)*
-        PG_RIGHT_PAREN
+    : PG_XMLELEMENT SP? PG_LEFT_PAREN SP? PG_NAME SP name=pg_identifier
+        (SP? PG_COMMA SP? PG_XMLATTRIBUTES SP? PG_LEFT_PAREN SP? pg_vex (SP PG_AS attname=pg_identifier)? (SP? PG_COMMA SP? pg_vex (SP PG_AS attname=pg_identifier)?)* SP? PG_RIGHT_PAREN)?
+        (SP? PG_COMMA SP? pg_vex)* SP? PG_RIGHT_PAREN
+    | PG_XMLFOREST SP? PG_LEFT_PAREN SP? pg_vex (SP PG_AS name=pg_identifier)? (SP? PG_COMMA SP? pg_vex (SP PG_AS name=pg_identifier)?)* SP? PG_RIGHT_PAREN
+    | PG_XMLPI SP? PG_LEFT_PAREN SP? PG_NAME SP name=pg_identifier (SP? PG_COMMA SP? pg_vex)? SP? PG_RIGHT_PAREN
+    | PG_XMLROOT SP? PG_LEFT_PAREN SP? pg_vex SP? PG_COMMA SP? PG_VERSION SP (pg_vex | PG_NO SP PG_VALUE) (SP? PG_COMMA SP? PG_STANDALONE SP (PG_YES | PG_NO | PG_NO SP PG_VALUE))? SP? PG_RIGHT_PAREN
+    | PG_XMLEXISTS SP? PG_LEFT_PAREN SP? pg_vex SP PG_PASSING SP (PG_BY SP PG_REF SP)? pg_vex (SP PG_BY SP PG_REF)? SP? PG_RIGHT_PAREN
+    | PG_XMLPARSE SP? PG_LEFT_PAREN SP? (PG_DOCUMENT | PG_CONTENT) SP pg_vex SP? PG_RIGHT_PAREN
+    | PG_XMLSERIALIZE SP? PG_LEFT_PAREN SP? (PG_DOCUMENT | PG_CONTENT) SP pg_vex SP PG_AS SP pg_data_type SP? PG_RIGHT_PAREN
+    | PG_XMLTABLE SP? PG_LEFT_PAREN SP?
+        (PG_XMLNAMESPACES SP? PG_LEFT_PAREN SP? pg_vex SP PG_AS SP name=pg_identifier (SP? PG_COMMA SP? pg_vex SP PG_AS SP name=pg_identifier)* SP? PG_RIGHT_PAREN SP? PG_COMMA SP?)?
+        pg_vex SP PG_PASSING SP (PG_BY SP PG_REF SP)? pg_vex SP (PG_BY SP PG_REF SP)?
+        PG_COLUMNS SP pg_xml_table_column (SP? PG_COMMA SP? pg_xml_table_column)*
+        SP? PG_RIGHT_PAREN
     ;
 
 pg_xml_table_column
-    : name=pg_identifier (pg_data_type (PG_PATH pg_vex)? (PG_DEFAULT pg_vex)? (PG_NOT? PG_NULL)? | PG_FOR PG_ORDINALITY)
+    : name=pg_identifier SP (pg_data_type (SP PG_PATH SP pg_vex)? (SP PG_DEFAULT SP pg_vex)? ((SP PG_NOT)? SP PG_NULL)? | PG_FOR SP PG_ORDINALITY)
     ;
 
 pg_comparison_mod
-    : (PG_ALL | PG_ANY | PG_SOME) PG_LEFT_PAREN (pg_vex | pg_select_stmt_no_parens) PG_RIGHT_PAREN
+    : (PG_ALL | PG_ANY | PG_SOME) SP? PG_LEFT_PAREN SP? (pg_vex | pg_select_stmt_no_parens) SP? PG_RIGHT_PAREN
     ;
 
 pg_filter_clause
-    : PG_FILTER PG_LEFT_PAREN PG_WHERE pg_vex PG_RIGHT_PAREN
+    : PG_FILTER SP? PG_LEFT_PAREN SP? PG_WHERE SP pg_vex SP? PG_RIGHT_PAREN
     ;
 
 pg_window_definition
-    : PG_LEFT_PAREN pg_identifier? pg_partition_by_columns? pg_orderby_clause? pg_frame_clause? PG_RIGHT_PAREN
+    : PG_LEFT_PAREN SP? (pg_identifier SP)? (pg_partition_by_columns SP)? (pg_orderby_clause SP)? (pg_frame_clause SP)? SP? PG_RIGHT_PAREN
     ;
 
 pg_frame_clause
-    : (PG_RANGE | PG_ROWS | PG_GROUPS) (pg_frame_bound | PG_BETWEEN pg_frame_bound PG_AND pg_frame_bound)
-    (PG_EXCLUDE (PG_CURRENT PG_ROW | PG_GROUP | PG_TIES | PG_NO PG_OTHERS))?
+    : (PG_RANGE | PG_ROWS | PG_GROUPS) SP (pg_frame_bound | PG_BETWEEN SP pg_frame_bound SP PG_AND SP pg_frame_bound)
+    (SP PG_EXCLUDE SP (PG_CURRENT SP PG_ROW | PG_GROUP | PG_TIES | PG_NO SP PG_OTHERS))?
     ;
 
 pg_frame_bound
-    : pg_vex (PG_PRECEDING | PG_FOLLOWING)
-    | PG_CURRENT PG_ROW
+    : pg_vex SP (PG_PRECEDING | PG_FOLLOWING)
+    | PG_CURRENT SP PG_ROW
     ;
 
 pg_array_expression
-    : PG_ARRAY (pg_array_elements | pg_table_subquery)
+    : PG_ARRAY SP? (pg_array_elements | pg_table_subquery)
     ;
 
 pg_array_elements
-    : PG_LEFT_BRACKET ((pg_vex | pg_array_elements) (PG_COMMA (pg_vex | pg_array_elements))*)? PG_RIGHT_BRACKET
+    : PG_LEFT_BRACKET SP? ((pg_vex | pg_array_elements) (SP? PG_COMMA SP? (pg_vex | pg_array_elements))*)? SP? PG_RIGHT_BRACKET
     ;
 
 pg_type_coercion
-    : pg_data_type pg_character_string
-    | PG_INTERVAL pg_character_string pg_interval_field pg_type_length?
+    : pg_data_type SP pg_character_string
+    | PG_INTERVAL SP pg_character_string SP pg_interval_field (SP pg_type_length)?
     ;
 
 /*
@@ -2822,194 +2822,194 @@ pg_set_qualifier
     ;
 
 pg_table_subquery
-    : PG_LEFT_PAREN pg_select_stmt PG_RIGHT_PAREN
+    : PG_LEFT_PAREN SP? pg_select_stmt SP? PG_RIGHT_PAREN
     ;
 
 pg_select_stmt
-    : pg_with_clause? pg_select_ops pg_after_ops*
+    : (pg_with_clause SP)? pg_select_ops (SP pg_after_ops)*
     ;
 
 pg_after_ops
     : pg_orderby_clause
-    | PG_LIMIT (pg_vex | PG_ALL)
-    | PG_OFFSET pg_vex (PG_ROW | PG_ROWS)?
-    | PG_FETCH (PG_FIRST | PG_NEXT) pg_vex? (PG_ROW | PG_ROWS) (PG_ONLY | PG_WITH PG_TIES)?
-    | PG_FOR (PG_UPDATE | PG_NO PG_KEY PG_UPDATE | PG_SHARE | PG_KEY PG_SHARE) (PG_OF pg_schema_qualified_name (PG_COMMA pg_schema_qualified_name)*)? (PG_NOWAIT | PG_SKIP_ PG_LOCKED)?
+    | PG_LIMIT SP (pg_vex | PG_ALL)
+    | PG_OFFSET SP pg_vex (SP (PG_ROW | PG_ROWS))?
+    | PG_FETCH SP (PG_FIRST | PG_NEXT) SP (pg_vex SP)? (PG_ROW | PG_ROWS) (SP (PG_ONLY | PG_WITH PG_TIES))?
+    | PG_FOR SP (PG_UPDATE | PG_NO SP PG_KEY SP PG_UPDATE | PG_SHARE | PG_KEY SP PG_SHARE) (SP PG_OF SP pg_schema_qualified_name (SP? PG_COMMA SP? pg_schema_qualified_name)*)? (SP? (PG_NOWAIT | PG_SKIP_ SP PG_LOCKED))?
     ;
 
 // select_stmt PG_copy that doesn't consume external parens
 // for use in vex
 // we let the vex PG_rule to consume as many parens as it can
 pg_select_stmt_no_parens
-    : pg_with_clause? pg_select_ops_no_parens pg_after_ops*
+    : (pg_with_clause SP)? pg_select_ops_no_parens (SP pg_after_ops)*
     ;
 
 pg_with_clause
-    : PG_WITH PG_RECURSIVE? pg_with_query (PG_COMMA pg_with_query)*
+    : PG_WITH SP (PG_RECURSIVE SP)? pg_with_query (SP? PG_COMMA SP? pg_with_query)*
     ;
 
 pg_with_query
-    : query_name=pg_identifier (PG_LEFT_PAREN column_name+=pg_identifier (PG_COMMA column_name+=pg_identifier)* PG_RIGHT_PAREN)?
-    PG_AS (PG_NOT? PG_MATERIALIZED)? PG_LEFT_PAREN pg_data_statement PG_RIGHT_PAREN
+    : query_name=pg_identifier (SP? PG_LEFT_PAREN SP? column_name+=pg_identifier (SP? PG_COMMA SP? column_name+=pg_identifier)* SP? PG_RIGHT_PAREN)?
+    SP PG_AS SP (((PG_NOT SP)? PG_MATERIALIZED) SP)? PG_LEFT_PAREN SP? pg_data_statement SP? PG_RIGHT_PAREN
     ;
 
 pg_select_ops
-    : PG_LEFT_PAREN pg_select_stmt PG_RIGHT_PAREN // parens can be used to apply "global" clauses (WITH etc) to a particular PG_select in UNION expr
-    | pg_select_ops (PG_INTERSECT | PG_UNION | PG_EXCEPT) pg_set_qualifier? pg_select_ops
+    : PG_LEFT_PAREN SP? pg_select_stmt SP? PG_RIGHT_PAREN // parens can be used to apply "global" clauses (WITH etc) to a particular PG_select in UNION expr
+    | pg_select_ops SP (PG_INTERSECT | PG_UNION | PG_EXCEPT) SP (pg_set_qualifier SP)? pg_select_ops
     | pg_select_primary
     ;
 
 // PG_version of select_ops for use in select_stmt_no_parens
 pg_select_ops_no_parens
-    : pg_select_ops (PG_INTERSECT | PG_UNION | PG_EXCEPT) pg_set_qualifier? (pg_select_primary | PG_LEFT_PAREN pg_select_stmt PG_RIGHT_PAREN)
+    : pg_select_ops SP (PG_INTERSECT | PG_UNION | PG_EXCEPT) (SP pg_set_qualifier)? SP? (pg_select_primary | PG_LEFT_PAREN SP? pg_select_stmt SP? PG_RIGHT_PAREN)
     | pg_select_primary
     ;
 
 pg_select_primary
-    : PG_SELECT SP
-        (pg_set_qualifier (PG_ON PG_LEFT_PAREN pg_vex (PG_COMMA pg_vex)* PG_RIGHT_PAREN)?)?
-        pg_select_list? SP? pg_into_table? SP?
-        (PG_FROM SP pg_from_item (PG_COMMA pg_from_item)*)?
-        (PG_WHERE pg_vex)?
-        pg_groupby_clause?
-        (PG_HAVING pg_vex)?
-        (PG_WINDOW pg_identifier PG_AS pg_window_definition (PG_COMMA pg_identifier PG_AS pg_window_definition)*)?
-    | PG_TABLE PG_ONLY? pg_schema_qualified_name PG_MULTIPLY?
+    : PG_SELECT
+        (SP pg_set_qualifier (SP PG_ON SP? PG_LEFT_PAREN SP? pg_vex (SP? PG_COMMA SP? pg_vex)* SP? PG_RIGHT_PAREN)?)?
+        (SP pg_select_list)? (SP pg_into_table)?
+        (SP PG_FROM SP pg_from_item (SP? PG_COMMA SP? pg_from_item)*)?
+        (SP PG_WHERE SP pg_vex)?
+        (SP pg_groupby_clause)?
+        (SP PG_HAVING SP pg_vex)?
+        (SP PG_WINDOW SP pg_identifier SP PG_AS SP pg_window_definition (SP? PG_COMMA SP? pg_identifier SP PG_AS SP pg_window_definition)*)?
+    | PG_TABLE SP (PG_ONLY SP)? pg_schema_qualified_name (SP PG_MULTIPLY)?
     | pg_values_stmt
     ;
 
 pg_select_list
-  : pg_select_sublist (PG_COMMA pg_select_sublist)*
+  : pg_select_sublist (SP? PG_COMMA SP? pg_select_sublist)*
   ;
 
 pg_select_sublist
-  : pg_vex (PG_AS pg_col_label | pg_id_token)?
+  : pg_vex (SP PG_AS SP pg_col_label | SP pg_id_token)?
   ;
 
 pg_into_table
-    : PG_INTO (PG_TEMPORARY | PG_TEMP | PG_UNLOGGED)? PG_TABLE? pg_schema_qualified_name
+    : PG_INTO SP ((PG_TEMPORARY | PG_TEMP | PG_UNLOGGED) SP)? (PG_TABLE SP)? pg_schema_qualified_name
     ;
 
 pg_from_item
-    : PG_LEFT_PAREN pg_from_item PG_RIGHT_PAREN pg_alias_clause?
-    | pg_from_item PG_CROSS PG_JOIN pg_from_item
-    | pg_from_item (PG_INNER | (PG_LEFT | PG_RIGHT | PG_FULL) PG_OUTER?)? PG_JOIN pg_from_item PG_ON pg_vex
-    | pg_from_item (PG_INNER | (PG_LEFT | PG_RIGHT | PG_FULL) PG_OUTER?)? PG_JOIN pg_from_item PG_USING pg_names_in_parens
-    | pg_from_item PG_NATURAL (PG_INNER | (PG_LEFT | PG_RIGHT | PG_FULL) PG_OUTER?)? PG_JOIN pg_from_item
+    : PG_LEFT_PAREN SP? pg_from_item SP? PG_RIGHT_PAREN (SP? pg_alias_clause)?
+    | pg_from_item SP PG_CROSS SP PG_JOIN SP pg_from_item
+    | pg_from_item SP (PG_INNER SP | (PG_LEFT | PG_RIGHT | PG_FULL) SP (PG_OUTER SP)?)? PG_JOIN SP pg_from_item SP PG_ON SP pg_vex
+    | pg_from_item SP (PG_INNER SP | (PG_LEFT | PG_RIGHT | PG_FULL) SP (PG_OUTER SP)?)? PG_JOIN SP pg_from_item SP PG_USING SP? pg_names_in_parens
+    | pg_from_item SP PG_NATURAL SP (PG_INNER SP | (PG_LEFT | PG_RIGHT | PG_FULL) SP (PG_OUTER SP)?)? PG_JOIN SP pg_from_item
     | pg_from_primary
     ;
 
 pg_from_primary
-    : PG_ONLY? pg_schema_qualified_name PG_MULTIPLY? pg_alias_clause? (PG_TABLESAMPLE method=pg_identifier PG_LEFT_PAREN pg_vex (PG_COMMA pg_vex)* PG_RIGHT_PAREN (PG_REPEATABLE pg_vex)?)?
-    | PG_LATERAL? pg_table_subquery pg_alias_clause
-    | PG_LATERAL? pg_function_call (PG_WITH PG_ORDINALITY)?
-        (PG_AS pg_from_function_column_def
-        | PG_AS? alias=pg_identifier (PG_LEFT_PAREN column_alias+=pg_identifier (PG_COMMA column_alias+=pg_identifier)* PG_RIGHT_PAREN | pg_from_function_column_def)?
-        )?
-    | PG_LATERAL? PG_ROWS PG_FROM PG_LEFT_PAREN pg_function_call (PG_AS pg_from_function_column_def)? (PG_COMMA pg_function_call (PG_AS pg_from_function_column_def)?)* PG_RIGHT_PAREN
-    (PG_WITH PG_ORDINALITY)? (PG_AS? pg_identifier (PG_LEFT_PAREN pg_identifier (PG_COMMA pg_identifier)* PG_RIGHT_PAREN)?)?
+    : (PG_ONLY SP)? pg_schema_qualified_name PG_MULTIPLY? (SP pg_alias_clause)? (SP PG_TABLESAMPLE SP method=pg_identifier SP? PG_LEFT_PAREN SP? pg_vex (SP? PG_COMMA SP? pg_vex)* SP? PG_RIGHT_PAREN (SP? PG_REPEATABLE SP pg_vex)?)?
+    | (PG_LATERAL SP)? pg_table_subquery SP pg_alias_clause
+    | (PG_LATERAL SP)? pg_function_call (SP PG_WITH SP PG_ORDINALITY)?
+        (SP (PG_AS SP pg_from_function_column_def
+        | (PG_AS SP)? alias=pg_identifier (SP? PG_LEFT_PAREN SP? column_alias+=pg_identifier (SP? PG_COMMA SP? column_alias+=pg_identifier)* SP? PG_RIGHT_PAREN | SP pg_from_function_column_def)?
+        ))?
+    | (PG_LATERAL SP)? PG_ROWS SP PG_FROM SP? PG_LEFT_PAREN SP? pg_function_call (SP PG_AS pg_from_function_column_def)? (SP? PG_COMMA SP? pg_function_call (SP PG_AS pg_from_function_column_def)?)* SP? PG_RIGHT_PAREN
+    (SP? PG_WITH SP PG_ORDINALITY)? (SP? (PG_AS SP)? pg_identifier (SP? PG_LEFT_PAREN SP? pg_identifier (SP? PG_COMMA SP? pg_identifier)* SP? PG_RIGHT_PAREN)?)?
     ;
 
 pg_alias_clause
-    : PG_AS? alias=pg_identifier (PG_LEFT_PAREN column_alias+=pg_identifier (PG_COMMA column_alias+=pg_identifier)* PG_RIGHT_PAREN)?
+    : (PG_AS SP)? alias=pg_identifier (SP? PG_LEFT_PAREN SP? column_alias+=pg_identifier (SP? PG_COMMA SP? column_alias+=pg_identifier)* SP? PG_RIGHT_PAREN)?
     ;
 
 pg_from_function_column_def
-    : PG_LEFT_PAREN column_alias+=pg_identifier pg_data_type (PG_COMMA column_alias+=pg_identifier pg_data_type)* PG_RIGHT_PAREN
+    : PG_LEFT_PAREN SP? column_alias+=pg_identifier SP pg_data_type (SP? PG_COMMA SP? column_alias+=pg_identifier SP pg_data_type)* SP? PG_RIGHT_PAREN
     ;
 
 pg_groupby_clause
-  : PG_GROUP PG_BY pg_grouping_element_list
+  : PG_GROUP SP PG_BY SP pg_grouping_element_list
   ;
 
 pg_grouping_element_list
-  : pg_grouping_element (PG_COMMA pg_grouping_element)*
+  : pg_grouping_element (SP? PG_COMMA SP? pg_grouping_element)*
   ;
 
 pg_grouping_element
   : pg_vex
-  | PG_LEFT_PAREN PG_RIGHT_PAREN
-  | (PG_ROLLUP | PG_CUBE | PG_GROUPING PG_SETS) PG_LEFT_PAREN pg_grouping_element_list PG_RIGHT_PAREN
+  | PG_LEFT_PAREN SP? PG_RIGHT_PAREN
+  | (PG_ROLLUP | PG_CUBE | PG_GROUPING SP PG_SETS) SP? PG_LEFT_PAREN SP? pg_grouping_element_list SP? PG_RIGHT_PAREN
   ;
 
 pg_values_stmt
-    : PG_VALUES pg_values_values (PG_COMMA pg_values_values)*
+    : PG_VALUES SP pg_values_values (SP? PG_COMMA SP? pg_values_values)*
     ;
 
 pg_values_values
-    : PG_LEFT_PAREN (pg_vex | PG_DEFAULT) (PG_COMMA (pg_vex | PG_DEFAULT))* PG_RIGHT_PAREN
+    : PG_LEFT_PAREN SP? (pg_vex | PG_DEFAULT) (SP? PG_COMMA SP? (pg_vex | PG_DEFAULT))* SP? PG_RIGHT_PAREN
     ;
 
 pg_orderby_clause
-    : PG_ORDER PG_BY pg_sort_specifier (PG_COMMA pg_sort_specifier)*
+    : PG_ORDER SP PG_BY SP pg_sort_specifier (SP? PG_COMMA SP? pg_sort_specifier)*
     ;
 
 pg_sort_specifier
-    : pg_vex pg_order_specification? pg_null_ordering?
+    : pg_vex (SP pg_order_specification)? (SP pg_null_ordering)?
     ;
 
 pg_order_specification
-    : PG_ASC | PG_DESC | PG_USING pg_all_op_ref
+    : PG_ASC | PG_DESC | PG_USING SP pg_all_op_ref
     ;
 
 pg_null_ordering
-    : PG_NULLS (PG_FIRST | PG_LAST)
+    : PG_NULLS SP (PG_FIRST | PG_LAST)
     ;
 
 pg_insert_stmt_for_psql
-    : pg_with_clause? PG_INSERT PG_INTO insert_table_name=pg_schema_qualified_name (PG_AS alias=pg_identifier)?
-    (PG_OVERRIDING (PG_SYSTEM | PG_USER) PG_VALUE)? pg_insert_columns?
-    (pg_select_stmt | PG_DEFAULT PG_VALUES)
-    (PG_ON PG_CONFLICT pg_conflict_object? pg_conflict_action)?
-    (PG_RETURNING pg_select_list)?
+    : (pg_with_clause SP)? PG_INSERT SP PG_INTO SP insert_table_name=pg_schema_qualified_name (SP PG_AS alias=pg_identifier)?
+    (SP PG_OVERRIDING SP (PG_SYSTEM | PG_USER) SP PG_VALUE)? (SP pg_insert_columns)?
+    SP (pg_select_stmt | PG_DEFAULT SP PG_VALUES)
+    (SP PG_ON SP PG_CONFLICT (SP pg_conflict_object)? SP pg_conflict_action)?
+    (SP PG_RETURNING SP pg_select_list)?
     ;
 
 pg_insert_columns
-    : PG_LEFT_PAREN pg_indirection_identifier (PG_COMMA pg_indirection_identifier)* PG_RIGHT_PAREN
+    : PG_LEFT_PAREN SP? pg_indirection_identifier (SP? PG_COMMA SP? pg_indirection_identifier)* SP? PG_RIGHT_PAREN
     ;
 
 pg_indirection_identifier
-    : pg_identifier pg_indirection_list?
+    : pg_identifier (SP pg_indirection_list)?
     ;
 
 pg_conflict_object
-    : pg_index_sort pg_index_where?
-    | PG_ON PG_CONSTRAINT pg_identifier
+    : pg_index_sort (SP pg_index_where)?
+    | PG_ON SP PG_CONSTRAINT SP pg_identifier
     ;
 
 pg_conflict_action
-    : PG_DO PG_NOTHING
-    | PG_DO PG_UPDATE PG_SET pg_update_set (PG_COMMA pg_update_set)* (PG_WHERE pg_vex)?
+    : PG_DO SP PG_NOTHING
+    | PG_DO SP PG_UPDATE SP PG_SET SP pg_update_set (SP? PG_COMMA SP? pg_update_set)* (SP PG_WHERE pg_vex)?
     ;
 
 pg_delete_stmt_for_psql
-    : pg_with_clause? PG_DELETE PG_FROM PG_ONLY? delete_table_name=pg_schema_qualified_name PG_MULTIPLY? (PG_AS? alias=pg_identifier)?
-    (PG_USING pg_from_item (PG_COMMA pg_from_item)*)?
-    (PG_WHERE (pg_vex | PG_CURRENT PG_OF cursor=pg_identifier))?
-    (PG_RETURNING pg_select_list)?
+    : (pg_with_clause SP)? PG_DELETE SP PG_FROM SP (PG_ONLY SP)? delete_table_name=pg_schema_qualified_name (SP? PG_MULTIPLY)? (SP (PG_AS SP)? alias=pg_identifier)?
+    (SP PG_USING SP pg_from_item (SP? PG_COMMA SP? pg_from_item)*)?
+    (SP PG_WHERE SP (pg_vex | PG_CURRENT SP PG_OF SP cursor=pg_identifier))?
+    (PG_RETURNING SP pg_select_list)?
     ;
 
 pg_update_stmt_for_psql
-    : pg_with_clause? PG_UPDATE PG_ONLY? update_table_name=pg_schema_qualified_name PG_MULTIPLY? (PG_AS? alias=pg_identifier)?
-    PG_SET pg_update_set (PG_COMMA pg_update_set)*
-    (PG_FROM pg_from_item (PG_COMMA pg_from_item)*)?
-    (PG_WHERE (pg_vex | PG_CURRENT PG_OF cursor=pg_identifier))?
-    (PG_RETURNING pg_select_list)?
+    : (pg_with_clause SP)? PG_UPDATE SP (PG_ONLY SP)? update_table_name=pg_schema_qualified_name (SP? PG_MULTIPLY)? (SP (PG_AS SP)? alias=pg_identifier)?
+    PG_SET SP pg_update_set (SP? PG_COMMA SP? pg_update_set)*
+    (PG_FROM SP pg_from_item (SP? PG_COMMA SP? pg_from_item)*)?
+    (PG_WHERE SP (pg_vex | PG_CURRENT SP PG_OF SP cursor=pg_identifier))?
+    (PG_RETURNING SP pg_select_list)?
     ;
 
 pg_update_set
-    : column+=pg_indirection_identifier PG_EQUAL (value+=pg_vex | PG_DEFAULT)
-    | PG_LEFT_PAREN column+=pg_indirection_identifier (PG_COMMA column+=pg_indirection_identifier)* PG_RIGHT_PAREN PG_EQUAL PG_ROW?
-    (PG_LEFT_PAREN (value+=pg_vex | PG_DEFAULT) (PG_COMMA (value+=pg_vex | PG_DEFAULT))* PG_RIGHT_PAREN | pg_table_subquery)
+    : column+=pg_indirection_identifier SP? PG_EQUAL SP? (value+=pg_vex | PG_DEFAULT)
+    | PG_LEFT_PAREN SP? column+=pg_indirection_identifier (SP? PG_COMMA SP? column+=pg_indirection_identifier)* SP? PG_RIGHT_PAREN SP? PG_EQUAL SP? (PG_ROW SP?)?
+    (PG_LEFT_PAREN SP? (value+=pg_vex | PG_DEFAULT) (SP? PG_COMMA SP? (value+=pg_vex | PG_DEFAULT))* SP? PG_RIGHT_PAREN | pg_table_subquery)
     ;
 
 pg_notify_stmt
-    : PG_NOTIFY channel=pg_identifier (PG_COMMA payload=pg_character_string)?
+    : PG_NOTIFY SP channel=pg_identifier (SP? PG_COMMA SP? payload=pg_character_string)?
     ;
 
 pg_truncate_stmt
-    : PG_TRUNCATE PG_TABLE? pg_only_table_multiply (PG_COMMA pg_only_table_multiply)*
-    ((PG_RESTART | PG_CONTINUE) PG_IDENTITY)? pg_cascade_restrict?
+    : PG_TRUNCATE SP (PG_TABLE SP)? pg_only_table_multiply (SP? PG_COMMA SP? pg_only_table_multiply)*
+    (SP ((PG_RESTART | PG_CONTINUE) SP PG_IDENTITY))? (SP pg_cascade_restrict)?
     ;
 
 pg_identifier_list
@@ -3224,7 +3224,7 @@ singleQuery : clause ( SP? clause )* ;
 
 loadCSVQuery : loadCSVClause ( SP? clause )* ;
 
-union : ( PG_UNION PG_ALL SP? singleQuery )
+union : ( PG_UNION SP PG_ALL SP? singleQuery )
       | ( PG_UNION SP? singleQuery )
       ;
 
@@ -3241,43 +3241,42 @@ clause : loadCSVClause
        | returnClause
        ;
 
-loadCSVClause : PG_LOAD PG_CSV ( PG_WITH HEADERS )? PG_FROM cypherExpression PG_AS variable ( FIELDTERMINATOR stringLiteral )? ;
+loadCSVClause : PG_LOAD SP PG_CSV SP ( PG_WITH SP HEADERS SP )? PG_FROM SP cypherExpression SP PG_AS SP variable SP ( FIELDTERMINATOR SP stringLiteral )? ;
 
-matchClause : ( OPTIONAL )? PG_MATCH SP? pattern ( SP? where )? ;
+matchClause : ( OPTIONAL SP )? PG_MATCH SP? pattern ( SP? where )? ;
 
-unwindClause : UNWIND SP? cypherExpression PG_AS variable ;
+unwindClause : UNWIND SP? cypherExpression SP PG_AS SP variable ;
 
-mergeClause : PG_MERGE SP? patternPart ( SP? mergeAction )* ;
+mergeClause : PG_MERGE SP? patternPart ( SP mergeAction )* ;
 
-mergeAction : ( PG_ON PG_MATCH setClause )
-            | ( PG_ON PG_CREATE setClause )
+mergeAction : ( PG_ON SP PG_MATCH SP setClause )
+            | ( PG_ON SP PG_CREATE SP setClause )
             ;
 
 createClause : PG_CREATE SP? pattern ;
 
-createUniqueClause : PG_CREATE PG_UNIQUE SP? pattern ;
+createUniqueClause : PG_CREATE SP PG_UNIQUE SP? pattern ;
 
 setClause : PG_SET SP? setItem ( SP? PG_COMMA SP? setItem )* ;
 
 setItem : ( propertyExpression SP? PG_EQUAL SP? cypherExpression )
-        | ( variable SP? PG_EQUAL SP? cypherExpression )
-        | ( variable SP? PLUS_EQUAL SP? cypherExpression )
+        | ( variable SP? PG_PLUS? PG_EQUAL SP? cypherExpression )
         | ( variable SP? nodeLabels )
         ;
 
-deleteClause : ( PG_DETACH )? PG_DELETE SP? cypherExpression ( SP? PG_COMMA SP? cypherExpression )* ;
+deleteClause : ( PG_DETACH SP )? PG_DELETE SP? cypherExpression ( SP? PG_COMMA SP? cypherExpression )* ;
 
-removeClause : REMOVE removeItem ( SP? PG_COMMA SP? removeItem )* ;
+removeClause : REMOVE SP removeItem ( SP? PG_COMMA SP? removeItem )* ;
 
 removeItem : ( variable nodeLabels )
            | propertyExpression
            ;
 
-withClause : PG_WITH ( SP? PG_DISTINCT )? returnBody ( SP? where )? ;
+withClause : PG_WITH ( SP? PG_DISTINCT )? SP returnBody ( SP? where )? ;
 
 returnClause : PG_RETURN ( SP? PG_DISTINCT )? SP? returnBody ;
 
-returnBody : returnItems ( order )? ( skip )? ( limit )? ;
+returnBody : returnItems ( SP order )? ( SP skip )? ( SP limit )? ;
 
 func : procedureInvocation SP? procedureResults? ;
 
@@ -3286,7 +3285,7 @@ returnItems : ( PG_MULTIPLY ( SP? PG_COMMA SP? returnItem )* )
 			| func
             ;
 
-returnItem : ( cypherExpression PG_AS variable )
+returnItem : ( cypherExpression SP PG_AS SP variable )
            | cypherExpression
            ;
 
@@ -3296,26 +3295,26 @@ procedureInvocationBody : namespace procedureName ;
 
 procedureArguments : cypherLeftParen SP? cypherExpression? ( SP? PG_COMMA SP? cypherExpression )* SP? cypherRightParen ;
 
-procedureResults : YIELD procedureResult ( SP? PG_COMMA SP? procedureResult )* (where)?;
+procedureResults : YIELD SP procedureResult ( SP? PG_COMMA SP? procedureResult )* (SP where)?;
 
 procedureResult : aliasedProcedureResult
                 | simpleProcedureResult ;
 
-aliasedProcedureResult : procedureOutput PG_AS variable ;
+aliasedProcedureResult : procedureOutput SP PG_AS SP variable ;
 
 simpleProcedureResult : procedureOutput ;
 
 procedureOutput : symbolicName ;
 
-order : PG_ORDER PG_BY sortItem ( SP? PG_COMMA SP? sortItem )* ;
+order : PG_ORDER SP PG_BY SP sortItem ( SP? PG_COMMA SP? sortItem )* ;
 
 skip : PG_SKIP_ cypherExpression ;
 
-limit : PG_LIMIT cypherExpression ;
+limit : PG_LIMIT SP cypherExpression ;
 
 sortItem : cypherExpression ( SP? ( ASCENDING | PG_ASC | DESCENDING | PG_DESC ) SP? )? ;
 
-where : PG_WHERE cypherExpression ;
+where : PG_WHERE SP cypherExpression ;
 
 pattern : patternPart ( SP? PG_COMMA SP? patternPart )* ;
 
@@ -3369,11 +3368,11 @@ relTypeName : symbolicName ;
 
 cypherExpression : orExpression ;
 
-orExpression : xorExpression ( PG_OR xorExpression )* ;
+orExpression : xorExpression ( SP PG_OR SP xorExpression )* ;
 
-xorExpression : andExpression ( XOR andExpression )* ;
+xorExpression : andExpression ( SP XOR SP andExpression )* ;
 
-andExpression : notExpression ( PG_AND notExpression )* ;
+andExpression : notExpression ( SP PG_AND SP notExpression )* ;
 
 notExpression : ( PG_NOT SP? )* comparisonExpression ;
 
@@ -3387,7 +3386,7 @@ powerOfExpression : unaryAddOrSubtractExpression ( SP? PG_EXP SP? unaryAddOrSubt
 
 unaryAddOrSubtractExpression : ( ( PG_PLUS | PG_MINUS ) SP? )* stringListNullOperatorExpression ;
 
-stringListNullOperatorExpression : propertyOrLabelsExpression ( ( SP? PG_LEFT_BRACKET cypherExpression PG_RIGHT_BRACKET ) | ( SP? PG_LEFT_BRACKET cypherExpression? '..' cypherExpression? PG_RIGHT_BRACKET ) | ( ( ( SP? ALMOST_EQUAL ) | ( PG_IN ) | ( STARTS PG_WITH ) | ( ENDS PG_WITH ) | ( CONTAINS ) ) SP? propertyOrLabelsExpression ) | ( PG_IS PG_NULL ) | ( PG_IS PG_NOT PG_NULL ) )* ;
+stringListNullOperatorExpression : propertyOrLabelsExpression ( ( SP? PG_LEFT_BRACKET cypherExpression PG_RIGHT_BRACKET ) | ( SP? PG_LEFT_BRACKET cypherExpression? '..' cypherExpression? PG_RIGHT_BRACKET ) | ( ( ( SP? ALMOST_EQUAL ) | ( SP PG_IN ) | ( SP STARTS SP PG_WITH ) | ( SP ENDS SP PG_WITH ) | ( SP CONTAINS ) ) SP? propertyOrLabelsExpression ) | ( SP PG_IS SP PG_NULL ) | ( SP PG_IS SP PG_NOT SP PG_NULL ) )* ;
 
 propertyOrLabelsExpression : atom ( SP? ( propertyLookup | nodeLabels ) )* ;
 
@@ -3483,7 +3482,7 @@ relationshipsPattern : nodePattern ( SP? patternElementChain )+ ;
 
 filterExpression : idInColl ( SP? where )? ;
 
-idInColl : variable PG_IN cypherExpression ;
+idInColl : variable SP PG_IN SP cypherExpression ;
 
 functionInvocation : functionInvocationBody SP? cypherLeftParen SP? ( PG_DISTINCT SP? )? ( cypherExpression SP? ( PG_COMMA SP? cypherExpression SP? )* )? cypherRightParen ;
 
@@ -3516,13 +3515,13 @@ mapProjection : variable SP? cypherBraketOpen SP?  mapProjectionVariants? (SP? P
 
 mapProjectionVariants : ( literalEntry | propertySelector | variableSelector | allPropertiesSelector) ;
 
-literalEntry : propertyKeyName SP? ':' SP? cypherExpression ;
+literalEntry : propertyKeyName SP? PG_COLON SP? cypherExpression ;
 
-propertySelector : '.' variable ;
+propertySelector : PG_DOT variable ;
 
 variableSelector : variable ;
 
-allPropertiesSelector : '.' PG_MULTIPLY ;
+allPropertiesSelector : PG_DOT PG_MULTIPLY ;
 
 parameter : legacyParameter
           | newParameter
